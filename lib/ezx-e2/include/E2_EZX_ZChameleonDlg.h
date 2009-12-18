@@ -1,0 +1,52 @@
+﻿// _ZN13ZChameleonDlgC4EP7QWidgetPKcijiN12ZSkinService11WidgetClsIDE
+// _ZN13ZChameleonDlgD4Ev
+
+
+class ZChameleonDlg
+{
+public:
+	int ZChameleonDlg[in-charge](QWidget*, char const*, int, unsigned, int, ZSkinService::WidgetClsID)
+	int ZChameleonDlg[not-in-charge](QWidget*, char const*, int, unsigned, int, ZSkinService::WidgetClsID)
+	int askReturnToIdle(int)
+	int className() const
+	int customEvent(QCustomEvent*)
+	int getAppInfoArea()
+	int getContentWidget()
+	int getDlgHeader()
+	int getPadVSpace(ZWidgetPaddingInfo*, int*)
+	int getSoftKey()
+	int getTitle()
+	int initMetaObject()
+	int initialize(ZSkinService::WidgetClsID)
+	int keyPressEvent(QKeyEvent*)
+	int layoutAreas(int)
+	int leftSoftkeyClicked()
+	int onLeftBtnClick()
+	int onRightBtnClick()
+	int paintEvent(QPaintEvent*)
+	int rightSoftkeyClicked()
+	int setAppInfoArea(ZAppInfoArea*)
+	int setAutoDismissTime(int)
+	int setBackgroundMode(QWidget::BackgroundMode)
+	int setCallingHeader(PHONE_UI_DlgHeader*)
+	int setContentWidget(QWidget*)
+	int setPalette(QPalette const&)
+	int setReturnIdlePolicy(int, bool)
+	int setSoftkeyText(QString const&, QString const&)
+	int setSoftkeyTextLeft(QString const&)
+	int setSoftkeyTextRight(QString const&)
+	int setTitle(QString const&)
+	int setTitleIcon(QPixmap const&)
+	int setTitleIcon(QString const&)
+	int showEvent(QShowEvent*)
+	int signalClearKeyPressed()
+	int slotKbStateChanged(int, bool)
+	int slotTimeout()
+	int startDismissTimer()
+	int staticMetaObject()
+	int tr(char const*)
+	int tr(char const*, char const*)
+	int ~ZChameleonDlg [in-charge deleting]()
+	int ~ZChameleonDlg [in-charge]()
+	int ~ZChameleonDlg [not-in-charge]()
+}

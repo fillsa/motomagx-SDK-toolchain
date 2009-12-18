@@ -1,0 +1,1 @@
+/arm-eabi/lib/qt-zn5/include/qgfx_qws.h
