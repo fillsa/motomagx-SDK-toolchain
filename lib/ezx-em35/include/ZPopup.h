@@ -1,5 +1,3 @@
-
-
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 

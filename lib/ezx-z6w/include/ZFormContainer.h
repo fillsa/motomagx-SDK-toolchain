@@ -1,4 +1,4 @@
-
+//Fix for Z6W by Ant-ON
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -19,6 +19,7 @@
 #include "ZGroupBox.h"
 #include "ZCheckBox.h"
 #include "ZExhibitButton.h"
+#include "ZLabel.h"
 
 class ZFormContainerPrivate;
 
@@ -47,7 +48,12 @@ public:
       void addChild(ZGroupBox* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
 
       void addChild(ZWidget* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
-
+      
+      void addChild(ZLabel* child, bool adjustWidth = TRUE,ZWidget *after=NULL)
+      {
+		  addChild((ZWidget*)child, adjustWidth, after);
+	  }
+	  
       void resizeChild(ZWidget* child, int w);
 
       virtual void removeChild(ZWidget* child);

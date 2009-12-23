@@ -18,9 +18,9 @@ public:
 	enum MessageDlgType
 	{
 		ok_cancel, //choose
-  yes_no, //confirm
-  just_ok, //ok
-  NONE //custom
+		yes_no, //confirm
+		just_ok, //ok
+		NONE //custom
 	};
 
   ZMessageDlg(QWidget* parent = NULL, char const* name = 0, bool modal, WFlags f = 0);

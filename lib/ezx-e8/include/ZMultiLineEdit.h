@@ -60,7 +60,7 @@
 #define isEven(x) (!(x % 2))
 #endif
 
-#define InsertionMethod InsertionMethodType
+#define InsertionMethodType InsertionMethod
 
 //--------------------------------------------------------------------------------------------------
 //                                    FORWARD DECLARATIONS
@@ -637,7 +637,7 @@ public:
      /// \note  The default value is End.
      ///
      //================================================================================================
-     //virtual void setInsertionMethod( InsertionMethodType nSelection );
+    virtual void setInsertionMethod( InsertionMethod nSelection );
 
     //================================================================================================
     ///

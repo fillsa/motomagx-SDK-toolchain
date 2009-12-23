@@ -1,4 +1,4 @@
-
+//Fix for EM35/VE66 by Ant-ON
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -19,6 +19,7 @@
 #include "ZGroupBox.h"
 #include "ZCheckBox.h"
 #include "ZExhibitButton.h"
+#include "ZLabel.h"
 
 class ZFormContainerPrivate;
 
@@ -45,7 +46,12 @@ public:
       void addChild(ZSeparator* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
 
       void addChild(ZGroupBox* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
-
+      
+      void addChild(ZLabel* child, bool adjustWidth = TRUE,ZWidget *after=NULL)
+      {
+		  addChild((ZWidget*)child, adjustWidth, after);
+	  }
+	  
       virtual void removeChild(ZWidget* child);
 
       virtual bool eventFilter(QObject * obj, QEvent *e);
