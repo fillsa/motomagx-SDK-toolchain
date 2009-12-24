@@ -125,16 +125,6 @@ private:
     void setUpBar(bool = FALSE);
     void setUpLayout(bool = FALSE);
     void init( int nButtonPos);
-#ifdef FEAT_UISTYLE_VODAFONE    
-    void initHeader();
-    void addSubHeader(int nId,QString strLabel);
-    void modifySubHeader( int nId, QString strLabel);
-    void setSubHeaderEnabled(int nId, bool enable);
-    void layoutHeader();
-#endif
-#ifdef FEAT_UISTYLE_TOOLBUTTON
-    bool getButtonState();
-#endif
 
 private:        
 #if defined(Q_DISABLE_COPY)

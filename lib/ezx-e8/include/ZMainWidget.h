@@ -1,3 +1,8 @@
+//Fix for E8 by Ant-ON
+
+// Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
+
+
 #ifndef ZMAINWIDGET_H
 #define ZMAINWIDGET_H
 
@@ -14,7 +19,7 @@ class ZMainWidgetPrivate;
 
 class ZMainWidget: public ZWidget
 {
-	uint temp[40];
+	uint temp[20];
 	
     Q_OBJECT
 
