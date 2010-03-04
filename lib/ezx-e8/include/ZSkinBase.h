@@ -72,90 +72,54 @@ class ZSkinBase
 
   public:
 
-     ZSkinBase(ZWidget& w, const ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal, 
+    ZSkinBase(ZWidget& w, const ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal, 
                bool isWidget = TRUE);
 
-     virtual ~ZSkinBase();
-
-     void updateSkin();   
-
-     const WIDGET_PADDING_INFO_T padding() const;
-
-     void setPadding( const WIDGET_PADDING_INFO_T & padding );
-
-     const SelectionState selectionState() const;
-
-     void setSelectionState( const SelectionState state );
-
-     uint getBackgroundBlendingPercent();
-
-     uint getBorderBlendingPercent();
-
-     void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
-
-     void setZBorder( BorderPixmaps& pixmaps);
-
-     int getBorderWidth(BorderSide side = BorderLeft) const; 
-
-     void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount]);
-
+    virtual ~ZSkinBase();
+    void updateSkin();   
+    const WIDGET_PADDING_INFO_T padding() const;
+    void setPadding( const WIDGET_PADDING_INFO_T & padding );
+    const SelectionState selectionState() const;
+    void setSelectionState( const SelectionState state );
+    uint getBackgroundBlendingPercent();
+    uint getBorderBlendingPercent();
+    void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
+    void setZBorder( BorderPixmaps& pixmaps);
+    int getBorderWidth(BorderSide side = BorderLeft) const; 
+    void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount]);
     void setZBackground(QPixmap& image);
-
     void unsetZBackground();
-
     void drawWithoutBackground(bool bDrawWithoutBg);
-
     bool isWithoutBackground();
-
-     void drawBorder(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool realWidget = TRUE);
-
-     void drawBackground(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool border = TRUE, bool realWidget = TRUE);
-
-     void drawBackgroundAndBorder(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool realWidget = TRUE);
-
-     void drawBackgroundAndBorder(QPainter& painter,QRect rect,QPixmap *backimg,int bgx,int bgy,bool realWidget = FALSE);
-
-     void drawBgAndBorderWithRotate(QPainter& painter, ZWidget& zwidget, bool realWidget = TRUE, int rotAngle = 90);
-     void* getProps() const;
-
+    void drawBorder(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool realWidget = TRUE);
+    void drawBackground(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool border = TRUE, bool realWidget = TRUE);
+    void drawBackgroundAndBorder(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool realWidget = TRUE);
+    void drawBackgroundAndBorder(QPainter& painter,QRect rect,QPixmap *backimg,int bgx,int bgy,bool realWidget = FALSE);
+    void drawBgAndBorderWithRotate(QPainter& painter, ZWidget& zwidget, bool realWidget = TRUE, int rotAngle = 90);
+    void* getProps() const;
     void setBlendingTranslate(int x, int y) {dx = x; dy = y;}
-
     void setPixmapID(QString background, QString border);
-
     static void setPixmapPrefix(QString& prefix );
-
     void setWidgetPixmapPrefix(QString& prefix );
-
     BackgroundType getBackgroundType() const;
-
     BorderType getBorderType() const;
-
     void enableCache(bool enable);
-
     BorderPixmaps getBorderPixmaps();
-
-     void drawBackground(QPainter& painter, QRect& rect, QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
+    void drawBackground(QPainter& painter, QRect& rect, QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
 
   protected:
-     void stretchPixmap(QPixmap& pm, int width, int height, PIXMAP_STRETCH_POLICY_E type, bool must = false);
-     void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount], int alpha);
+    void stretchPixmap(QPixmap& pm, int width, int height, PIXMAP_STRETCH_POLICY_E type, bool must = false);
+    void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount], int alpha);
 
   private:
-     QPixmap* getParentBackImage(ZWidget& widget, int x, int y, int& xBg, int& yBg, bool& freeImage);
-     void drawBorder(QPainter& painter, QRect& rect, QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
-     void initBorder();
-
-     void initBorder(int width, const QColor & color);
-
-     void initBorder(const QString & pixmapId);
-
-     void initBackground();
-
-     void initBackground(const QColor& color);
-
-     void initBackground(const QString& pmID);
+    QPixmap* getParentBackImage(ZWidget& widget, int x, int y, int& xBg, int& yBg, bool& freeImage);
+    void drawBorder(QPainter& painter, QRect& rect, QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+    void initBorder();
+    void initBorder(int width, const QColor & color);
+    void initBorder(const QString & pixmapId);
+    void initBackground();
+    void initBackground(const QColor& color);
+    void initBackground(const QString& pmID);
 
   public:
      const ZSkinService::WidgetClsID skinClsID() const;
@@ -166,12 +130,9 @@ class ZSkinBase
   private:
      void fillRect(QPainter& painter, QRect rect, QColor& color);
      void* getPixmapIDs(int&backgroundPixmapID, int&borderPixmapID);
-
      void loadBorderPixmaps(BorderPixmaps& border) const;
-
      void stretchAndDrawPixmap(QPainter& painter, QRect& rect, QPixmap& pixmap, PIXMAP_STRETCH_POLICY_E policy,
                           QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
      void drawPixmap(QPainter& painter, int x, int y, int w, int h, QPixmap& pixmap,
                      QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
      void drawPixmap(QPainter& painter, QRect& rect, QPixmap& pixmap,
@@ -180,7 +141,6 @@ class ZSkinBase
                      QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
      void fillRect(QPainter& painter, QRect& rect, QColor& color,
                      QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
      bool hasAlphaValue(QPixmap& pixmap);
      bool borderHasAlphaValue();
      bool bgHasAlphaValue();
@@ -214,7 +174,6 @@ class ZSkinBase
       uint getBlendingPercent();
 
   private:
-
      void drawPixmap(QPainter& painter, QRect rect, QPixmap& pixmap);
      void drawPixmap(QPainter& painter, int x, int y, QPixmap& pixmap);
      QPixmap* getWallPaper(QPainter& painter) const;

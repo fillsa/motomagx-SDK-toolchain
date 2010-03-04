@@ -1,3 +1,6 @@
+
+// Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef __ZIMAGE_H__
 #define __ZIMAGE_H__
 
@@ -6,24 +9,17 @@
 #include "qmovie.h"
 #include "ZWidget.h"
 
-class Q_EXPORT ZImage : public ZWidget  //public QWidget, public ZSkinBase
-{
-    Q_OBJECT
-        Q_PROPERTY(QPixmap pixmap READ pixmap WRITE setPixmap)
-   
+class Q_EXPORT ZImage : public ZWidget
+{   
 public:
     ZImage(QWidget * parent,const char * name = 0, WFlags f  = 0);
     ZImage(QPixmap & pixmap, QWidget * parent,const char * name = 0, WFlags f  = 0);
     ~ZImage();
 
     QPixmap * pixmap() const {return lpixmap;}
-
     QMovie      *movie()		const;
     void        setMovie(const QMovie &);
-
     void      setPixmap(const QPixmap & pixmap);
-
-
     void getFrameWidth(int & nleftf,int & nrightf,int & ntopf, int & nbottomf) const;
     virtual void setGeometry(int x,int y, int w, int h);
     virtual void setGeometry(const QRect & r);
@@ -49,19 +45,16 @@ private:
 protected:
     void paintEvent(QPaintEvent * );
     virtual void setPalette(const QPalette &);
+    
 private:
     QPixmap * lpixmap;
-
     QMovie *	lmovie;
-
     int nMoview;
     int nMovieh;
-
-
     bool mIsEnabled;
 };
 
 
 
 
-#endif //ZIMAGE_H
+#endif

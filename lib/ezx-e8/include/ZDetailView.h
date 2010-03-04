@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -58,7 +58,7 @@ public:
 
       QFont& font(ZDetailItem::FontType) const;
 
-      void enableItemHighlight(bool enable);
+      //void enableItemHighlight(bool enable);
 
 public:
 

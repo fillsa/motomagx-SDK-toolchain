@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -36,7 +36,7 @@ public:
 
       void triggerUpdate( bool doLayout );
 
-      QRect itemRect( ZDetailItem *item ) const;
+      //QRect itemRect( ZDetailItem *item ) const;
 
       QSize maxmumSizeHint() const;
 
@@ -46,9 +46,8 @@ public:
 
       void setWrapPolicy(ZWrapLine::WrapPolicy);
 
-      ZDetailItem* current() const;
-
-      int currentSDIndex() const;
+      //ZDetailItem* current() const;
+      //int currentSDIndex() const;
 
       uint getStructureDataCount() const;
 
@@ -61,7 +60,7 @@ public:
 
       QFont& font(ZDetailItem::FontType) const;
 
-      void enableItemHighlight(bool enable);
+      //void enableItemHighlight(bool enable);
 
 public:
 
@@ -69,7 +68,7 @@ public:
 
       virtual void  resetFocusItem(bool);
 
-      virtual QRect getCurrentFocusRect(int) const;
+      virtual QRect getCurrentFocusRect( bool /*int*/) const; //Fix by Ant-ON
 
       virtual bool  hasNextPrevFocusItem(bool)const;
 
@@ -77,15 +76,11 @@ public:
 
 public:
     void updateSkin(bool redraw);
-
-#ifndef QT_NO_PALETTE
+    
     void setPalette( const QPalette & );
-#endif
 
 signals:
-
     void returnPressed(const ZDetailItem* item, const QString & origin, const QString & replaced, const QString & type);
-
     void highlighted(const ZDetailItem* item, const QString & origin, const QString & replaced, const QString & type);
 
 protected:
@@ -102,51 +97,49 @@ protected:
 
     void showEvent (QShowEvent*);
 
-    void updateItem( ZDetailItem * );
+    //void updateItem( ZDetailItem * );
 
     //virtual void migrateEvent(QMigrateEvent*);
 
 private slots:
-    void refreshSlot();
-    void slotWaitWrapFinished();
+    //void refreshSlot();
+    //void slotWaitWrapFinished();
 
 private:
-    void doLayout() const;
+    //void doLayout() const;
     int getMaxItemWidth() const;
-    int wrapSpace() const;
-    QColor color(ZDetailItem::ColorType) const;
-    ZWrapLine::WrapPolicy wrapPolicy() const;
-    void ensureCurrentVisible();
+    //int wrapSpace() const;
+    //QColor color(ZDetailItem::ColorType) const;
+    //ZWrapLine::WrapPolicy wrapPolicy() const;
+    //void ensureCurrentVisible();
     QFont& getSeparatorFont() const;
     QPixmap& getSeparatorImage(int index) const;
     ZSkinBase* getSeparatorSkin() const;
     ZSkinBase* getItemSkin() const;    
-    void setFontData(QFont& font, int size, int style) const;
+    //void setFontData(QFont& font, int size, int style) const;
 
     uint getSDCount() const;
     QRect getSDRect(int index) const;
-    void setCurrentSD(int index, bool scroll = TRUE);
-
-    bool isOutlined() const;
-    int outlinedSize() const;
-    int outlinedColor() const;
+    
+    //void setCurrentSD(int index, bool scroll = TRUE);
+    //bool isOutlined() const;
+    //int outlinedSize() const;
+    //int outlinedColor() const;
 
     ZDetailViewPrivate * d;
 
     friend class ZDetailItem;
     friend class ZDetailItemPrivate;
 
-    void setViewTop();
-    void setViewBottom();
-    bool isViewTop();
-    bool isViewBottom();
-    bool scrollN(int n);
-    bool scrollInScrollPanel(int n);
-    void omgPageUp(QKeyEvent *e);
-
-    void omgPageDown(QKeyEvent *e);
-
-    void omgScroll(QKeyEvent *e);
+    //void setViewTop();
+    //void setViewBottom();
+    //bool isViewTop();
+    //bool isViewBottom();
+    //bool scrollN(int n);
+    //bool scrollInScrollPanel(int n);
+    //void omgPageUp(QKeyEvent *e);
+    //void omgPageDown(QKeyEvent *e);
+    //void omgScroll(QKeyEvent *e);
 };
 
 #endif

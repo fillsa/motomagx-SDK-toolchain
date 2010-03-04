@@ -1,6 +1,11 @@
+//Fix for Motorola ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010 ( add/remove function )
+//Fix for ZN5/U9 by Ant-ON, 16-02-2010 ( Fix setText )
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef Z_MULTILINE_H
 #define Z_MULTILINE_H
-
 
 #include <qtableview.h>
 #include <qstring.h>
@@ -8,10 +13,6 @@
 #include <qregexp.h>
 #include <ZTableView.h>
 #include <tslayout.h>
-
-#ifndef NO_ANT_ON_FIX
-#include <qclipboard.h>
-#endif
 
 struct ZMultiLineData;
 class ZMultiLineEditCommand;
@@ -21,7 +22,8 @@ class ZSkinBase;
 
 class Q_EXPORT ZMultiLineEdit : public ZTableView
 {
-	uint data[50];
+	//uint data[50];
+	unsigned int data[126-sizeof(ZTableView)/4];
 	
     Q_OBJECT
 
@@ -107,7 +109,7 @@ public:
     virtual void setValidator( const QValidator * );
     const QValidator* validator() const;
     void setEdited( bool );
-	bool edited() const {return true;};
+	bool edited() const {return false;};//For compobility
     void cursorWordForward( bool mark );
     virtual void setInsertionMethod( InsertionMethod nSelection );
     virtual void setEchoMode( EchoMode );
@@ -143,40 +145,21 @@ public:
     int getInputModeCursorModel(void);
     void backspaceNew(void);
     void insertAtNew( const QString &, int, int, bool);
-
-	#ifndef NO_ANT_ON_FIX
-	void copy()
-	{
-		int y1,x1,y2,x2;
-		getMarkedRegion(&y1,&x1,&y2,&x2);
-		int i;
-		QString txt = "";
-		for (i=y1;i<y2;i++) 
-			txt = textLine(i)+'\n';
-		if (y2>0)
-			txt = textLine(y2).left( x2 );		
-		txt.remove(1,x1);
-		QClipboard *cb = QApplication::clipboard();
-		cb->setText(txt);
-	};
-	
-	void paste()
-	{
-		deleteText();
-		QClipboard *cb = QApplication::clipboard();
-		insert(cb->text());
-	};
-	
-	void cut ()
-	{
-		copy();
-		deleteText();
-	};
-	#endif
-
+    
+    //For compobility
+    void pageUp( bool mark=FALSE );//virtual - this function non virtual - Fix by Ant-ON
+    void pageDown( bool mark=FALSE );//virtual - this function non virtual - Fix by Ant-ON
+    QString* getString( int row ) const;
+    bool getMarkedRegion( int* line1, int* col1, int* line2, int* col2 ) const;
+    bool event( QEvent * );
+    void    keyPressEvent( QKeyEvent * );
+    void keyReleaseEvent(QKeyEvent * );
+    void    focusInEvent( QFocusEvent * );
+    int getCursorState();
+    
 public slots:
     virtual void changeContentSize( int lines,QPoint cursorPos );
-    virtual void setText( const QString &s );
+    void setText( const QString &s );//virtual - this function non virtual - Fix by Ant-ON
     virtual void setReadOnly( bool on );
     virtual void setZEnabled(bool enable);
     virtual void setOverwriteMode( bool on );
@@ -200,15 +183,15 @@ protected:
     virtual void drawLineText( QPainter* painter, int x, int y, int width,
                                int height, int flags, const QString& lineStr, int row = 0 , int col = 0);
     virtual void drawTableFrame(QPainter*  p, QRect & updateR);
-    bool event( QEvent * );
+    //bool event( QEvent * );
     void    mousePressEvent( QMouseEvent * );
     void    mouseMoveEvent( QMouseEvent * );
     void    mouseReleaseEvent( QMouseEvent * );
     void    mouseDoubleClickEvent( QMouseEvent * );
     void    wheelEvent( QWheelEvent * );
-    void    keyPressEvent( QKeyEvent * );
-    void keyReleaseEvent(QKeyEvent * );
-    void    focusInEvent( QFocusEvent * );
+    //void    keyPressEvent( QKeyEvent * );
+    //void keyReleaseEvent(QKeyEvent * );
+    //void    focusInEvent( QFocusEvent * );
     void    focusOutEvent( QFocusEvent * );
     void    timerEvent( QTimerEvent * );
     void    leaveEvent( QEvent * );
@@ -219,8 +202,8 @@ protected:
     virtual void insert( const QString& c, bool mark );
     virtual void newLine();
     virtual void killLine();
-    virtual void pageUp( bool mark=FALSE );
-    virtual void pageDown( bool mark=FALSE );
+    //virtual void pageUp( bool mark=FALSE );
+    //virtual void pageDown( bool mark=FALSE );
     virtual void cursorLeft( bool mark=FALSE, bool wrap = TRUE );
     virtual void cursorRight( bool mark=FALSE, bool wrap = TRUE );
     virtual void cursorUp( bool mark=FALSE );
@@ -230,16 +213,21 @@ protected:
     virtual void del();
     virtual void home( bool mark=FALSE );
     virtual void end( bool mark=FALSE );
-    bool getMarkedRegion( int* line1, int* col1,
-                          int* line2, int* col2 ) const;
+    //bool getMarkedRegion( int* line1, int* col1, int* line2, int* col2 ) const;
     int lineLength( int row ) const;
-    QString* getString( int row ) const;
+    //QString* getString( int row ) const;
     QString stringShown( int row ) const;
     virtual void setPalette(const QPalette &);
     void insertChar( QChar c );
     void  clearUndoList();
     int   getTruncateCount();   
     bool  cursorOn;
+
+public:
+    void    cursorLeft( bool mark, bool clear_mark, bool wrap );
+    void    cursorRight( bool mark, bool clear_mark, bool wrap );
+    void    cursorUp( bool mark, bool clear_mark );
+    void    cursorDown( bool mark, bool clear_mark );
 
 private:
     enum LineType
@@ -294,10 +282,10 @@ private:
     int getContentsWidth();
     void   pasteSpecial(const QPoint&);
     int     getOffset(int row);
-    void    cursorLeft( bool mark, bool clear_mark, bool wrap );
-    void    cursorRight( bool mark, bool clear_mark, bool wrap );
-    void    cursorUp( bool mark, bool clear_mark );
-    void    cursorDown( bool mark, bool clear_mark );
+    //void    cursorLeft( bool mark, bool clear_mark, bool wrap );
+    //void    cursorRight( bool mark, bool clear_mark, bool wrap );
+    //void    cursorUp( bool mark, bool clear_mark );
+    //void    cursorDown( bool mark, bool clear_mark );
     void    insertAtAux( const QString &s, int line, int col, bool mark = FALSE );
     void    killLineAux();
     void    delAux();
@@ -317,7 +305,7 @@ private:
     void getLinePixSuffixName(const SelectionState state, QString & suffix);
     int getCursorOffset(int cursorRow, int cursorCol);
     void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
-    int getCursorState();
+    //int getCursorState();
     int getParaAlignment(void);
     void overrideLineDirection(int line, eParaAlignment dir, int removed);
     ZMultiLineEdit( const ZMultiLineEdit & );
@@ -346,7 +334,6 @@ private:
     int     markDragX;
     int     markDragY;
     int     curXPos;
-    int     blinkTimer;
     int     scrollTimer; 
     InitAutoAlign initAlign;
     CursorFlagExist cursFlag;

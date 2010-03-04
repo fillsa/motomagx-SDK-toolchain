@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -55,6 +55,9 @@ public:
       void appendTextIconRow(QPixmap& icon);
 
       void appendTextIconRow(QString text, QPixmap& icon, bool IconLeftOrLabelBottom=TRUE);
+      
+	  void appendTextIconRow(QString text, QPixmap& icon1, QPixmap& icon2,
+	  			bool IconLeftOrLabelBottom1=TRUE, bool IconLeftOrLabelBottom2=TRUE);//Add by Ant-ON
 
       void clearAllRow();
 

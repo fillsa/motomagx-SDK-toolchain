@@ -1,3 +1,5 @@
+//Fix for VE66/EM35 by Ant-ON, 2009
+
 /////////////////////////////////////////////////////////////////////
 /// $Id: qt/src/widgets/qtableview.h   2.3.6   edited 2001-01-26 $
 ///
@@ -154,7 +156,7 @@ protected:
 
     void	paintEvent( QPaintEvent * );
 
-    void   paintEventEx(QPaintEvent *, int, int);
+    void   paintEventEx(QPaintEvent *, int, int, QPainter *);//Edit by Ant-ON
 
     void	resizeEvent( QResizeEvent * );
 

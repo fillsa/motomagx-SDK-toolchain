@@ -1,3 +1,7 @@
+//Fix for ZN5 by Ant-ON, 2009
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef ZPRESSBUTTON_H
 #define ZPRESSBUTTON_H
 
@@ -14,7 +18,6 @@ class Q_EXPORT ZPressButton : public ZBaseButton
     Q_ENUMS(TitlePosition)
     Q_OVERRIDE( bool toggleButton WRITE setToggleButton )
     Q_OVERRIDE( bool on WRITE setOn )
-    Q_PROPERTY( RelativeAlignment relativeAlignment READ relativeAlignment WRITE setRelativeAlignment)
     Q_PROPERTY( AlignmentFlags alignment READ alignment WRITE setAlignment )
     Q_PROPERTY( TitlePosition titlePosition READ titlePosition WRITE setTitlePosition )
 	
@@ -78,7 +81,6 @@ private:
 
 private:
     ZPressButtonPrivate * d;
-    RelativeAlignment mrelpos;
     TitlePosition mreltitlepos;
     AlignmentFlags    malign;
     QString     mtext;

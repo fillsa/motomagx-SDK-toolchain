@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -33,7 +33,7 @@ public:
         TitleLeft
     };
 
-    int    numRows() const;
+    //int    numRows() const;
 
     void   setNumRows(int numrows);
 
@@ -41,51 +41,40 @@ public:
 
     void setButtonText(const QString & string);
 
-    void setButtonPixmap(const QPixmap & pixmap);
+    //void setButtonPixmap(const QPixmap & pixmap);
 
     const ZLabel * label() const;
 
-    const ZPressButton * pressButton() const;
-
-    virtual void setGeometry(int x,int y, int w, int h);
-    virtual void setGeometry(const QRect & r);
-    virtual void resize(int w, int h);
-    virtual void move(int x, int y);
+    //const ZPressButton * pressButton() const;
+    virtual void setGeometry(int x,int y, int w, int h);//???
+    virtual void setGeometry(const QRect & r);          //???
+    virtual void resize(int w, int h);                  //???
+    virtual void move(int x, int y);                    //???
     virtual void move(const QPoint &);
-
-    void setPalette(const QPalette & palette);
-
-    void updateSkin(bool redraw);
+    //void setPalette(const QPalette & palette);
+    //void updateSkin(bool redraw);
 
     void getFrameWidth(int & nleftf,int & nrightf,int & ntopf, int & nbottomf) const ;
 
-    QSize sizeHint() const;
-
-    void setEnabled(bool enable);
-    bool isZEnabled();
-    bool isZDisabled();
+    //QSize sizeHint() const;
+    //void setEnabled(bool enable);
+    //bool isZEnabled();
+    //bool isZDisabled();
     void setTitle(const QString & strTitle);
-    QString title();
-    TitlePosition titlePosition() const;
+    //QString title();
+    //TitlePosition titlePosition() const;
     void  setTitlePosition(TitlePosition titlePos);
 
-public slots:
-    virtual void setFocus();
-
-protected:
-
-    virtual void paintEvent(QPaintEvent * );
-
-    virtual void focusInEvent(QFocusEvent * );
-
-    virtual void focusOutEvent(QFocusEvent * );
-
-    virtual void keyPressEvent(QKeyEvent * );
-
-    virtual void keyReleaseEvent(QKeyEvent * );
-
-    virtual void moveEvent ( QMoveEvent *e );
-
+//public slots:
+    //virtual void setFocus();
+//protected:
+    //virtual void paintEvent(QPaintEvent * );
+    //virtual void focusInEvent(QFocusEvent * );
+    //virtual void focusOutEvent(QFocusEvent * );
+    //virtual void keyPressEvent(QKeyEvent * );
+    //virtual void keyReleaseEvent(QKeyEvent * );
+    //virtual void moveEvent ( QMoveEvent *e );
+    
 signals:
     void sigExhibitBtnClick();
 

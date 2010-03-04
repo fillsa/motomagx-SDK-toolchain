@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -24,76 +24,75 @@ class ZSeparator:public ZWidget
 {
 
 public:
-        enum RelativeAlignment
+	enum RelativeAlignment
 	{
-            LEFT,
-            RIGHT
-        };
+		LEFT,
+		RIGHT
+	};
 
-        ZSeparator(QWidget *parent = 0,const char *name = 0 , WFlags f = 0,
-              const ZSkinService::WidgetClsID clsId = ZSkinService::clsZSeparator1);
+	ZSeparator(QWidget *parent = 0,const char *name = 0 , WFlags f = 0,
+		  const ZSkinService::WidgetClsID clsId = ZSkinService::clsZSeparator1);
 
-        virtual ~ZSeparator();
+	virtual ~ZSeparator();
 
 	virtual bool isSeparatorTypeWidget() const {return TRUE;}
 
-        void setRelativeAlignment(RelativeAlignment alignment);
+	void setRelativeAlignment(RelativeAlignment alignment);
 
-        void setOrientation(Orientation orientation);
+	void setOrientation(Orientation orientation);
 
-        void setIconPixmap(const QPixmap &pixmap);
+	//void setIconPixmap(const QPixmap &pixmap);
 
-        void setIconPixmap(const QPixmap &pixmap,QRect rect,bool bHeightWidth = true,bool bXY = false);
+	//void setIconPixmap(const QPixmap &pixmap,QRect rect,bool bHeightWidth = true,bool bXY = false);
 
-        void setLabel(ZLabel *label);
+	void setLabel(ZLabel *label);
 
-        void setLabel(ZLabel *label,QRect rect,bool bHeightWidth = true,bool bXY = false);
+	void setLabel(ZLabel *label,QRect rect,bool bHeightWidth = true,bool bXY = false);
 
-        RelativeAlignment relativeAlignment() const;
+	//RelativeAlignment relativeAlignment() const;
 
-        void setLength(int /*nLen*/) {};//not in library this function
+	void setLength(int /*nLen*/) {};//not in library this function
 
-        QSize sizeHint() const;
+	QSize sizeHint() const;
 
-        void updateSkin(bool redraw);
+	void updateSkin(bool redraw);
 
-        virtual void setPalette(const QPalette &palette);
+	virtual void setPalette(const QPalette &palette);
 
 public:
 	ZSeparator(const QPixmap &leftPixmap,const QPixmap &rightPixmap,
               bool bLeftStretch = false,bool bRightStretch = true,
               QWidget *parent = 0,const char *name = 0 , WFlags f = 0,
               const ZSkinService::WidgetClsID clsId = ZSkinService::clsZSeparator1);
-	void setChildPosition( int nChildX, int nChildY );
-        void setLeftPixmap(const QPixmap &pixmap,bool bStretch = false);
-        void setRightPixmap(const QPixmap &pixmap,bool bStretch = true);
-        void setLeftStretch(bool bStretch);
-        void setRightStretch(bool bStretch);
-	Orientation orientation() const;
+	//void setChildPosition( int nChildX, int nChildY );
+    //void setLeftPixmap(const QPixmap &pixmap,bool bStretch = false);
+    void setRightPixmap(const QPixmap &pixmap,bool bStretch = true);
+    //void setLeftStretch(bool bStretch);
+    void setRightStretch(bool bStretch);
+	//Orientation orientation() const;
 	ZLabel *getLabel();
-        QSize minimumSizeHint() const;
-        bool autoResize() const;
-        void setAutoResize( bool enable );
+    //QSize minimumSizeHint() const;
+    //bool autoResize() const;
+    void setAutoResize( bool enable );
 
 protected:
-         virtual void paintEvent(QPaintEvent * e);
-
-         virtual void resizeEvent(QResizeEvent * e);
-
-private:
-        void init(const QPixmap &leftPixmap,const QPixmap &rightPixmap,
-        bool bLeftStretch,bool bRightStretch);
-        void resizeHorz();
-        void resizeVert();
-        void getCurrentFont(QFont & font, QColor & ftColor);
-        void setSpacingH2(int nSpacing);
-        short getSpacingH2()const;
-        void setSpacingH1(int nSpacing);
-        short getSpacingH1()const;
-	void drawHorz();
-        void drawVert();
+	 virtual void paintEvent(QPaintEvent * e);
+	 virtual void resizeEvent(QResizeEvent * e);
 
 private:
-        struct ZSeparatorData *d;
+	void init(const QPixmap &leftPixmap,const QPixmap &rightPixmap,
+	bool bLeftStretch,bool bRightStretch);
+	void resizeHorz();
+	void resizeVert();
+	void getCurrentFont(QFont & font, QColor & ftColor);
+	void setSpacingH2(int nSpacing);
+	short getSpacingH2()const;
+	void setSpacingH1(int nSpacing);
+	short getSpacingH1()const;
+	//void drawHorz();
+    //void drawVert();
+
+private:
+    struct ZSeparatorData *d;
 };
 #endif  

@@ -1,3 +1,7 @@
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
+
+// Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef ZSKINBASE_H
 #define ZSKINBASE_H
 
@@ -71,16 +75,16 @@ class ZSkinBase
      void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
      void setZBorder( BorderPixmaps& pixmaps);
      int getBorderWidth(BorderSide side = BorderLeft) const; 
-     void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount]);
+     //void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount]);
      void setZBackground(QPixmap& image);
-     void unsetZBackground();
-     void drawWithoutBackground(bool bDrawWithoutBg);
-     bool isWithoutBackground();
+     //void unsetZBackground();
+     //void drawWithoutBackground(bool bDrawWithoutBg);
+     //bool isWithoutBackground();
      void drawBorder(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool realWidget = TRUE);
-     void drawBackground(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool border = TRUE, bool realWidget = TRUE);
+     //void drawBackground(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool border = TRUE, bool realWidget = TRUE);
      void drawBackgroundAndBorder(QPainter& painter, ZWidget& widget, const QRect* rect = NULL, bool realWidget = TRUE);
      void drawBackgroundAndBorder(QPainter& painter,QRect rect,QPixmap *backimg,int bgx,int bgy,bool realWidget = FALSE);
-     void drawBgAndBorderWithRotate(QPainter& painter, ZWidget& zwidget, bool realWidget = TRUE, int rotAngle = 90);
+     //void drawBgAndBorderWithRotate(QPainter& painter, ZWidget& zwidget, bool realWidget = TRUE, int rotAngle = 90);
      void* getProps() const;
      void setBlendingTranslate(int x, int y) {dx = x; dy = y;}
      void setPixmapID(QString background, QString border);
@@ -89,11 +93,11 @@ class ZSkinBase
      BackgroundType getBackgroundType() const;
      BorderType getBorderType() const;
      void enableCache(bool enable);
-     BorderPixmaps getBorderPixmaps();
-     void drawBackground(QPainter& painter, QRect& rect, QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+     //BorderPixmaps getBorderPixmaps();
+     //void drawBackground(QPainter& painter, QRect& rect, QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
 
   protected:
-     void stretchPixmap(QPixmap& pm, int width, int height, PIXMAP_STRETCH_POLICY_E type, bool must = false);
+     //void stretchPixmap(QPixmap& pm, int width, int height, PIXMAP_STRETCH_POLICY_E type, bool must = false);
      void setZBackground(WIDGET_BACKGROUND_INFO_T bckgroundItems[StateCount], int alpha);
 
   private:
@@ -106,31 +110,30 @@ class ZSkinBase
      void initBackground(const QColor& color);
      void initBackground(const QString& pmID);
 
-  public:
-     const ZSkinService::WidgetClsID skinClsID() const;
+//  public:
+     //const ZSkinService::WidgetClsID skinClsID() const;
 
   private:
      QString getPixmapNameByState() const;
 
   private:
-     void fillRect(QPainter& painter, QRect rect, QColor& color);
+     //void fillRect(QPainter& painter, QRect rect, QColor& color);
+     
      void* getPixmapIDs(int&backgroundPixmapID, int&borderPixmapID);
-
      void loadBorderPixmaps(BorderPixmaps& border) const;
 
-     void stretchAndDrawPixmap(QPainter& painter, QRect& rect, QPixmap& pixmap, PIXMAP_STRETCH_POLICY_E policy,
-                          QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
-     void drawPixmap(QPainter& painter, int x, int y, int w, int h, QPixmap& pixmap,
-                     QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-     void drawPixmap(QPainter& painter, QRect& rect, QPixmap& pixmap,
-                     QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-     void fillRect(QPainter& painter, int x, int y, int w, int h, QColor& color,
-                     QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-     void fillRect(QPainter& painter, QRect& rect, QColor& color,
-                     QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
-     bool hasAlphaValue(QPixmap& pixmap);
+     //void stretchAndDrawPixmap(QPainter& painter, QRect& rect, QPixmap& pixmap, PIXMAP_STRETCH_POLICY_E policy,
+     //                     QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+     //void drawPixmap(QPainter& painter, int x, int y, int w, int h, QPixmap& pixmap,
+     //                QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+     //void drawPixmap(QPainter& painter, QRect& rect, QPixmap& pixmap,
+     //                QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+     //void fillRect(QPainter& painter, int x, int y, int w, int h, QColor& color,
+     //                QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+     //void fillRect(QPainter& painter, QRect& rect, QColor& color,
+     //                QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+     //bool hasAlphaValue(QPixmap& pixmap);
+     
      bool borderHasAlphaValue();
      bool bgHasAlphaValue();
 
@@ -154,13 +157,13 @@ class ZSkinBase
      void setSkinWidget(QWidget& w) {widget = &w;}
      QWidget* getSkinWidget() const {return widget;}
      void drawBorder(QPainter& painter, const QRect* rect = NULL);
-     void drawBackground(QPainter& painter, const QRect* rect = NULL, bool border = TRUE);
+     //void drawBackground(QPainter& painter, const QRect* rect = NULL, bool border = TRUE);
      void setBlendingPercent(uint percent);
      uint getBlendingPercent();
 
   private:
-     void drawPixmap(QPainter& painter, QRect rect, QPixmap& pixmap);
-     void drawPixmap(QPainter& painter, int x, int y, QPixmap& pixmap);
+     //void drawPixmap(QPainter& painter, QRect rect, QPixmap& pixmap);
+     //void drawPixmap(QPainter& painter, int x, int y, QPixmap& pixmap);
      QPixmap* getWallPaper(QPainter& painter) const;
 
   protected:
@@ -175,7 +178,7 @@ class ZSkinBase
     ZSkinService::WidgetClsID mClsID;
     short mBgPercent;
     short mSelectionState;
-    static QString mPrefix;
+    //static QString mPrefix;
     QString mWidgetPrefix;
     QString backgroundPixmapID;
     QString borderPixmapID;

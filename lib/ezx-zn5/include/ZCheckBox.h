@@ -14,25 +14,6 @@
 
 class ZCheckBoxPrivate;
 
-/*
-ZCheckBox::getCheckBtnRect() const@@VERSION		 // FUNC
-ZCheckBox::getContentRect() const@@VERSION		 // FUNC
-ZCheckBox::getFrameWidth(int&, int&, int&, int&) const@@VERSION		 // FUNC
-ZCheckBox::getTextHeight() const@@VERSION		 // FUNC
-ZCheckBox::getTitleRect() const@@VERSION		 // FUNC
-ZCheckBox::getTitleSize() const@@VERSION		 // FUNC
-ZCheckBox::isChecked() const@@VERSION		 // FUNC
-ZCheckBox::pixmap() const@@VERSION		 // FUNC
-ZCheckBox::setChecked(bool)@@VERSION		 // FUNC
-ZCheckBox::setNoChange()@@VERSION		 // FUNC
-ZCheckBox::setTitlePosition(ZCheckBox::TitlePosition)@@VERSION		 // FUNC
-ZCheckBox::setTitle(QString const&)@@VERSION		 // FUNC
-ZCheckBox::ZCheckBox(QString const&, QWidget*, char const*)@@VERSION		 // FUNC
-ZCheckBox::ZCheckBox(QString const&, QWidget*, char const*)@@VERSION		 // FUNC
-ZCheckBox::ZCheckBox(QWidget*, char const*)@@VERSION		 // FUNC
-ZCheckBox::ZCheckBox(QWidget*, char const*)@@VERSION	
-*/ 
-
 class Q_EXPORT ZCheckBox : public ZBaseButton
 {
     Q_OBJECT

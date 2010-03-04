@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -12,21 +12,18 @@
 
 #include <qpixmap.h>
 
-#ifdef FEAT_UISTYLE_CHAMELEON
+//#ifdef FEAT_UISTYLE_CHAMELEON
 #include <ZWidgetSkinProps.h>
-#endif
+//#endif
 
 class ZSkinTool
 {
 public:
-
-
-
-#ifdef FEAT_UISTYLE_CHAMELEON
+//#ifdef FEAT_UISTYLE_CHAMELEON
     QPixmap process(QPixmap &pm, int width, int height, PIXMAP_STRETCH_POLICY_E type);
-#endif
-    QPixmap stretchV(QPixmap &, int height);
-    QPixmap stretchH(QPixmap &, int width);
+//#endif
+//    QPixmap stretchV(QPixmap &, int height);
+//    QPixmap stretchH(QPixmap &, int width);
 private:
 };
 #endif 

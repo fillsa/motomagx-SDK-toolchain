@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -25,79 +25,6 @@ class QTimer;
 #ifdef DEBUG
 class TestCase;
 #endif
-
-/*
-ZAppInfoArea::appendAnimation(ZAppInfoArea::AREA_IDX, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::appendIcon(ZAppInfoArea::AREA_IDX, QPixmap const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::appendIcon(ZAppInfoArea::AREA_IDX, QString const&, QPixmap const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::appendIcon(ZAppInfoArea::AREA_IDX, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::appendText(ZAppInfoArea::AREA_IDX, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::appendWidget(ZAppInfoArea::AREA_IDX, QWidget*, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::className() const@@VERSION		 // FUNC
-ZAppInfoArea::cropWidgetFromArea(ZAppInfoArea::AREA_IDX, int&)@@VERSION		 // FUNC
-ZAppInfoArea::deleteArea(ZAppInfoArea::AREA_IDX, int&)@@VERSION		 // FUNC
-ZAppInfoArea::getActMeter()@@VERSION		 // FUNC
-ZAppInfoArea::getAreaHeight(ZFmwArea*) const@@VERSION		 // FUNC
-ZAppInfoArea::getAreaWidthExceptStorage()@@VERSION		 // FUNC
-ZAppInfoArea::getAreaWidth(ZFmwArea*) const@@VERSION		 // FUNC
-ZAppInfoArea::getContentHeight() const@@VERSION		 // FUNC
-ZAppInfoArea::getInitAreaWidth(ZFmwArea*)@@VERSION		 // FUNC
-ZAppInfoArea::getInternalSpacing() const@@VERSION		 // FUNC
-ZAppInfoArea::getItemHeight(ZFmwItem*) const@@VERSION		 // FUNC
-ZAppInfoArea::getMeterStyle()@@VERSION		 // FUNC
-ZAppInfoArea::getOutlineColor() const@@VERSION		 // FUNC
-ZAppInfoArea::getPadding(int) const@@VERSION		 // FUNC
-ZAppInfoArea::getRect()@@VERSION		 // FUNC
-ZAppInfoArea::getSpacing() const@@VERSION		 // FUNC
-ZAppInfoArea::getTotalItemNum()@@VERSION		 // FUNC
-ZAppInfoArea::getWidgetHeight() const@@VERSION		 // FUNC
-ZAppInfoArea::getWidgetRect()@@VERSION		 // FUNC
-ZAppInfoArea::getWidth(ZAppInfoArea::AREA_IDX)@@VERSION		 // FUNC
-ZAppInfoArea::insertAnimation(ZAppInfoArea::AREA_IDX, int, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::insertIcon(ZAppInfoArea::AREA_IDX, int, QPixmap const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::insertIcon(ZAppInfoArea::AREA_IDX, int, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::insertText(ZAppInfoArea::AREA_IDX, int, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::insertWidget(ZAppInfoArea::AREA_IDX, int, QWidget*, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::isAreaCouldInsertItem(ZAppInfoArea::AREA_IDX)@@VERSION		 // FUNC
-ZAppInfoArea::isRemoveIconFromArea(ZAppInfoArea::AREA_IDX, ZFmwItem*)@@VERSION // FUNC
-ZAppInfoArea::isRemoveNewWordFromInput(ZAppInfoArea::AREA_IDX, ZFmwItem*)@@VERSION		 // FUNC
-ZAppInfoArea::isValidArea(ZAppInfoArea::AREA_IDX)@@VERSION		 // FUNC
-ZAppInfoArea::paintEvent(QPaintEvent*)@@VERSION		 // FUNC
-ZAppInfoArea::printArea(ZAppInfoArea::AREA_IDX)@@VERSION		 // FUNC
-ZAppInfoArea::removeArea(ZAppInfoArea::AREA_IDX)@@VERSION		 // FUNC
-ZAppInfoArea::removeCounterIcon()@@VERSION		 // FUNC
-ZAppInfoArea::removeIconFromArea(ZAppInfoArea::AREA_IDX, int&, bool (ZAppInfoArea::*)(ZAppInfoArea::AREA_IDX, ZFmwItem*))@@VERSION		 // FUNC
-ZAppInfoArea::removeItem(ZAppInfoArea::AREA_IDX, int)@@VERSION		 // FUNC
-ZAppInfoArea::removeItem(ZAppInfoArea::AREA_IDX, QString const&)@@VERSION	 // FUNC
-ZAppInfoArea::setActArea(ZAppInfoArea::ACTIVITY_MODE)@@VERSION		 // FUNC
-ZAppInfoArea::setCounterArea(ZAppInfoArea::COUNTER_MODE)@@VERSION		 // FUNC
-ZAppInfoArea::setCounterIcon(ZAppInfoArea::COUNTERICON_ALIGN, QPixmap const&)@@VERSION		 // FUNC
-ZAppInfoArea::setCounterIcon(ZAppInfoArea::COUNTERICON_ALIGN, QString const&, QPixmap const&)@@VERSION		 // FUNC
-ZAppInfoArea::setCounterIcon(ZAppInfoArea::COUNTERICON_ALIGN, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::setCounterQualifier(QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::setCounterVariable(ZAppInfoArea::COUNTER_V, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::setIcon(ZAppInfoArea::AREA_IDX, int, QPixmap const&)@@VERSION	 // FUNC
-ZAppInfoArea::setIcon(ZAppInfoArea::AREA_IDX, int, QString const&)@@VERSION	 // FUNC
-ZAppInfoArea::setIcon(ZAppInfoArea::AREA_IDX, QString const&, QPixmap const&)@@VERSION		 // FUNC
-ZAppInfoArea::setIcon(ZAppInfoArea::AREA_IDX, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::setInputArea()@@VERSION		 // FUNC
-ZAppInfoArea::setMeterStyle(ZAppInfoArea::METER_STYLE)@@VERSION		 // FUNC
-ZAppInfoArea::setPalette(QPalette const&)@@VERSION		 // FUNC
-ZAppInfoArea::setStorageIcon(QPixmap const&)@@VERSION		 // FUNC
-ZAppInfoArea::setStorageIcon(QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::setText(ZAppInfoArea::AREA_IDX, int, QString const&)@@VERSION	 // FUNC
-ZAppInfoArea::setText(ZAppInfoArea::AREA_IDX, QString const&, QString const&)@@VERSION		 // FUNC
-ZAppInfoArea::setWidget(ZAppInfoArea::AREA_IDX, int, QWidget*)@@VERSION		 // FUNC
-ZAppInfoArea::setWidget(ZAppInfoArea::AREA_IDX, QString const&, QWidget*)@@VERSION		 // FUNC
-ZAppInfoArea::sizeHint() const@@VERSION		 // FUNC
-ZAppInfoArea::staticMetaObject()@@VERSION		 // FUNC
-ZAppInfoArea::truncateTextFromArea(ZAppInfoArea::AREA_IDX, int&)@@VERSION	 // FUNC
-ZAppInfoArea::ZAppInfoArea(QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZAppInfoArea::ZAppInfoArea(QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZAppInfoArea::~ZAppInfoArea()@@VERSION		 // FUNC
-ZAppInfoArea::~ZAppInfoArea()@@VERSION		 // FUNC
-ZAppInfoArea::~ZAppInfoArea()@@VERSION		 // FUNC
- */ 
 
 class ZAppInfoArea : public ZWidget
 {
@@ -253,11 +180,11 @@ public:
 
     void setPalette(const QPalette& pal);
 
-    bool isZEnable();
+    //bool isZEnable();
 
     int getTotalItemNum();
 
-    void enableOutlineText(bool isEnable);
+    //void enableOutlineText(bool isEnable);
 
     bool isOutlineText();
 
@@ -272,20 +199,22 @@ public:
 
 signals:
     void itemNum(int num);
+    
+//protected slots:
+//    void slotHideIconOfInputArea();
 
-protected slots:
-    void slotHideIconOfInputArea();
 protected:
     typedef bool (ZAppInfoArea::*REMOVEICON_FROM_INPUTAREA)(
                                                 ZAppInfoArea::AREA_IDX,
                                                 ZFmwItem* pItem);
 
-    bool setStorage(const QString& strResID, const QPixmap& pmap);
+    //bool setStorage(const QString& strResID, const QPixmap& pmap);
 
     bool isValidArea(AREA_IDX nAreaIdx);
 
     bool isAreaCouldInsertItem(AREA_IDX nAreaIdx);
 
+/*
     ZFmwItem* createIconItem(const QString& strResID,
                              const QString& key = QString::null);
 
@@ -298,6 +227,7 @@ protected:
 
     ZFmwItem* createWidgetItem(QWidget* pWidget,
                                const QString& key = QString::null);
+*/
 
     bool appendIcon(AREA_IDX nAreaIdx,
                     const QString& strResID,
@@ -309,7 +239,7 @@ protected:
 
     int getAreaWidthExceptStorage();
 
-    void setAllAreaWidth();
+    //void setAllAreaWidth();
 
     int getInitAreaWidth(ZFmwArea* pArea);
 
@@ -321,9 +251,9 @@ protected:
 
     int deleteArea(AREA_IDX nIdx, int& w);
 
-    void paintBorder(QPainter* p);
-
-    void paintBackground(QPainter* p);
+    //void paintBorder(QPainter* p);
+    //void paintBackground(QPainter* p);
+    
 protected:
 
     bool isHasNewWordIcon();
@@ -332,31 +262,29 @@ protected:
 
     bool isRemoveIconFromArea(AREA_IDX nIdx, ZFmwItem* pItem);
 
-    bool scaleArea();
-
-    bool restoreArea();
+    //bool scaleArea();
+    //bool restoreArea();
 
     virtual void paintEvent(QPaintEvent* );
 
-    void paint(QPainter* p);
-
-    void paintFrame(QPainter* p);
+    //void paint(QPainter* p);
+    //void paintFrame(QPainter* p);
 
     int getInternalSpacing() const;
 
     int getSpacing() const;
 
-    void drawInputArea(QPainter* p);
+    //void drawInputArea(QPainter* p);
 
-    void drawCounterArea(QPainter* p);
+    //void drawCounterArea(QPainter* p);
 
-    void drawActivityArea(QPainter* p);
+    //void drawActivityArea(QPainter* p);
 
-    void drawStorageArea(QPainter* p);
+    //void drawStorageArea(QPainter* p);
 
     QRect getRect();
 
-    void drawArea(ZFmwArea* pArea, QPainter* p, const QRect& rect);
+    //void drawArea(ZFmwArea* pArea, QPainter* p, const QRect& rect);
 
     int getAreaWidth(ZFmwArea* pArea) const;
 
@@ -370,7 +298,7 @@ protected:
 
     int getWidgetHeight() const;
 
-    void resizeWidget();
+    //void resizeWidget();
 
     QColor getOutlineColor() const;
 

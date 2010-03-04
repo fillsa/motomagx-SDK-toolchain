@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -61,15 +61,15 @@ public:
 
     void setAnimate(const QString& strAnimateFileID);
 
-    void setMessageIcon(const QPixmap& icon);
+    //void setMessageIcon(const QPixmap& icon);
 
     void setMessageText(const QString& str);
 
     void setAutoDismissTime(int ntime);
 
-    bool isDismissedWhenFlip();
-
-    void enableDismissedWhenFlip(bool bDismissed);
+    //bool isDismissedWhenFlip();
+    //void enableDismissedWhenFlip(bool bDismissed);
+    
     static void information(
         const QString& strMsg,
         const QString& strInstructText = QString::null,
@@ -79,7 +79,6 @@ public:
         char* pszSlot = NULL);
 
 signals:
-
     void    dlgDismissed();
 
 protected slots:
@@ -87,27 +86,25 @@ protected slots:
     virtual void slotResizeAllChild(int);
 
 protected:
-
     virtual void keyPressEvent(QKeyEvent* e);
 
-    virtual void keyReleaseEvent(QKeyEvent* e);
+    //virtual void keyReleaseEvent(QKeyEvent* e);
 
     virtual void showEvent(QShowEvent*);
+    
+    virtual void setPalette(const QPalette &palette);//Add by Ant-ON
 
 
 private:
 
     void initialize(Type type);
 
-    void startAutoDismissTimer();
+    //void startAutoDismissTimer();
+    //void dismissDlg( ZPopup::PopupCode code);
+    //uint calculateDismissTime();
 
-    void dismissDlg( ZPopup::PopupCode code);
-
-    uint calculateDismissTime();
-
-private slots:
-
-    void slotTimeout();
+//private slots:
+//    void slotTimeout();
 
 private:
 

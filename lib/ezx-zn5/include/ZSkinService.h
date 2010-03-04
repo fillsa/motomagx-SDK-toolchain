@@ -1,4 +1,5 @@
 //Fix for Motorola ZN5 by Ant-ON
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -331,13 +332,11 @@ public:
 
     static const struct ZWidgetSkinProps * const getAllSkinnableProps();
 
-    void updateThemeSkin(const QString themeSkinDir = QString::null);
+    //void updateThemeSkin(const QString themeSkinDir = QString::null);
+    //void updateAppCommonSkin( ZWidgetSkinProps * props );
+    //void updateAppScreenSkin( QString uScreenCfgName );
 
-     void updateAppCommonSkin( ZWidgetSkinProps * props );
-
-     void updateAppScreenSkin( QString uScreenCfgName );
-
-     ZWidgetSkinProps * getEntireSkinnableProps();
+    ZWidgetSkinProps * getEntireSkinnableProps();
 
     int readNumEntryFromSkin(
         ZConfig & device,
@@ -365,7 +364,7 @@ public:
 
     QCString getAppName();
 
-    void setAppName(const char * str);
+    //void setAppName(const char * str);
 
     WidgetSkinInfo getWidgetSkinInfo(const WidgetClsID clsId);
 
@@ -375,9 +374,9 @@ protected:
 
 private:
 
-    ZBASIC_SKINNABLE_PROP_T * internalGetBasicSkinnableProps(
-        const enum WidgetClsID clsId,
-        ZWidgetSkinProps * pProps = NULL ) const;
+    //ZBASIC_SKINNABLE_PROP_T * internalGetBasicSkinnableProps(
+    //    const enum WidgetClsID clsId,
+    //    ZWidgetSkinProps * pProps = NULL ) const;
 
     ZConfig* getThemeConfig();
     ZConfig* getDeviceConfig();
@@ -385,7 +384,7 @@ private:
     QCString *appName;
     static ZConfig *theme;
     static ZConfig *device;
-    static QString oldThemeConfigFileName;
+    //static QString oldThemeConfigFileName;
     static int ref;
     ZWidgetSkinProps * screenProps;
 };

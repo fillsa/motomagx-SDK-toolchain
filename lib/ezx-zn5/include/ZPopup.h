@@ -1,4 +1,5 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010
+//Fix for Z6W compobility by Ant-ON, 04.03.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -16,6 +17,9 @@
 
 #include <qdialog.h>
 #include <qgfx_qws.h>
+
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
 
 class ZAppInfoArea;
 class ZSoftKey;
@@ -65,6 +69,12 @@ public:
 
     virtual ~ZPopup();
 
+	//Add by Ant-ON
+	#ifndef EZX_Z6W
+	void setTransparentConner();
+	#endif
+	//
+
     void setTitle(const QString& strTitle);
 
     QString getTitle();
@@ -97,7 +107,10 @@ public:
 
     void insertChild(ZIconView* pIconView,           int index = -1);
 
-    void insertChild(ZListBox* pList,                int index = -1);
+    void insertChild(ZListBox* pList,                int index = -1) // for compobility
+    {
+		insertChild( (ZWidget*)pList, index);
+	}
 
     void setSoftkeyTextLeft(const QString&);
 
@@ -107,10 +120,10 @@ public:
 
     ZSoftKey *getSoftKey();
 
-    bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
-    ZCLISoftKey* getCLISoftKey();
-    void setAlwaysActive(bool bActive);
-    bool isAlwaysActive();
+    //bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
+    //ZCLISoftKey* getCLISoftKey();
+    //void setAlwaysActive(bool bActive);
+    //bool isAlwaysActive();
     void setAutoDismissTime(int msec);
 
     void setReturnIdlePolicy(int reason, bool disableDefaultBehavior = false);
@@ -127,11 +140,9 @@ public:
 
     void setBodyPadding(const WIDGET_PADDING_INFO_T& pad);
 
-    void setBodyBorder(WIDGET_BORDER_INFO_T borderItems[ZSkinBase::StateCount]);
-
-    void setBodyBorder(ZSkinBase::BorderPixmaps& pixmaps);
-
-    void setBodyBackground(QPixmap& image);
+    //void setBodyBorder(WIDGET_BORDER_INFO_T borderItems[ZSkinBase::StateCount]);
+    //void setBodyBorder(ZSkinBase::BorderPixmaps& pixmaps);
+    //void setBodyBackground(QPixmap& image);
 
     void setBodyVSpacing(int nVSpacing);
 
@@ -141,21 +152,17 @@ public:
 
     void setInstructFontColor(const QColor& clr);
 
-#ifndef QT_NO_PALETTE
     void setPalette(const QPalette&);
-#endif
 
     ZLabel* getInstructionLabel() const;            
     Qt::AlignmentFlags getInstructAlign() const;
     void setInstructAlign(Qt::AlignmentFlags f);
 
-    static void stretchPixmap( QPixmap& pm, int width, int height, PIXMAP_STRETCH_POLICY_E type);
-    static void fillRect(QPainter& painter, QRect& rect, QColor& color, 
-                QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
-
-    int getBodyBorderWidth(ZSkinBase::BorderSide side);
-
-    void dismissByEndKey (bool b);
+    //static void stretchPixmap( QPixmap& pm, int width, int height, PIXMAP_STRETCH_POLICY_E type);
+    //static void fillRect(QPainter& painter, QRect& rect, QColor& color, 
+    //            QPixmap* bgPixmap, int xBg, int yBg, int blendPercent);
+    //int getBodyBorderWidth(ZSkinBase::BorderSide side);
+    //void dismissByEndKey (bool b);
 
 public slots:
 
@@ -200,60 +207,46 @@ protected:
 
     const ZScrollPanel* getBody() const;
 
-    QFont instructFont() const;
+    //QFont instructFont() const;
+    //QColor instructFontColor() const;
+	//void paintEvent(QPaintEvent*);
+    //void postLayoutEvent();
 
-    QColor instructFontColor() const;
-
-
-//    void paintEvent(QPaintEvent*);
-
-    void postLayoutEvent();
-
-private slots:
-    void slotSPC_resize(ZScrollPanel*, int, int);
-
-    void slotChildDelete();
+//private slots:
+    //void slotSPC_resize(ZScrollPanel*, int, int);
+    //void slotChildDelete();
 
 private:
-    void updateIdleScreenSign();
-
-    void loadSkinData(bool bThemeChanged = false);
-    void applySkinData();
-    void releaseBodyPixmap();
-    void applyBodyBk();
-    void applyBodyPadding();
-
-    void removeAndInsert();
-
-    void layoutDialog();
-    void layoutNotice();
-    void layoutScrollPanel();
-
-    void layoutOtherContainer();
-
-    void layoutNothing();
-
-    void layoutDialogFourAreas();
-    void layoutNoticeTwoAreas();
+    //void updateIdleScreenSign();
+    //void loadSkinData(bool bThemeChanged = false);
+    //void applySkinData();
+    //void releaseBodyPixmap();
+    //void applyBodyBk();
+    //void applyBodyPadding();
+    //void removeAndInsert();
+    //void layoutDialog();
+    //void layoutNotice();
+    //void layoutScrollPanel();
+    //void layoutOtherContainer();
+    //void layoutNothing();
+    //void layoutDialogFourAreas();
+    //void layoutNoticeTwoAreas();
 
     int  getChildrenMaxWidth();
-    bool isNeedShowVScrollBar() const;
-
-    void detect_xModal();
-
-    int calculateDesiredContentHeight(const int nWidthMax);
-    int calculateBodyAvailWidth(bool bShowScrollbar) const;
+    
+    //bool isNeedShowVScrollBar() const;
+    //void detect_xModal();
+    //int calculateDesiredContentHeight(const int nWidthMax);
+    //int calculateBodyAvailWidth(bool bShowScrollbar) const;
 
     void layout_inner(const int nTop, const int nAvailW);
 
     void setInsLabelProperty(bool bScrollable);
 
-    void doShow();
-
-    void setBodySideKeyHandlePolicy();
-
-    void drawSingleBodyBorder(QPainter& p, QPixmap& bg, QPixmap & border, int percent, int left, int top, int bodyY);
-    void drawBodyBorder();
+    //void doShow();
+    //void setBodySideKeyHandlePolicy();
+    //void drawSingleBodyBorder(QPainter& p, QPixmap& bg, QPixmap & border, int percent, int left, int top, int bodyY);
+    //void drawBodyBorder();
 
 private:
 
@@ -277,15 +270,14 @@ signals:
 
     void dlgAboutToHide(int);
 
-private:
-    void killScreenSaver();
+//private:
+//    void killScreenSaver();
 
-private slots:
-    void slotSocketConnected();
-    void slotSocketReadyRead();
-    void slotConnectionClosed();
-
-    void slotFlipOnOff(int);
+//private slots:
+    //void slotSocketConnected();
+    //void slotSocketReadyRead();
+    //void slotConnectionClosed();
+    //void slotFlipOnOff(int);
 
 private:
     ZPopupPrivateUNS* mpDataUNS;

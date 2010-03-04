@@ -1,3 +1,7 @@
+
+// Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
+
+
 #ifndef ZMETERMODULE_H
 #define ZMETERMODULE_H
 

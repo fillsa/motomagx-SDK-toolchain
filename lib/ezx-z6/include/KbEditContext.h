@@ -29,7 +29,6 @@ public:
     //KbInputMethod getFieldLastIm(int fieldType);
     //void setFieldLastIm(int fieldType, const KbInputMethod& im);
 
-    ///for 18340 down merge
     QString getDefaultInputLang();
     void setDefaultInputLang(const QString& langCode);
 

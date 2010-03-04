@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -505,7 +505,7 @@ typedef struct ZFieldButtonSkinProp
 {
     ZBASIC_SKINNABLE_PROP_T base;
 } ZFIELDBUTTON_SKINNABLE_PROP_T;
-
+/*
 typedef struct ZSearchBoxSkinProp
 {
     ZBASIC_SKINNABLE_PROP_T base;
@@ -513,6 +513,7 @@ typedef struct ZSearchBoxSkinProp
     short spacingH2;
     short spacingV1;
 } ZSEARCHBOX_SKINNABLE_PROP_T;
+*/
 typedef struct ZCLISoftKeySkinProp
 {
     ZBASIC_SKINNABLE_PROP_T base;
@@ -593,7 +594,7 @@ struct ZWidgetSkinProps
     ZSTRUCTDATAIMAGE_SKINNABLE_PROP_T zStructDataImage;
     ZCHINESE_TEXT_INPUT zChinese_Text_Input;
     ZFIELDBUTTON_SKINNABLE_PROP_T zFieldButton; 
-    ZSEARCHBOX_SKINNABLE_PROP_T zSearchBox ;
+//    ZSEARCHBOX_SKINNABLE_PROP_T zSearchBox ;
     ZCLISOFTKEY_SKINNABLE_PROP_T zCLISoftKeyTop;
     ZCLISOFTKEY_SKINNABLE_PROP_T zCLISoftKeyBottom;
     ZFSBA_SKINNABLE_PROP_T zFsba1;

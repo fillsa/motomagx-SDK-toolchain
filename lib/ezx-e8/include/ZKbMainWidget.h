@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -31,6 +31,19 @@ public:
 
     virtual ~ZKbMainWidget();
 
+	//Add by Ant-ON
+	enum ENUM_CHILD{};
+    QRect getChildR(ENUM_CHILD);
+    QRect getChildR_Header();
+    QRect getChildR_AIA();
+    QRect getChildR_Content();
+    QRect getChildR_Cst();
+    
+    ZHeader* getHeader();
+    
+    void setChildWidgetLayout();
+	//
+
   public:
     void setHeaderType(ZHeader::HEADER_TYPE headerType);
 
@@ -56,9 +69,9 @@ public:
 
     ZSoftKey* getSoftKey( bool createZSoftKey = TRUE );
 
-    bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
+    //bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
 
-    ZCLISoftKey* getCLISoftKey(bool createZCLISoftKey = TRUE);
+    //ZCLISoftKey* getCLISoftKey(bool createZCLISoftKey = TRUE);
 
     virtual bool eventFilter(QObject*, QEvent*);
 

@@ -1,3 +1,6 @@
+//Fix for Motorola ZN5 by Ant-ON, 2009
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef _ZSINGLECAPTUREDLG_H
 #define _ZSINGLECAPTUREDLG_H
@@ -7,22 +10,23 @@
 
 /* Size:216=54*4 */
 
-//#define ZSingleCaptureDlg::normal ZSingleCaptureDlg::TypeLineEdit
-//#define ZSingleCaptureDlg::secret ZSingleCaptureDlg::TypeLineEditPasswd
+//For compobility on Z6
 #define normal2 TypeTextField
 #define normal3 TypePasswdField
+//
 
 class ZSingleCaptureDlg : public ZPopup
 {
 	Q_OBJECT
 	unsigned int data[54 - sizeof(ZPopup)/4];
 public: 
-/*
+	/*
 	enum CaptureDlgType
 	{
 		normal, secret, normal2, secret2
 	};
 	*/
+	
     enum CaptureDlgType
     {
         TypeLineEdit,         // text field,     use ZLineEdit widget
@@ -33,6 +37,7 @@ public:
 
         TypeCustom            // custom type, for extend use
     };
+    
 	//ZSingleCaptureDlg(QString const&, QString const&, ZSingleCaptureDlg::CaptureDlgType, QWidget*, char const*, bool, unsigned int, int);
 	//ZSingleCaptureDlg(QWidget*, char const*, bool, unsigned int);
 	

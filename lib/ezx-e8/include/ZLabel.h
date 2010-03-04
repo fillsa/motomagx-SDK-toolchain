@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-01-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -153,9 +153,9 @@ public:
      bool isZEnabled();
      bool isZDisabled();
 
-   void setOutline(bool outline,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
+    void setOutline(bool outline,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
 
-   void setOutline( bool outline,short outlineSize=1 ,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
+    //void setOutline( bool outline,short outlineSize=1 ,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
     virtual void setPalette(const QPalette &);
 
     void adjustHeightBySetting(int nPreferredHeight);
@@ -163,6 +163,11 @@ public:
     int  getContentNumLines();
 
     void updateLabelSkin();
+    
+	//add by Ant-ON
+	//virtual void setFont(QFont& font);
+	// 
+    
 public slots:
     virtual void setText( const QString &);
 
@@ -180,6 +185,7 @@ protected:
 
 private slots:
     void slotScrollTimer();
+    
 private:
     void init();
     void clearContents();

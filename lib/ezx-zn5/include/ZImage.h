@@ -1,3 +1,8 @@
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
+
 #ifndef __ZIMAGE_H__
 #define __ZIMAGE_H__
 
@@ -6,7 +11,7 @@
 #include "qmovie.h"
 #include "ZWidget.h"
 
-class Q_EXPORT ZImage : public ZWidget  //public QWidget, public ZSkinBase
+class Q_EXPORT ZImage : public ZWidget
 {
     Q_OBJECT
         Q_PROPERTY(QPixmap pixmap READ pixmap WRITE setPixmap)
@@ -60,8 +65,5 @@ private:
 
     bool mIsEnabled;
 };
-
-
-
 
 #endif //ZIMAGE_H

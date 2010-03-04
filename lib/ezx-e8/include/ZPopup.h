@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -28,7 +28,7 @@ class ZIconView;
 class ZListBox;
 class ZScrollPanel;
 class ZLabel;
-class ZPopupEventFilter;
+//class ZPopupEventFilter;
 
 struct ZPopupPrivate;
 struct ZPopupPrivateUNS;
@@ -105,10 +105,11 @@ public:
 
     ZSoftKey *getSoftKey();
 
-    bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
-    ZCLISoftKey* getCLISoftKey();
-    void setAlwaysActive(bool bActive);
-    bool isAlwaysActive();
+    //bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
+    //ZCLISoftKey* getCLISoftKey();
+    //void setAlwaysActive(bool bActive);
+    //bool isAlwaysActive();
+    
     void setAutoDismissTime(int msec);
 
     void setReturnIdlePolicy(int reason, bool disableDefaultBehavior = false);
@@ -139,9 +140,7 @@ public:
 
     void setInstructFontColor(const QColor& clr);
 
-#ifndef QT_NO_PALETTE
     void setPalette(const QPalette&);
-#endif
 
     ZLabel* getInstructionLabel() const;            
     Qt::AlignmentFlags getInstructAlign() const;
@@ -153,7 +152,7 @@ public:
 
     int getBodyBorderWidth(ZSkinBase::BorderSide side);
 
-    void dismissByEndKey (bool b);
+    //void dismissByEndKey (bool b);
 
 public slots:
 
@@ -207,7 +206,7 @@ protected:
 private slots:
     void slotSPC_resize(ZScrollPanel*, int, int);
 
-    void slotChildDelete();
+    //void slotChildDelete();
 
 private:
     void updateIdleScreenSign();
@@ -245,7 +244,7 @@ private:
 
     void doShow();
 
-    void setBodySideKeyHandlePolicy();
+    //void setBodySideKeyHandlePolicy();
 
     void drawSingleBodyBorder(QPainter& p, QPixmap& bg, QPixmap & border, int percent, int left, int top, int bodyY);
     void drawBodyBorder();
@@ -285,10 +284,11 @@ private slots:
 private:
     ZPopupPrivateUNS* mpDataUNS;
 
-private:    
-    ZPopupEventFilter *evtFilter;
+//private:    
+//    ZPopupEventFilter *evtFilter;
 };
 
+/*
 class ZPopupEventFilter : public QObject
 {
     Q_OBJECT
@@ -298,5 +298,6 @@ public:
 private:
     ZPopup *popup;
 };
+*/
 
 #endif  

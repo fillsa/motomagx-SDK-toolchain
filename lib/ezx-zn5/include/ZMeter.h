@@ -1,38 +1,16 @@
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef __ZMETER_H_
-#define __ZMETER_H_ 1
+#define __ZMETER_H_
 
 #include <qwidget.h>
 #include <ZSkinBase.h>
 
 struct ZMeterData;
 
-/*
-vtable for ZMeterModule@@VERSION		 // OBJECT
-vtable for ZMeter@@VERSION		 // OBJECT
-ZMeter::getIndicatorLength() const@@VERSION		 // FUNC
-ZMeter::getIndicatorSize() const@@VERSION		 // FUNC
-ZMeter::getIndicatorX() const@@VERSION		 // FUNC
-ZMeter::getIndicatorY() const@@VERSION		 // FUNC
-ZMeter::getSpacingS1() const@@VERSION		 // FUNC
-ZMeter::getSpacingS2() const@@VERSION		 // FUNC
-ZMeter::paused() const@@VERSION		 // FUNC
-ZMeter::pause()@@VERSION		 // FUNC
-ZMeter::progress() const@@VERSION		 // FUNC
-ZMeter::reset()@@VERSION		 // FUNC
-ZMeter::setAlignment(ZMeter::Alignment)@@VERSION		 // FUNC
-ZMeter::setAutoResize(bool)@@VERSION		 // FUNC
-ZMeter::setInformation(ZMeter::Information)@@VERSION		 // FUNC
-ZMeter::setMaxSize(int)@@VERSION		 // FUNC
-ZMeter::totalSteps() const@@VERSION		 // FUNC
-ZMeter::ZMeter(int, int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeter::ZMeter(int, int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeter::ZMeter(int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeter::ZMeter(int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeter::ZMeter(QString, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeter::ZMeter(QString, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-*/
-
-class ZMeter : public ZWidget //QWidget,public ZSkinBase
+class ZMeter : public ZWidget
 {
     Q_OBJECT
 
@@ -70,7 +48,7 @@ public:
     void reset();
     void pause();
 	
-    int  totalSteps() const;
+    //int  totalSteps() const;
 
     int  progress() const;
 
@@ -86,18 +64,18 @@ public:
     //Orientation orientation() const;
 
     void setAlignment(Alignment alignment);
-    Alignment alignment() const;
+    //Alignment alignment() const;
 
     void setInformation(Information information);
-    Information information() const;
+    //Information information() const;
 
     //QSize sizeHint() const;
     //QSize minimumSizeHint() const;
 
     void setMaxSize( int nMaxSize);
-    int  maxSize() const;
+    //int  maxSize() const;
 
-    bool autoResize () const;
+    //bool autoResize () const;
     void setAutoResize ( bool enable );
 
     //void  setEnabled(bool enable);
@@ -106,23 +84,23 @@ public:
   
     bool  paused () const;
 
-    bool  running () const;
+    //bool  running () const;
  
 signals:
     void meterSizeChange();
 
-public slots:
-    
-    virtual void setTotalSteps( int totalSteps );
-    virtual void setProgress( int progress );
+public slots: 
+    virtual void setTotalSteps( int totalSteps ); // ???
+    virtual void setProgress( int progress ); // ???
     //void sizeChanged();
+    
 //protected:
-
     //void resizeEvent(QResizeEvent *);
     //void paintEvent(QPaintEvent *);
     //void updateSkin(bool redraw);
     //virtual void setPalette(const QPalette &palette);
     //void showEvent ( QShowEvent *e );
+    
 private:
     enum Types{                   // MeterType 
        STATIC,                           // tile
@@ -150,30 +128,13 @@ private:
     void  setSpacingS1(int nSpacing);
     short getSpacingS1() const;
     void  getIndicatorLength() const;
-    QSize meterATypeSizeHint() const;
-    QSize meterBTypeSizeHint() const;
+    //QSize meterATypeSizeHint() const;
+    //QSize meterBTypeSizeHint() const;
     QSize ZMeter::getIndicatorSize() const;
     int getIndicatorX() const;
     int getIndicatorY() const;
-    void drawIndicatorContents( QPixmap& all,int xPoint,int yPoint,QSize sz );
+    //void drawIndicatorContents( QPixmap& all,int xPoint,int yPoint,QSize sz );
 };
-
-/*
-ZMeterModule::getMeter() const@@VERSION		 // FUNC
-ZMeterModule::getSpacingH1() const@@VERSION		 // FUNC
-ZMeterModule::getSpacingV1() const@@VERSION		 // FUNC
-ZMeterModule::setAlignment(ZMeterModule::Alignment)@@VERSION		 // FUNC
-ZMeterModule::setLabelText(QString)@@VERSION		 // FUNC
-ZMeterModule::ZMeterModule(int, int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeterModule::ZMeterModule(int, int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeterModule::ZMeterModule(int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeterModule::ZMeterModule(int, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeterModule::ZMeterModule(QString, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeterModule::ZMeterModule(QString, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID, ZSkinService::WidgetClsID)@@VERSION		 // FUNC
-ZMeterModule::~ZMeterModule()@@VERSION		 // FUNC
-ZMeterModule::~ZMeterModule()@@VERSION		 // FUNC
-ZMeterModule::~ZMeterModule()@@VERSION		 // FUNC
-*/
 
 struct ZMeterModuleData;
 
@@ -205,7 +166,7 @@ public:
     virtual ~ZMeterModule();
     ZMeter *getMeter() const;
     void setAlignment(Alignment alignment);
-    Alignment alignment() const;
+    //Alignment alignment() const;
 
     //void setOrientation(Orientation orientation);
     //Orientation orientation() const;
@@ -220,16 +181,17 @@ public:
     //bool autoResize () const;
     //void setAutoResize ( bool enable );
 
-    void setSpacingV1(short nSpacing);
+    //void setSpacingV1(short nSpacing);
 
 //public slots:
 //    void sizeChanged(); 
+
 protected:
-    virtual void resizeEvent(QResizeEvent *); 
-    void paintEvent(QPaintEvent *);
-    void resizeAll();
+    //virtual void resizeEvent(QResizeEvent *); 
+    //void paintEvent(QPaintEvent *);
+    //void resizeAll();
     void updateSkin(bool redraw);
-    virtual void setPalette(const QPalette &palette);
+    //virtual void setPalette(const QPalette &palette);
 
 private:
     ZMeterModuleData *d;

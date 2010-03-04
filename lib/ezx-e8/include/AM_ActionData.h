@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 24-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -139,7 +139,7 @@ public:
        ActionData_Unknown = -1,
     };
 
-    int getValueType(const QString &name) const;
+//    int getValueType(const QString &name) const;
 
     void setOpenApp(QUuid app);
 
@@ -149,17 +149,17 @@ public:
 
     void sendResults(const AM_ActionResults & results) const;
 
-    void sendPidResults(const QString& pid) const;
+//    void sendPidResults(const QString& pid) const;
 
     AM_RESULT_CODE_T invoke(const bool needReturnData = false) const;
 
     void setEncodedString(const QCString &s);    
 
-    void setNonQTFlag(bool flag);
+//    void setNonQTFlag(bool flag);
 
-    bool getNonQTFlag() const;
+//    bool getNonQTFlag() const;
 
-    void getKeys(QStringList& keys) const;
+//    void getKeys(QStringList& keys) const;
 
     friend QDataStream & operator << (QDataStream & ds, const AM_ActionData & value);
 
@@ -169,14 +169,14 @@ public:
 signals:
     void signalResultsAvailable(const AM_ActionResults& results);
 
-    void signalActionAborted();
+//    void signalActionAborted();
 
 protected slots:
     void slotHandleResults(const QCString& msg, const QByteArray& data);
 
-    void slotHandlePidResults(const QCString& msg, const QByteArray& data);
+//    void slotHandlePidResults(const QCString& msg, const QByteArray& data);
 
-    void slotHandleCrashResults(const QCString& msg, const QByteArray& data);
+//    void slotHandleCrashResults(const QCString& msg, const QByteArray& data);
 
 protected:
     void parserString()const;
@@ -185,9 +185,9 @@ protected:
 
     void setupReturnChannel() const;
 
-    void setPid(const QString& pid);
+//    void setPid(const QString& pid);
 
-    QString getPid() const;
+//    QString getPid() const;
 
 private:
     mutable ESCopChannel *returnChannel;

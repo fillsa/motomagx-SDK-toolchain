@@ -1,10 +1,13 @@
-//Fix for Motorola ZN5 by Ant-ON
+//Fix for Motorola ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010
+//Fix for Z6W compobility by Ant-ON, 04.03.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef ZSCROLLPANEL_H
 #define ZSCROLLPANEL_H
 
+#include <ZMyConfig.h>
 #include <ZWidget.h>
 #include <ZScrollBar.h>
 
@@ -69,7 +72,9 @@ public:
     virtual QRect getCurrentFocusRect(bool) const;
 	
 	//???????
+	#ifdef EZX_ZN5
 	void getLandscapeScroll() const;
+	#endif
 	//???????
 	
     virtual bool  hasNextPrevFocusItem(bool) const;
@@ -133,9 +138,6 @@ private:
 private slots:
     void slotContentsResizing(ZScrollPanel*, int, int);
     friend class ZScrollPanelData;
-	
-//private:
-//	char data[100000];
 };
 
 #endif

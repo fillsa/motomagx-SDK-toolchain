@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -33,9 +33,8 @@ public:
 
     virtual void setEnabled( bool enable );
 
-    bool isZEnabled() const;
-
-    void setSpacing( const int H1, const int V1 );
+    //bool isZEnabled() const;
+    //void setSpacing( const int H1, const int V1 );
 
     QString title() const;
 
@@ -77,8 +76,7 @@ signals:
     void	contentsResizing(ZGroupBox*, int w, int h);
 
 public slots:
-
-    void setNoStyle( bool noStyle );
+    //void setNoStyle( bool noStyle );
 
     void setTitle( const QString & title );
 
@@ -101,7 +99,7 @@ private slots:
 
     void updateRadioButtons( ZRadioButton * pRadio );
 
-    void slotLayoutTimer();
+    //void slotLayoutTimer();
 
 private:
 
@@ -109,7 +107,7 @@ private:
 
     struct ZGroupBoxPrivate * d;
 
-    void doLayout();
+    //void doLayout();
 
     QString mTitle;
 

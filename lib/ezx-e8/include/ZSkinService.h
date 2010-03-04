@@ -117,7 +117,7 @@ public:
         clsZHeader2,
         clsZHeader3,
         clsZHeader4,
-        clsZHeaderPopup,        /// used by dialog
+        clsZHeaderPopup,     
         clsZIconView1,
         clsZIconView2,
         clsZIconViewItem1,
@@ -138,8 +138,8 @@ public:
         clsZMeter_Indicator1,
         clsZMeter_Indicator2,
         clsZMeter_Indicator3,
-	clsZMeter_Indicator4 = clsZMeter_Indicator3,  ///same as indicator3, just change a pixmap for animation
-        clsZMeter_Indicator5,   ///for browser header meter
+	clsZMeter_Indicator4 = clsZMeter_Indicator3, 
+        clsZMeter_Indicator5,   
         clsZMeterModule,
         clsZSliderModule = clsZMeterModule,
         clsZProgressSliderModule = clsZMeterModule,
@@ -180,9 +180,9 @@ public:
         clsZStructDataImage,
     clsZFieldButton,//for field button
 ///
-        clsZSearchBox,
-        clsZCLISoftKeyTop,
-        clsZCLISoftKeyBottom,
+//        clsZSearchBox,
+//        clsZCLISoftKeyTop,
+//        clsZCLISoftKeyBottom,
 ///
 	clsZFsba1,
 	clsZFsba2,

@@ -47,7 +47,7 @@ public:
     void setCurrentSubItem(int index, int subIndex);
     void setSubItemShowed(int index, int subIndex, bool showed, bool doUpdate = true);
     QPixmap getPixmap(int index);
-    bool setPixmap(int index, const QPixmap& pixmap, bool doUpdate = true);
+    bool setPixmap(int index, const QPixmap& pixmap, bool imageContainer = true);
     void setShowIndicator(bool isShow);
     void keyPressEvent( QKeyEvent *e );
     void showColumn(int index, bool show);

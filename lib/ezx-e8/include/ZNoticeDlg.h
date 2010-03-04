@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -66,9 +66,9 @@ public:
 
     void setAutoDismissTime(int ntime);
 
-    bool isDismissedWhenFlip();
-
-    void enableDismissedWhenFlip(bool bDismissed);
+    //bool isDismissedWhenFlip();
+    //void enableDismissedWhenFlip(bool bDismissed);
+    
     static void information(
         const QString& strMsg,
         const QString& strInstructText = QString::null,
@@ -78,7 +78,6 @@ public:
         char* pszSlot = NULL);
 
 signals:
-
     void    dlgDismissed();
 
 protected slots:
@@ -89,7 +88,7 @@ protected:
 
     virtual void keyPressEvent(QKeyEvent* e);
 
-    virtual void keyReleaseEvent(QKeyEvent* e);
+    //virtual void keyReleaseEvent(QKeyEvent* e);
 
     virtual void showEvent(QShowEvent*);
 

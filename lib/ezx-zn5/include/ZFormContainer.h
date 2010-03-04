@@ -1,4 +1,5 @@
-//Fix for ZN5 by Ant-ON
+//Fix for ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -54,7 +55,7 @@ public:
 
       void addChild(ZWidget* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
       
-      void resizeChild(ZWidget* child, int w);
+      //void resizeChild(ZWidget* child, int w);
 
       virtual void removeChild(ZWidget* child);
 
@@ -62,14 +63,11 @@ public:
 
       void triggerUpdate(bool doLayout);
 
-      QSize maxmumSizeHint();
+      //QSize maxmumSizeHint();
 
 public:
       void updateSkin(bool redraw);
-
-#ifndef QT_NO_PALETTE
       void setPalette( const QPalette & );
-#endif
 
 protected:
 
@@ -79,8 +77,8 @@ protected:
 protected slots:
       virtual void slotResizeChild();
 
-private slots:
-      void slotLayoutTimer();
+//private slots:
+//      void slotLayoutTimer();
 
 private:
       void doLayout();

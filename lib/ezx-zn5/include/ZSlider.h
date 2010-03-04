@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -42,19 +42,18 @@ public:
 
     virtual ~ZSlider();
 
-    virtual void setOrientation( Orientation orientation);
-
+    virtual void setOrientation( Orientation orientation); //???
     Orientation orientation() const;
 
-    int minValue() const;
+    //int minValue() const;
 
-    int maxValue() const;
+    //int maxValue() const;
 
     void setMinValue( int value);
 
     void setMaxValue( int value);
 
-    int lineStep() const;
+    //int lineStep() const;
 
     int pageStep() const;
 
@@ -64,50 +63,44 @@ public:
 
     int  value() const;
 
-    void setPixmap(QPixmap increment,QPixmap decrement);
+    //void setPixmap(QPixmap increment,QPixmap decrement);
 
-    void reset();
+    //void reset();
 
     void showThumb( bool bShow );
 
     void setThickness(int nCounts);
 
-    int thickness() const;
+    //int thickness() const;
+    //void setSelectionState( const ZSkinBase::SelectionState state );
+    //QSize sizeHint() const;
 
-    void setSelectionState( const ZSkinBase::SelectionState state );
-
-    QSize sizeHint() const;
-
-    void updateSkin(bool redraw);
+    //void updateSkin(bool redraw);
 
     virtual void setPalette(const QPalette &palette);
 
-    void setOmgPage(int steps);
-
-    int omgPage(void);
-
-    void addOmgPage(void);
-
-    void subtractOmgPage(void);
-
-    void scrollOmg(int steps);
+    //void setOmgPage(int steps);
+    //int omgPage(void);
+    //void addOmgPage(void);
+    //void subtractOmgPage(void);
+    //void scrollOmg(int steps);
+    
 public:
     QSize minimumSizeHint() const;
-    void  setEnabled(bool enable);
-    bool  isZEnabled();
-    bool  isZDisabled();
-    bool  autoResize() const;
-    void  setAutoResize( bool enable );
-
-    void changeToVertical( bool bVertical) ;
+    
+    //void  setEnabled(bool enable);
+    //bool  isZEnabled();
+    //bool  isZDisabled();
+    //bool  autoResize() const;
+    //void  setAutoResize( bool enable );
+    //void changeToVertical( bool bVertical) ;
+    
 public slots:
     virtual void setValue( int value);
 
-    void addStep();
-
-    void subtractStep();
-
-    void updateState();
+    //void addStep();
+    //void subtractStep();
+    //void updateState();
 
 signals:
     void valueChanged( int value );

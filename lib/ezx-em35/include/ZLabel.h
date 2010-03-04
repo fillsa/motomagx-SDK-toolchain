@@ -1,4 +1,4 @@
-
+//Fix for VE66/EM35 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -116,6 +116,11 @@ public:
     void setLeading(int leading);
 
    void setFontColor(const QColor & color);
+   
+   // Add by Ant-ON
+   void setFont(const QFont & font);
+   // end
+   
 
     QColor fontColor() const;
 

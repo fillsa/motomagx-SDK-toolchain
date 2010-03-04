@@ -1,4 +1,5 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010
+//Fix for Z6W compobility by Ant-ON, 04.03.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -11,33 +12,10 @@
 #include "ZSkinBase.h"
 #include "ZText.h"
 
-#define CUSTOMEVENT_TYPE   QEvent::User + 435
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
 
-/*
-ZButton::drawButtonLabel(QPainter*)@@VERSION		 // FUNC
-ZButton::drawButton(QPainter*)@@VERSION		 // FUNC
-ZButton::enableMarquee(bool)@@VERSION		 // FUNC
-ZButton::focusInEvent(QFocusEvent*)@@VERSION		 // FUNC
-ZButton::focusOutEvent(QFocusEvent*)@@VERSION		 // FUNC
-ZButton::getBtnContentRect() const@@VERSION		 // FUNC
-ZButton::getBtnRect() const@@VERSION		 // FUNC
-ZButton::getBtnSize() const@@VERSION		 // FUNC
-ZButton::getMarqueeDirect()@@VERSION		 // FUNC
-ZButton::getTitleRect() const@@VERSION		 // FUNC
-ZButton::getTitleSize() const@@VERSION		 // FUNC
-ZButton::isZEnabled()@@VERSION		 // FUNC
-ZButton::keyReleaseEvent(QKeyEvent*)@@VERSION		 // FUNC
-ZButton::pixmap() const@@VERSION		 // FUNC
-ZButton::setEnabled(bool)@@VERSION		 // FUNC
-ZButton::setFont(QFont const&)@@VERSION		 // FUNC
-ZButton::setNum(int)@@VERSION		 // FUNC
-ZButton::setPixmap(QPixmap const&)@@VERSION		 // FUNC
-ZButton::setText(QString const&)@@VERSION		 // FUNC
-ZButton::setTitlePosition(ZButton::TitlePosition)@@VERSION		 // FUNC
-ZButton::setTitle(QString const&)@@VERSION		 // FUNC
-ZButton::sizeHint() const@@VERSION		 // FUNC
-ZButton::text() const@@VERSION		 // FUNC
-*/
+#define CUSTOMEVENT_TYPE   QEvent::User + 435
 
 class ZButton : public ZBaseButton
 {
@@ -82,41 +60,40 @@ public:
 
      virtual void setPixmap(const QPixmap & pixmap);
 
-     ZButton::TitlePosition titlePosition() const;
+ //    ZButton::TitlePosition titlePosition() const;
 
      void setTitlePosition(ZButton::TitlePosition titlePos);
 
-         QString title()const;
+//         QString title()const;
 
      void setTitle(const QString & title) ;
 
     virtual QSize sizeHint() const;
 
-    ZSkinBase::RelativeAlignment relativeAlignment() const;
-
-    void setRelativeAlignment(ZSkinBase::RelativeAlignment relativeAlign);
+//    ZSkinBase::RelativeAlignment relativeAlignment() const;
+//    void setRelativeAlignment(ZSkinBase::RelativeAlignment relativeAlign);
 
     void setEnabled(bool enable);
 
     bool isZEnabled();
 
-    bool isZDisabled();
+//    bool isZDisabled();
 
     void setFont(const QFont & font);
 
-    void enableTruncation(bool isEnable);
+//    void enableTruncation(bool isEnable);
+//    bool isEnableTruncation();
 
-    bool isEnableTruncation();
-
+	#ifndef EZX_Z6W
     void enableMarquee(bool isEnable);
+    #endif
 
-    bool isEnableMarquee();
-
-    void setMarqueeDirect(MarqueeDirect md);
+//    bool isEnableMarquee();
+//    void setMarqueeDirect(MarqueeDirect md);
 
     MarqueeDirect getMarqueeDirect();
 
-    void setAvailableWidth(int nLen);
+//    void setAvailableWidth(int nLen);
 
 protected:
     enum ItemType
@@ -135,25 +112,15 @@ protected:
     };
 
     //virtual QRect getContentRect() const = 0 ;
-
     //virtual void getBtnFrameWidth(int & nleftw, int & nrightw, int & ntopw, int & nbottomw) const = 0;
-
     //virtual void getLabelFrameWidth(int & nleftw, int & nrightw, int & ntopw, int & nbottomw) const = 0;
-
     //virtual void getFrameWidth(int & nleftw, int & nrightw, int & ntopw, int & nbottomw) const = 0;
-
     //virtual void drawBorderEx(ItemType itemType, QPainter * p, const QRect * rect = NULL) = 0;
-
     //virtual void drawBackgroundEx(ItemType itemType, QPainter * p, const QRect * rect = NULL) = 0;
-
     //virtual int  getBtnHSpacing() const = 0;
-
     //virtual int  getTitleSpacing(ZButton::TitlePosition titlePos = TitleTop) const = 0;
-
     //virtual void stateChanged(StateChangeReason stChangeReason) = 0;
-
     //virtual void titleChanged(const QString & title) = 0;
-
    // virtual void getCurrentFont(QFont & font, QColor & ftColor, ItemType itemType) const = 0;
 
     virtual void drawButton(QPainter * p);
@@ -175,7 +142,7 @@ protected:
 
     QRect getBtnContentRect() const;
 
-    void reAdjustSize(bool bAll = false,int w=-1,int h=-1);
+//    void reAdjustSize(bool bAll = false,int w=-1,int h=-1);
 
 private:
     QString mtext;

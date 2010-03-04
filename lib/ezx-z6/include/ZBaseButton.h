@@ -111,6 +111,7 @@ public:
     ZBaseButtonGroup *group() const;
 
     void setState( ToggleState );
+    virtual void	setToggleType( ToggleType );
 
 public slots:
     void	animateClick();
@@ -125,7 +126,7 @@ signals:
 
 protected:
     void	setToggleButton( bool );
-    virtual void	setToggleType( ToggleType );
+    ///virtual void	setToggleType( ToggleType ); //move in public
     virtual void	setOn( bool );
     //virtual void	setState( ToggleState );
 

@@ -1,4 +1,5 @@
-//Fix for Motorola ZN5 by Ant-ON
+//Fix for Motorola ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -37,16 +38,7 @@ public:
     virtual bool getEditMode();
     virtual QWidget* getContentWidget(bool createZScrollView = TRUE);
     QVBoxLayout* getVBoxLayout();
-    #ifdef NO_FIX_HEDER
     virtual bool setContentWidget(QWidget* w = NULL);
-    #else
-    bool setContentWidget(QWidget *widget)
-    {
-        QVBoxLayout* layout = getVBoxLayout();
-        layout->addWidget(widget);
-        return true;
-    };
-    #endif
     virtual QWidget* getCSTWidget( bool create = TRUE );
     virtual bool setCSTWidget( QWidget* w = NULL );
     virtual bool setTitleBarWidget( QWidget* w = NULL );

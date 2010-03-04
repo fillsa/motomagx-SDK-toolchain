@@ -1,4 +1,4 @@
-
+//Fix for VE66/EM35 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -276,6 +276,11 @@ private slots:
     void slotKbStateChanged(const QRect & resizeR, int topLevelWinId, bool show, bool changed);
 
     void slotHKData(const QCString&,const QByteArray&);
+
+	//Add by Ant-ON
+	void slotSetIdleAltitude(int);
+	void slotSetIdleStatus(bool);
+	//end
 
 private:
 

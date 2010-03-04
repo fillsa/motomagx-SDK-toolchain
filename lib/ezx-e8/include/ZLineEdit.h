@@ -1,3 +1,5 @@
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
+
 // Copyright (c) 07-Dec-2007 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef __ZLINEEDIT_H__
@@ -321,7 +323,7 @@ public:
     ///                               related contents.
     ///
     //================================================================================================
-    void showBgForNoMatchSearchResult(bool isNoMatchSearched);
+    //void showBgForNoMatchSearchResult(bool isNoMatchSearched);
 
     //================================================================================================
     ///
@@ -1516,7 +1518,7 @@ private:
     /// \brief In search box, It can not set the suitable string, It will use
     ///        this function to draw a special background.
     ///        
-    void drawNoMatchBackgournd(QPainter& p);          
+    //void drawNoMatchBackgournd(QPainter& p);          
  
     ///
     ///  \brief  get the new mark position.
@@ -1674,5 +1676,13 @@ private:
     TitlePosition mTitlePos;
     int  m_nSelection;
     bool isPasswordSelection;
+  
+//Add by Ant-ON 
+public:
+    void ensureDisplayed();
+    int  getRealMaxLen() const;
+    bool isHyphenAuto() const;
+    void setScrollParent(ZScrollPanel *);
+//
 };
 #endif // __ZLINEEDIT_H__

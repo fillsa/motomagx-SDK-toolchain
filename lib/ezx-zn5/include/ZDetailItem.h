@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -58,13 +58,12 @@ public:
 
       void clearAllRow();
 
-      void removeRow(uint index);
-
-      ItemType itemType() const;
+      //void removeRow(uint index);
+      //ItemType itemType() const;
 
       void enableStructureDataParse(bool enable);
 
-      void setParseType(QString type);
+      //void setParseType(QString type);
 
       void enableTitleParse(bool enable);
 
@@ -73,28 +72,25 @@ public:
 
 protected:
 
-      void setParent(ZDetailView * parent);
+      //void setParent(ZDetailView * parent);
 
       virtual int height(const ZDetailView *);
 
-      void setRect(int x, int y, int w, int h);
-
-      QRect rect() const;
-
-      void setDirty(bool dirty);
-
-      bool dirty() const;
-
-      void doParse();
+      //void setRect(int x, int y, int w, int h);
+      //QRect rect() const;
+      //void setDirty(bool dirty);
+      //bool dirty() const;
+      //void doParse();
+      
 private:
 
-     int separatorHeight(const ZDetailView * view);
+      //int separatorHeight(const ZDetailView * view);
 
       uint getSDCount() const;
       void getSDData(int index, QString& origin, QString& replaced, QString& type) const; 
-      int currentSDIndex() const;
+      //int currentSDIndex() const;
       QRect getSDRect(int index) const;
-      void setCurrentSD(int index);
+      //void setCurrentSD(int index);
 
       ZDetailItemPrivate* d;
 

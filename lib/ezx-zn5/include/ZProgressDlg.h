@@ -1,3 +1,9 @@
+//Fix for ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
+
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef _ZPROGRESSDLG_H
 #define _ZPROGRESSDLG_H
 
@@ -6,43 +12,6 @@
 
 /* Size: 216=54*4 */
 
-/*
-vtable for ZProgressDlg@@VERSION		 // OBJECT
-ZProgressDlg::cancelled()@@VERSION		 // FUNC
-ZProgressDlg::cancel()@@VERSION		 // FUNC
-ZProgressDlg::changeMeter(int, int)@@VERSION		 // FUNC
-ZProgressDlg::changeMeter(int)@@VERSION		 // FUNC
-ZProgressDlg::changeMeter(QString const&)@@VERSION		 // FUNC
-ZProgressDlg::className() const@@VERSION		 // FUNC
-ZProgressDlg::getMeterModule()@@VERSION		 // FUNC
-ZProgressDlg::getMeter()@@VERSION		 // FUNC
-ZProgressDlg::getMinimumDuration() const@@VERSION		 // FUNC
-ZProgressDlg::getProgressTotalStep()@@VERSION		 // FUNC
-ZProgressDlg::getProgress()@@VERSION		 // FUNC
-ZProgressDlg::keyPressEvent(QKeyEvent*)@@VERSION		 // FUNC
-ZProgressDlg::reset()@@VERSION		 // FUNC
-ZProgressDlg::setAutoClose(bool)@@VERSION		 // FUNC
-ZProgressDlg::setAutoPercentFlag(bool)@@VERSION		 // FUNC
-ZProgressDlg::setAutoReset(bool)@@VERSION		 // FUNC
-ZProgressDlg::setMMAlign(ZMeterModule::Alignment)@@VERSION		 // FUNC
-ZProgressDlg::setMMLabelText(QString const&)@@VERSION		 // FUNC
-ZProgressDlg::setProgress(int)@@VERSION		 // FUNC
-ZProgressDlg::setProgressTotalStep(int)@@VERSION		 // FUNC
-ZProgressDlg::slotResizeAllChild(int)@@VERSION		 // FUNC
-ZProgressDlg::staticMetaObject()@@VERSION		 // FUNC
-ZProgressDlg::wasCancelled() const@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QString const&, QString const&, int, int, QWidget*, char const*, bool, unsigned int)@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QString const&, QString const&, int, int, QWidget*, char const*, bool, unsigned int)@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QString const&, QString const&, int, QWidget*, char const*, bool, unsigned int)@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QString const&, QString const&, int, QWidget*, char const*, bool, unsigned int)@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QString const&, QString const&, QString const&, QWidget*, char const*, bool, unsigned int)@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QString const&, QString const&, QString const&, QWidget*, char const*, bool, unsigned int)@@VERSION		 // FUNC
-ZProgressDlg::ZProgressDlg(QWidget*, char const*, bool, unsigned int)@@VERSION // FUNC
-ZProgressDlg::ZProgressDlg(QWidget*, char const*, bool, unsigned int)@@VERSION // FUNC
-ZProgressDlg::~ZProgressDlg()@@VERSION		 // FUNC
-ZProgressDlg::~ZProgressDlg()@@VERSION		 // FUNC
-ZProgressDlg::~ZProgressDlg()@@VERSION		 // FUNC
-*/
 
 class ZProgressDlg : public ZPopup
 {	
@@ -65,10 +34,6 @@ public:
                  QWidget* parent = NULL, const char* name = 0, bool modal = true, WFlags f = 0);
     ZProgressDlg(QWidget* parent = NULL, const char* name = 0, bool modal = true, WFlags f = 0);
 	
-	//ZProgressDlg(QWidget*, char const*, bool, unsigned int);
-	//ZProgressDlg(QString const&, QString const&, QString const&, QWidget*, char const*, bool, unsigned int);
-	//ZProgressDlg(QString const&, QString const&, int, QWidget*, char const*, bool, unsigned int);
-	//ZProgressDlg(QString const&, QString const&, int, int, QWidget*, char const*, bool, unsigned int);
 	~ZProgressDlg();
 
 	void autoClose() const;
@@ -94,14 +59,14 @@ public:
 	void setAutoReset(bool);
 	void setMMAlign(ZMeterModule::Alignment);
 	void setMMLabelText(QString const&);
-	void setMeterModule(ZMeterModule*);
-	void setMinimumDuration(int);
+	//void setMeterModule(ZMeterModule*);
+	//void setMinimumDuration(int);
 	void setProgress(int);
 	void setProgressTotalStep(int);
 	bool wasCancelled() const;
 
 public slots:
-	void slotLeftSoftKeyClicked();
+//	void slotLeftSoftKeyClicked();
 	void  slotResizeAllChild(int);
 };
 

@@ -1,9 +1,18 @@
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010
+//Fix for Z6W compobility by Ant-ON, 04.03.2010
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef Z_KBMAINWIDGET_H
 #define Z_KBMAINWIDGET_H
 
+#include <ZMyConfig.h>
 #include "ZMainWidget.h"
 #include "ZHeader.h"
 #include "ZSoftKey.h"
+
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
 
 //class ZSoftKey;
 class ZAppInfoArea;
@@ -11,6 +20,7 @@ class ZKbMainWidgetData;
 
 class ZKbMainWidget : public ZMainWidget
 {
+	unsigned int data[90 - sizeof(ZMainWidget)/4];
     Q_OBJECT
 public:
     ZKbMainWidget( QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
@@ -18,8 +28,14 @@ public:
     ZKbMainWidget( ZHeader::HEADER_TYPE headerType, QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
     virtual ~ZKbMainWidget();
 
-  public:
-    enum ENUM_CHILD{CHILD_HEADER=0,CHILD_AIA=1,CHILD_CONTENT=2,CHILD_CST=3,CHILD_NUM=4};
+    bool setContentWidget(QWidget *widget)
+    {
+        QVBoxLayout* layout = getVBoxLayout();
+        layout->addWidget(widget);
+        return true;
+    };
+
+public:
     void setHeaderType(ZHeader::HEADER_TYPE headerType);
     static bool setAppTitle( const QString &appTitle );
     static QString getAppTitle();
@@ -36,7 +52,9 @@ public:
     bool isTitleTruncEnable();
     void updateHeader();
     QSize headerSize();
-    void hideHeader() ;
+    #ifdef EZX_ZN5
+    void HideHeader();
+    #endif
     ZHeader* getHeader();
 	
 signals:
@@ -50,12 +68,13 @@ protected:
 
 private slots:  
     void slotAppMessage(const QCString &msg, const QByteArray &);
+    void slotFullScreenModeChanged(bool mobe);
 
 private:
     void init(ZHeader::HEADER_TYPE headerType);
     
   private:
-    ZKbMainWidgetData *data;
+    ZKbMainWidgetData *d;
 
 };
 

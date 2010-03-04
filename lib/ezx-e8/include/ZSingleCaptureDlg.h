@@ -18,7 +18,9 @@
 /* Size:216=54*4 */
 
 #define TypeLineEdit normal
-
+#define TypeLineEditPasswd secret
+#define TypeTextField normal2
+#define TypePasswdField secret2
 class ZSingleCaptureDlg : public ZPopup
 {
 	Q_OBJECT
@@ -26,11 +28,11 @@ class ZSingleCaptureDlg : public ZPopup
 public: 
     enum CaptureDlgType
     {
-        normal,         // text field,     use ZLineEdit widget
-        TypeLineEditPasswd,   // password field, use ZLineEdit widget
+        normal,                // text field,     use ZLineEdit widget
+        secret,                // password field, use ZLineEdit widget
 
-        TypeTextField,        // text field,     use ZMultiLineEdit widget
-        TypePasswdField,      // password field, use ZMultiLineEdit widget
+        normal2,              // text field,     use ZMultiLineEdit widget
+        secret2,              // password field, use ZMultiLineEdit widget
 
         TypeCustom            // custom type, for extend use
     };

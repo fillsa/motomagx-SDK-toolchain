@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -30,22 +30,21 @@ public:
     ZSliderModule *getSliderModule( ) const;
 
     bool eventFilter(QObject *, QEvent *);
-    void setOmgPage(int steps);
+    
+    //void setOmgPage(int steps);
+    //int omgPage(void);
+    //virtual void setOmegaInput(bool flag);
 
-    int omgPage(void);
-
-    virtual void setOmegaInput(bool flag);
-
-protected slots:
-
-    void onValueChanged(int);
+//protected slots:
+    //void onValueChanged(int);
+    
 protected:
     void showEvent(QShowEvent *);
     void hideEvent(QHideEvent *);
     void timerEvent(QTimerEvent *);
 
 private:
-    void restartTimer();
+    //void restartTimer();
 
     ZSliderNoticePrivate* mpData;
 };

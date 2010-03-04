@@ -1,4 +1,4 @@
-
+//Fix for VE66/EM35 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -41,7 +41,9 @@ protected:
 
     virtual void paint( QPainter * painter, int x1, int y1, int x2, int y2 );
 
-    void drawHighlight(QPainter& painter,const QRect* r, bool border);
+	// Change by Ant-ON
+    //void drawHighlight(QPainter& painter,const QRect* r, bool border);
+    void drawItemBackground(QPainter& painter,const QRect* r, bool border, ZSkinBase*);
 
 private:
     virtual void calcHeight();
@@ -99,6 +101,10 @@ public:
                               );
 
     virtual ~ZOptionsMenu();
+
+	// Add by Ant-ON
+	QSize sizeHint();
+	// end
 
     void setMenu( ZOptMenuParser * parserClass, QString menuName);
 

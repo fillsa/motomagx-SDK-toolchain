@@ -18,7 +18,7 @@ class ES_EventHandler
 public:
     virtual ~ES_EventHandler(){}
 
-    virtual void handleEvent(const ES_Event &event) = 0;
+    //virtual void handleEvent(const ES_Event &event) = 0;
 };
 
 class ES_EventSubscriber

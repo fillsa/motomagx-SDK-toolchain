@@ -1,4 +1,4 @@
-
+//Fix for VE66/EM35 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -125,6 +125,13 @@ public:
             QWidget* parent = 0,
             const char* name = 0,
             WFlags f = 0);
+
+	//Add by Ant-ON
+	void hideMeter();
+	void setMeterRange(int, int);
+	void setMeterValue(int);
+	void showMeter();	
+	//end
 
     QString getPrimTitle();
 

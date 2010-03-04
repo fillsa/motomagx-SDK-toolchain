@@ -1,4 +1,4 @@
-
+//Fix for VE66/EM35 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -32,6 +32,10 @@ public:
     virtual ~ZKbMainWidget();
 
   public:
+	// Add by Ant-ON
+	ZHeader * getHeader();
+	// end
+  
     void setHeaderType(ZHeader::HEADER_TYPE headerType);
 
     static bool setAppTitle( const QString &appTitle );

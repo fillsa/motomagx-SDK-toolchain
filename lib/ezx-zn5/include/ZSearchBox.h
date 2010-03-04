@@ -1,8 +1,10 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c) 06-Jul-07 - 2008 Motorola, Inc. All rights reserved.
 
+#define ZSearchBox ZWidget
 
+/*
 #ifndef PUBLIC_API_WIDGET_ZSEARCHBOX_H
 #define PUBLIC_API_WIDGET_ZSEARCHBOX_H
 
@@ -154,3 +156,4 @@ protected:
 } ;
 
 #endif 
+*/

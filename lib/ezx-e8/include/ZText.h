@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 24-02-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -33,14 +33,14 @@ public:
     void paint(QPainter& painter,
                int x, int y,
                int width = -1, const QString ellpsis = "...",
-               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0));
+               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0), int outlineSize = 1);
 
     void paint(QPainter& painter,
                QRect& rect, bool wraped = FALSE,
                int align = Qt::AlignLeft|Qt::AlignTop,
                const QString ellpsis = "...",  uint spacing = 2,
                ZWrapLine::WrapPolicy wrapPolicy = ZWrapLine::Anywhere,
-               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0));
+               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0), int outlineSize = 1);
 
     static uint getStringWidth(const QFont& font,
                                const QString& str,
@@ -61,7 +61,7 @@ private:
     QString truncateHead(const QString& str, int len, uint width,
                          const QFont& font, const QString ellpsis);
     void drawOutline(QPainter& painter, int x, int y, int w, int h, int align,
-                     const QString text, const QColor& outlineColor);
+                     const QString text, const QColor& outlineColor, int outlineSize = 1);
 };
 
 class ZMarqueeTextPrivate;
@@ -71,9 +71,7 @@ class Q_EXPORT ZMarqueeText : public QObject
     Q_OBJECT
 public:
     ZMarqueeText();
-    ZMarqueeText(const QString &text, QWidget* parent = NULL, bool wraped =
-FALSE);
-
+    ZMarqueeText(const QString &text, QWidget* parent = NULL, bool wraped = FALSE);
 
     virtual ~ZMarqueeText();
 
@@ -117,7 +115,7 @@ tailWaitTime = 1000, bool headToTail = TRUE);
 
     void paint(QPainter& painter, int align = Qt::AlignLeft|Qt::AlignTop,
                QString ellpsis = "...", const QRect* pixmapPainterRect = NULL,
-               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0));
+               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0), int outlineSize = 1);
 private slots:
     void slotTimer();
 
@@ -129,7 +127,7 @@ private:
     QString getLine(int index);
 
     void drawOutline(QPainter& painter, int x, int y, int w, int h, int align,
-                     const QString text, const QColor& outlineColor);
+                     const QString text, const QColor& outlineColor, int outlineSize = 1);
 private:
     class ZMarqueeTextPrivate *d;
 

@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -264,7 +264,8 @@ private slots:
     void slotSystemMessage( const QCString &msg, const QByteArray &data );
     void slotServerMessage( const QCString &msg, const QByteArray &data );
     void slotAppMessage( const QCString &msg, const QByteArray &data );
-    void pidMessage( const ES_Event& event );
+    //void pidMessage( const ES_Event& event );
+    void pidMessage( const QCString &message, const QByteArray &data );// Fix by Ant-ON
 
     void resetMouseMode();
     void resetPressHoldStatus();

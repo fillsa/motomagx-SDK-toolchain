@@ -1,3 +1,5 @@
+//Fix for ZN5/U9 by Ant-ON, 15-02-2010
+
 
 /*
  * Copyright (C) 2007 Motorola Inc.
@@ -124,7 +126,7 @@ public:
     virtual void setSorting( int sortSpec );
 
     bool	matchAllDirs() const;
-    virtual void setMatchAllDirs( bool );
+    virtual void setMatchAllDirs( bool ) {};//Not in lib - Fix by Ant-ON
 
     uint count() const;
     QString	operator[]( int ) const;
@@ -172,7 +174,7 @@ public:
 
     static char separator();
 
-    static bool setCurrent( const QString &path );
+    static bool setCurrent( const QString &path ){};//Not in lib - Fix by Ant-ON
     static QDir current();
     static QDir home();
     static QDir root();

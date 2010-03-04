@@ -19,7 +19,6 @@
 #include "ZGroupBox.h"
 #include "ZCheckBox.h"
 #include "ZExhibitButton.h"
-#include "ZLabel.h"
 
 class ZFormContainerPrivate;
 
@@ -46,12 +45,15 @@ public:
       void addChild(ZSeparator* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
 
       void addChild(ZGroupBox* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
+
+      void addChild(ZWidget* child, bool adjustWidth = TRUE,ZWidget *after=NULL);
       
-      void addChild(ZLabel* child, bool adjustWidth = TRUE,ZWidget *after=NULL)
+      void addChild(ZLabel* child, bool adjustWidth = TRUE,ZWidget *after=NULL)// Add by Ant-ON
       {
 		  addChild((ZWidget*)child, adjustWidth, after);
 	  }
 	  
+
       virtual void removeChild(ZWidget* child);
 
       virtual bool eventFilter(QObject * obj, QEvent *e);
@@ -79,7 +81,7 @@ private slots:
       void slotLayoutTimer();
 
 private:
-      void addChild(ZWidget* child, bool adjustWidth,ZWidget *after);
+      //void addChild(ZWidget* child, bool adjustWidth,ZWidget *after);
       void doLayout();
       void resizeChild(ZWidget* child, int w);
 

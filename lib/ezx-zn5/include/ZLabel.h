@@ -1,3 +1,4 @@
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -48,16 +49,12 @@ public:
         RightToLeft        
     };
 
-//ZLabel::ZLabel(QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)
      ZLabel( QWidget *parent, const char *name=0, WFlags f=0,
             const ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal );
-//ZLabel::ZLabel(QString const&, QWidget*, char const*, unsigned int, ZSkinService::WidgetClsID)
     ZLabel( const QString &text, QWidget *parent, const char *name=0,
            WFlags f=0, const ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal);
 
-//    ZLabel(const QString &text, int scrollMillisecond, QWidget* parent, const char* name=0, WFlags f=0, const ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal);
-
-    void marqueeScroll();
+    //void marqueeScroll();
 
 public:
 
@@ -65,11 +62,11 @@ public:
 
     QString text() const;
 
-    Qt::AlignmentFlags  alignment() const ;
+    //Qt::AlignmentFlags  alignment() const ;
 
     virtual void setAlignment( Qt::AlignmentFlags alignment );
 
-     NumLines numLines() const ;
+    // NumLines numLines() const ;
 
     void     setNumLines(NumLines numlines);
 
@@ -77,64 +74,60 @@ public:
 
     void setTextDirection(TextDirection tdirection);
 
-    TruncateNum truncateNum() const ;
-    void setTruncateNum(TruncateNum truncatenum);
+    //TruncateNum truncateNum() const ;
+    //void setTruncateNum(TruncateNum truncatenum);
+    
     void        getFrameWidth(int & nleftf,int & nrightf, int & ntopf, int & nbottomf) const;
     void setParentBackground(bool isParentBg);
-    bool isParentBackground();
-
-    QString truncateString() const ;
-
-    void setTruncateString(const QString & truncateStr);
-
-    TruncateStat truncateStat() const ;
-
-    void setTruncateStat(TruncateStat truncatestat);
-
-    int marqueeSpeed() const;
+    
+    //bool isParentBackground();
+    //QString truncateString() const ;
+    //void setTruncateString(const QString & truncateStr);
+    //TruncateStat truncateStat() const ;
+    //void setTruncateStat(TruncateStat truncatestat);
+    //int marqueeSpeed() const;
 
     void setMarqueeSpeed(int marqueespeed);
 
-    int marqueeStep() const;
+    //int marqueeStep() const;
 
     void setMarqueeStep(int marqueestep);
 
-    MarqueeDirection marqueeDirection() const;
+    //MarqueeDirection marqueeDirection() const;
 
     void setMarqueeDirection(MarqueeDirection marqueedirection);
 
-    int marqueeRepetition() const;
+    //int marqueeRepetition() const;
 
     void setMarqueeRepetition(int marqueerepetition);
 
-    virtual int leading() const;
-
+    virtual int leading() const; //???
+    
     void setLeading(int leading);
 
-   void setFontColor(const QColor & color);
+    void setFontColor(const QColor & color);
 
-    QColor fontColor() const;
+    //QColor fontColor() const;
 
-     int preferredWidth() const;
+    //int preferredWidth() const;
 
     void setPreferredWidth(int preferredw);
 
-    ZWrapLine::WrapPolicy wrapPolicy() const;
+    //ZWrapLine::WrapPolicy wrapPolicy() const;
 
     void setWrapPolicy(ZWrapLine::WrapPolicy wrappolicy);
 
-    bool autoResize() const;
+    //bool autoResize() const;
 
     //virtual 
 	void setAutoResize( bool enable);
 
-    MarqueeState marqueeState() const;
+    //MarqueeState marqueeState() const;
 
     void setMarqueeState(MarqueeState marqueeStat);
 
-    void   marqueePlay();
-
-    void   marqueePause();
+    //void   marqueePlay();
+    //void   marqueePause();
 
     QSize sizeHint() const;
 
@@ -147,15 +140,15 @@ public:
     void setPadding( const WIDGET_PADDING_INFO_T & padd );
 
      virtual void setEnabled(bool enable);
-     bool isZEnabled();
-     bool isZDisabled();
+    //bool isZEnabled();
+    //bool isZDisabled();
 
-   void setOutline(bool outline,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
+    void setOutline(bool outline,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
 
-   void setOutline( bool outline,short outlineSize=1 ,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
+    //void setOutline( bool outline,short outlineSize=1 ,QColor outc=QColor(255,0,0),QColor innerc=QColor(0,0,0));
     virtual void setPalette(const QPalette &);
 
-    void adjustHeightBySetting(int nPreferredHeight);
+    //void adjustHeightBySetting(int nPreferredHeight);
 
     int  getContentNumLines();
 
@@ -163,7 +156,7 @@ public:
 public slots:
     virtual void setText( const QString &);
 
-    void clear();
+    //void clear();
 
 protected:
 
@@ -200,9 +193,9 @@ private:
     int getSpacing() const;
 
     ZLabelPrivate * d;
-    void drawOutlineText(QPainter *p, QColor tc, QColor oc,int x, int y, int w, int h, int flags,
-    const QString& str, int len = -1, QRect *br=0,
-    char **internal=0 );
+    //void drawOutlineText(QPainter *p, QColor tc, QColor oc,int x, int y, int w, int h, int flags,
+    //const QString& str, int len = -1, QRect *br=0,
+    //char **internal=0 );
 };
 
 #endif  

@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -43,32 +43,27 @@ public:
 
     void setOrientation( Orientation );
 
-    Orientation orientation() const;
-
-    void setSliderOrient( bool bVertical) ;
-
+    //Orientation orientation() const;
+    //void setSliderOrient( bool bVertical) ;
+    
     void setAlignment(Alignment alignment);
+    
+    //Alignment alignment() const;
+    //void setThickness(int nCounts);
+    //QSize sizeHint() const;
 
-    Alignment alignment() const;
-
-    void setThickness(int nCounts);
-
-    QSize sizeHint() const;
-
-    void updateSkin(bool redraw);
+    //void updateSkin(bool redraw);
 
     virtual void setPalette(const QPalette &palette);
 
-public:
-    QSize minimumSizeHint() const;
-    bool autoResize() const;
-    void setAutoResize( bool enable );
-    void setSpacingV1(short nSpacing);
-    void setOmgPage(int steps);
-
-    int omgPage(void);
-
-    virtual void setOmegaInput(bool flag);
+/public:
+    //QSize minimumSizeHint() const;
+    //bool autoResize() const;
+    //void setAutoResize( bool enable );
+    //void setSpacingV1(short nSpacing);
+    //void setOmgPage(int steps);
+    //int omgPage(void);
+    //virtual void setOmegaInput(bool flag);
 
 signals:
     void valueChanged(int);
@@ -78,9 +73,9 @@ public slots:
 
     void updateLabel();
 
-    void updateValue();
+    //void updateValue();
 
-    void resizeAll();
+    //void resizeAll();
 
 private slots:
     void timerDone();

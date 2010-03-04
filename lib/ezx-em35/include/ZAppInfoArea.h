@@ -1,3 +1,4 @@
+//Fix by Ant-ON, 2010
 
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
@@ -187,11 +188,11 @@ public:
 
     ~ZAppInfoArea();
 
-#ifdef DEBUG
+//#ifdef DEBUG
     int getWidth(AREA_IDX nIdx);
     bool printArea(AREA_IDX nIdx);
-    friend class TestCase;
-#endif
+//    friend class TestCase;
+//#endif
 signals:
     void itemNum(int num);
 

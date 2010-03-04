@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -506,6 +506,7 @@ typedef struct ZFieldButtonSkinProp
     ZBASIC_SKINNABLE_PROP_T base;
 } ZFIELDBUTTON_SKINNABLE_PROP_T;
 
+/*
 typedef struct ZSearchBoxSkinProp
 {
     ZBASIC_SKINNABLE_PROP_T base;
@@ -518,6 +519,8 @@ typedef struct ZCLISoftKeySkinProp
     ZBASIC_SKINNABLE_PROP_T base;
     int spacingH;
 } ZCLISOFTKEY_SKINNABLE_PROP_T;
+*/ 
+
 struct ZWidgetSkinProps
 {
     ZALTERNATESCHOOSER_SKINNABLE_PROP_T zAlternatesChooser;
@@ -593,9 +596,9 @@ struct ZWidgetSkinProps
     ZSTRUCTDATAIMAGE_SKINNABLE_PROP_T zStructDataImage;
     ZCHINESE_TEXT_INPUT zChinese_Text_Input;
     ZFIELDBUTTON_SKINNABLE_PROP_T zFieldButton; 
-    ZSEARCHBOX_SKINNABLE_PROP_T zSearchBox ;
-    ZCLISOFTKEY_SKINNABLE_PROP_T zCLISoftKeyTop;
-    ZCLISOFTKEY_SKINNABLE_PROP_T zCLISoftKeyBottom;
+//    ZSEARCHBOX_SKINNABLE_PROP_T zSearchBox ;
+//    ZCLISOFTKEY_SKINNABLE_PROP_T zCLISoftKeyTop;
+//    ZCLISOFTKEY_SKINNABLE_PROP_T zCLISoftKeyBottom;
     ZFSBA_SKINNABLE_PROP_T zFsba1;
     ZFSBA_SKINNABLE_PROP_T zFsba2;
 

@@ -1,3 +1,7 @@
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef _ZMULTISELECTDLG_H_
 #define _ZMULTISELECTDLG_H_
 
@@ -57,20 +61,21 @@ protected slots:
     virtual void slotRSKClicked(); 
     virtual void slotResizeAllChild(int);
 
-private slots:
-    void slotMenuItemClick(int nMenuId);
-    void slotItemStateChanged();
+//private slots:
+//    void slotMenuItemClick(int nMenuId);
+//    void slotItemStateChanged();
 
 
 private:
-    void initialize();
-    void initBodyArea();
-    void initSoftKeyArea();
-    void checkAllListBoxItem( bool bSelect );
-    void updateUI();
-    void initAIAinfo();
     int getCheckedItemCount();
-    void updateAppInfoArea(int nSelCount);
+    
+    //void initialize();
+    //void initBodyArea();
+    //void initSoftKeyArea();
+    //void checkAllListBoxItem( bool bSelect );
+    //void updateUI();
+    //void initAIAinfo();
+    //void updateAppInfoArea(int nSelCount);
 
 private:
 

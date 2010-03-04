@@ -1,3 +1,6 @@
+
+// Copyright (c) 25-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef _ZPROGRESSDLG_H
 #define _ZPROGRESSDLG_H
 

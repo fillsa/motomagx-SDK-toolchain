@@ -1,3 +1,5 @@
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
+
 #ifndef ZFORMITEM_H
 #define ZFORMITEM_H
 
@@ -19,18 +21,18 @@ public:
 
       virtual ~ZFormItem();
       bool isFormItem();
-      void setTitle(const QString& title);
-      void setPrimIcon(const QPixmap& pmap);
-      int  setSecondIcon(const QPixmap& pmap, int idx, int priority = 0);
-      void removePrimIcon();
-      void removeSecondIcon(int idx);
-      void setLayoutStyle(LAYOUT_STYLE s);
+      //void setTitle(const QString& title);
+      //void setPrimIcon(const QPixmap& pmap);
+      //int  setSecondIcon(const QPixmap& pmap, int idx, int priority = 0);
+      //void removePrimIcon();
+      //void removeSecondIcon(int idx);
+      //void setLayoutStyle(LAYOUT_STYLE s);
       LAYOUT_STYLE layoutStyle();
 
 protected:
       void paintTitleRegion(QPainter* painter);
       QRect getFormWidgetRect();
-      QSize titleRegionSizeHint();
+      //QSize titleRegionSizeHint();
       int getFormItemPadding(int nIdx);
       int getSpacingV1();
       int getSpacingH1();
@@ -40,6 +42,7 @@ protected:
 public:
      void updateSkin(bool redraw);
      void setPalette( const QPalette & ){updateSkin(TRUE);}
+     
 private:
     friend class ZFormItemPrivate;
     ZFormItemPrivate * d;

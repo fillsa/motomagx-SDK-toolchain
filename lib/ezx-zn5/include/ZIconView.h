@@ -1,6 +1,13 @@
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010
+//Fix for Z6W compobility by Ant-ON, 04.03.2010
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
+
 #ifndef ZICONVIEW_H
 #define ZICONVIEW_H
 
+#include <ZMyConfig.h>
 #include <qscrollview.h>
 #include <qiconset.h>
 #include <qstring.h>
@@ -15,6 +22,9 @@
 #include "ZSkinService.h"
 #include "ZText.h"
 #include "ZScrollPanel.h"
+
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
 
 class ZIconView;
 class QFontMetrics;
@@ -52,32 +62,37 @@ public:
     virtual QString key() const;
     virtual int compare( ZIconViewItem *i ) const;
     void setView(ZIconView* newView);
-    ZIconView *iconView() const;
+    //ZIconView *iconView() const;
     ZIconViewItem *prevItem() const;
     ZIconViewItem *nextItem() const;
     int index() const;
     virtual void repaint();
     QRect rect() const;
-    int x() const;
-    int y() const;
+    //int x() const;
+    //int y() const;
     int width() const;
-    int height() const;
-    QSize size() const;
-    QPoint pos() const;
+    //int height() const;
+    //QSize size() const;
+    //QPoint pos() const;
     QRect textRect( bool relative = TRUE ) const;
     QRect pixmapRect( bool relative = TRUE ) const;
+    
+    #ifdef EZX_ZN5
+    void makeLandscapeRowLayout(ZIconViewItem*, int, int, bool);
+    void setLandscapeMode();
+    #endif
 
 public: 
     void showDrmIndicator(bool show = TRUE);
     bool isChecked() const;
     void setActive();
-    void setPartialChecked(bool partial);
-    bool partialChecked() const;
-    void setDrmImage(const QPixmap& drm);
+    //void setPartialChecked(bool partial);
+    //bool partialChecked() const;
+    //void setDrmImage(const QPixmap& drm);
     const QPixmap& getDrmImage() const;
     void setEnabled(bool enabled);
-    bool enabled() const ;
-    void setZStyle(ZSkinService::WidgetClsID style);
+    //bool enabled() const ;
+    //void setZStyle(ZSkinService::WidgetClsID style);
     ZSkinService::WidgetClsID getZStyle() const;
     void setPixmapRectToMax(bool max = TRUE);
     void setReservedData(unsigned int rsvData);
@@ -92,15 +107,15 @@ public:
     virtual void setSelected( bool s, bool cb );
     virtual void setSelected( bool s );
     virtual void setSelectable(bool s );
-    bool isSelected() const;
-    bool isSelectable() const;
+    //bool isSelected() const;
+    //bool isSelectable() const;
     enum ITEMALIGN{ ALIGN_IMAGE, ALIGN_TEXT};
     void setAlign(ITEMALIGN, int){}
     int align(ITEMALIGN) const {return Qt::AlignCenter;}
     virtual void setText( const QString &text, bool recalc, bool redraw = TRUE );
     virtual void setPixmap( const QPixmap &icon, bool recalc, bool redraw = TRUE );
-    bool contains( QPoint pnt ) const;
-    bool intersects( QRect r ) const;
+    //bool contains( QPoint pnt ) const;
+    //bool intersects( QRect r ) const;
     void setTextRect( const QRect &r );
     void setPixmapRect( const QRect &r );
 
@@ -116,10 +131,10 @@ protected:
 
 private:
     void init( ZIconViewItem *after = 0);
-    void checkRect();
-    void drawPixmap(QPainter *p, QRect rect, QPixmap* pix, int align);
-    QString truncate(QString& str, int len, uint width, QFont& font, QString ellpsis = NULL);
-    bool canHasFocus() const;
+    //void checkRect();
+    //void drawPixmap(QPainter *p, QRect rect, QPixmap* pix, int align);
+    //QString truncate(QString& str, int len, uint width, QFont& font, QString ellpsis = NULL);
+    //bool canHasFocus() const;
     ZSkinBase::SelectionState getSelectionState() const;
     void setExtraSpace(int space){extraSpace = space;}
 	
@@ -180,17 +195,17 @@ public:
     virtual void setCurrentItem( ZIconViewItem *item );
     uint count() const;
     virtual void showEvent( QShowEvent * );
-    ZIconViewItem *findItem( const QPoint &pos ) const;
-    ZIconViewItem *findItem( const QString &text ) const;
+    //ZIconViewItem *findItem( const QPoint &pos ) const;
+    //ZIconViewItem *findItem( const QString &text ) const;
     virtual void repaintItem( ZIconViewItem *item );
     void ensureItemVisible( ZIconViewItem *item );
     ZIconViewItem* findFirstVisibleItem( const QRect &r ) const;
-    ZIconViewItem* findLastVisibleItem( const QRect &r ) const;
+    //ZIconViewItem* findLastVisibleItem( const QRect &r ) const;
     virtual void clear();
-    QSize maxmumSizeHint();
+    //QSize maxmumSizeHint();
     QSize minimumSizeHint() const;
     QSizePolicy sizePolicy() const;
-    void setSorting( bool sort, bool ascending = TRUE );
+    //void setSorting( bool sort, bool ascending = TRUE );
     bool sorting() const;
     bool sortDirection() const;
     virtual void sort( bool ascending = TRUE );
@@ -203,23 +218,23 @@ public:
     bool itemChecked(ZIconViewItem* item) const;
     bool itemChecked(int index);
     QList<ZIconViewItem>* itemsChecked();
-    void removeItem(int index);
+    //void removeItem(int index);
     void setDrmImage(const QPixmap& drm);
     const QPixmap& getDrmImage();
     void insertItemAtHead( ZIconViewItem *item);
-    void setZItemStyle(ZSkinService::WidgetClsID style);
+    //void setZItemStyle(ZSkinService::WidgetClsID style);
     ZSkinService::WidgetClsID getZItemStyle() const;
     void setLayout(uint row, uint column, bool scrollbar = TRUE);
     QSize iconAreaSize();
-    bool isShowLabel() const;
+    bool isShowLabel() const { return true; };//For compobility
     void setShowLabel(bool show);
     QSize sizeHint() const;
-    void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
+    //void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
     void setIconStretchPolicy(PIXMAP_STRETCH_POLICY_E type);
     PIXMAP_STRETCH_POLICY_E getIconStretchPolicy() const;
-    void enableModalEditing(bool enable) ;
+    //void enableModalEditing(bool enable) ;
     void enableMarquee(bool enable);
-    bool marqueeEnabled() const;
+    //bool marqueeEnabled() const;
     typedef void (*DeleteItemCallBack)(ZIconViewItem*);
     void setDeleteItemCallBackFunction(DeleteItemCallBack func);
     DeleteItemCallBack getDeleteItemCallBackFunction() const ;
@@ -245,7 +260,7 @@ public:
     virtual void setArrangement( Arrangement){}
     Arrangement arrangement() const{return LeftToRight;}
     virtual void setResizeMode( ResizeMode am );
-    ResizeMode resizeMode() const;
+    //ResizeMode resizeMode() const;
     enum ItemTextPos {
 	Bottom = 0,
 	Right
@@ -259,7 +274,7 @@ public:
     virtual void setWordWrapIconText( bool){}
     bool wordWrapIconText() const{return true;}
     virtual void setAutoArrange( bool b );
-    bool autoArrange() const;
+    //bool autoArrange() const;
     virtual void setGridX( int){}
     virtual void setGridY( int){}
     int gridX() const{return -1;}
@@ -312,14 +327,14 @@ protected slots:
     virtual void adjustItems();
     virtual void slotUpdate();
 
-private slots:
-    void movedContents( int dx, int dy );
-    void slotWaitWrapFinished();
+//private slots:
+    //void movedContents( int dx, int dy );
+    //void slotWaitWrapFinished();
 
 protected:
     virtual void ZIconView::viewportResizeEvent( QResizeEvent* e);
     virtual void drawContents( QPainter *p, int cx, int cy, int cw, int ch ){}
-    void        keyReleaseEvent( QKeyEvent *e );
+    //void        keyReleaseEvent( QKeyEvent *e );
     void viewportPaintEvent( QPaintEvent * event);
     virtual void setPalette( const QPalette & ){updateSkin();update();}
     virtual void resizeEvent( QResizeEvent* e );
@@ -334,24 +349,24 @@ protected:
     ZIconViewItem *makeRowLayout( ZIconViewItem *begin, int y, int count, bool sb );
 
 private:
-    QSize calcItemSize();
-    int scrollStep(int step);
+    //QSize calcItemSize();
+    //int scrollStep(int step);
     void drawContents( QPainter* );
     void handleItemChange( ZIconViewItem *old, bool shift, bool control );
-    int calcGridNum( int w, int x ) const;
+    //int calcGridNum( int w, int x ) const;
     ZIconViewItem *rowBegin( ZIconViewItem *item ) const;
     void updateItemContainer( ZIconViewItem *item );
-    void appendItemContainer();
-    void rebuildContainers();
+    //void appendItemContainer();
+    //void rebuildContainers();
     void selectBtns(ZIconViewItem* it);
     ZSkinBase* getItemSkin(SelectionState state);
     ZSkinBase* getImageContainerSkin(SelectionState state);
-    QPixmap& markImage(SelectionState state, bool single, bool partial) const;
+    //QPixmap& markImage(SelectionState state, bool single, bool partial) const;
     QFont& getItemFont(SelectionState state) const;
-    QColor textColor(SelectionState) const;
-    int textAlign(SelectionState) const;
-    ZMarqueeText* marquee() const;
-    void startMarquee();
+    //QColor textColor(SelectionState) const;
+    //int textAlign(SelectionState) const;
+    //ZMarqueeText* marquee() const;
+    //void startMarquee();
     ZIconViewPrivate *d;
 
 private:

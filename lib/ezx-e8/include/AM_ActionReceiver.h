@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 24-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -25,8 +25,11 @@ public:
     static AM_ActionReceiver * instance();
 signals:
     void receiveAction(const AM_ActionData & d);
+    
 private slots:
-    void pidMessage( const ES_Event& event );
+//    void pidMessage( const ES_Event& event );
+    void slotProcessMessage(const QCString & action, const QByteArray & data); //Add by Ant-ON
+    
 private:
     AM_ActionReceiver(QObject * parent = 0, const char * name = 0);                         
     static AM_ActionReceiver * pInstance;

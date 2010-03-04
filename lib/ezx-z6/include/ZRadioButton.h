@@ -10,12 +10,12 @@
 class ZRadioButton: public ZBaseButton
 {
 	Q_OBJECT
-	unsigned int data[71-sizeof(ZBaseButton)/4];
+	//unsigned int data[71-sizeof(ZBaseButton)/4];
 public:
 	virtual void ZRadioButton::setChecked(bool);
 
-  ZRadioButton(QString const&, QWidget*, char const*, ZSkinService::WidgetClsID = ZSkinService::clsZRadioButton);
-  ZRadioButton(QWidget*, char const*, ZSkinService::WidgetClsID = ZSkinService::clsZRadioButton);
+  ZRadioButton(const QString& text, QWidget*parent , char const* name = 0, ZSkinService::WidgetClsID = ZSkinService::clsZRadioButton);
+  ZRadioButton(QWidget* parent, char const* name = 0, ZSkinService::WidgetClsID = ZSkinService::clsZRadioButton);
 	~ZRadioButton();
 
 	int checked(ZRadioButton*);
@@ -43,6 +43,10 @@ public:
 	QSizePolicy sizePolicy() const;
 	void updateMask();
 	void updateSkin(bool);
+	
+	//Add by Ant-ON. For compobility
+	bool isChecked(){ return (state() == ZBaseButton::On);};
+	
 };
 
 #endif

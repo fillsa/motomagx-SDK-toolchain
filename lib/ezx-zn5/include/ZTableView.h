@@ -1,3 +1,7 @@
+//Fix for ZN5/U9 by Ant-ON, 16-02-2010 ( Fix for compobility )
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 #ifndef ZTABLEVIEW_H
 #define ZTABLEVIEW_H
 
@@ -98,11 +102,15 @@ protected:
     void	updateScrollBars();
     void	updateTableSize();
 
+public: // Fix for compobility
+    virtual void	setHorScrollBar( bool on, bool update = TRUE );
+    virtual void	setVerScrollBar( bool on, bool update = TRUE );
+
 private:
     void	coverCornerSquare( bool );
     void	snapToGrid( bool horizontal, bool vertical );
-    virtual void	setHorScrollBar( bool on, bool update = TRUE );
-    virtual void	setVerScrollBar( bool on, bool update = TRUE );
+    //virtual void	setHorScrollBar( bool on, bool update = TRUE );//
+    //virtual void	setVerScrollBar( bool on, bool update = TRUE );//
     void	updateView();
     int		findRawRow( int yPos, int *cellMaxY, int *cellMinY = 0,
 			    bool goOutsideView = FALSE ) const;
@@ -137,7 +145,7 @@ private:
     int viewRight;
     int viewBottom;
 
-   EZXStyle * st; 
+	EZXStyle * st; 
 
 private:
     ZTableView( const ZTableView & );

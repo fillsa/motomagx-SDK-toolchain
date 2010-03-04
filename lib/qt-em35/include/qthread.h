@@ -1,3 +1,4 @@
+// Fix by Ant-ON, 2010
 
 /*
  * Copyright (C) 2007 Motorola Inc.
@@ -79,6 +80,41 @@ private:
     QMutex &operator=( const QMutex & );
 #endif
 };
+
+/// Add by Ant-ON
+class Q_EXPORT QMutexLocker
+{
+public:
+    QMutexLocker( QMutex * );
+    ~QMutexLocker();
+
+    QMutex *mutex() const;
+
+private:
+    QMutex *mtx;
+
+#if defined(Q_DISABLE_COPY)
+    QMutexLocker( const QMutexLocker & );
+    QMutexLocker &operator=( const QMutexLocker & );
+#endif
+};
+
+inline QMutexLocker::QMutexLocker( QMutex *m )
+    : mtx( m )
+{
+    if ( mtx ) mtx->lock();
+}
+
+inline QMutexLocker::~QMutexLocker()
+{
+    if ( mtx ) mtx->unlock();
+}
+
+inline QMutex *QMutexLocker::mutex() const
+{
+    return mtx;
+}
+///
 
 class QThreadPrivate;
 

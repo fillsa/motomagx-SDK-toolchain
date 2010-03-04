@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -75,6 +75,10 @@ public:
     void draw ( QPainter * p, int x, int y, const QRect & clipRect) const;
 
     int getLeftBrearing();
+    
+    //Add by Ant-ON
+    int getRightBrearing();
+	//
 
 private:
 #ifndef QT_NO_WTLE

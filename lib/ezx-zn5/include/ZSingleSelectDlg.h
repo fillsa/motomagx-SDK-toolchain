@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -46,38 +46,27 @@ public:
                      int auto_dismiss_time = 0); //, Qt::DisplayID displayId = MainDisplay);
 
     virtual ~ZSingleSelectDlg();
-
     ZListBox* getListBox();
-
     ZListItem* getCheckedItem();
-
     int getCheckedItemIndex();
-
     void addItemsList(QStringList&);
 
 signals:
-
     void signalCenterSelKeyPressed();
 
 protected:
-
     virtual bool eventFilter( QObject* o, QEvent* e);
     virtual void showEvent(QShowEvent*);
 
 protected slots:
-
     virtual void slotLSKClicked();
-
     virtual void slotResizeAllChild(int);
 
-private:
-
-    void initialize();
-
-    void checkCurHighlightItem();
+//private:
+    //void initialize();
+    //void checkCurHighlightItem();
 
 private:
-
     ZSingleSelectDlgPrivate* mpData;
 
 };

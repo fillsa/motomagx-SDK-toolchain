@@ -1,3 +1,4 @@
+//Fix by Ant-ON, 2010
 
 /*
  * Copyright (C) 2007 Motorola Inc.
@@ -151,7 +152,8 @@ public:
 	WState_TranslateBackground = 0x00100000,
 	WState_ForceDisabled	= 0x00200000,
 	WState_Exposed		= 0x00400000,
-	WState_TranslateBackground1 = 0x00800000  // QWS from V2.3.8 only
+	WState_TranslateBackground1 = 0x00800000,  // QWS from V2.3.8 only
+	WState_GlobalBrushOrigin = 0x01000000 //Add by Ant-ON
     };
 
     // Widget flags2

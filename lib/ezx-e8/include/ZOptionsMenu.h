@@ -1,4 +1,4 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -100,6 +100,16 @@ public:
 
     virtual ~ZOptionsMenu();
 
+	// Add by Ant-ON
+	void allow_uncheck_items();
+	void forbid_uncheck_items();
+	void emitSignalMenuToShow();
+	void moveItem(int i, int to);
+	
+	virtual QSize sizeHint();
+	
+	//
+
     void setMenu( ZOptMenuParser * parserClass, QString menuName);
 
     void setMenu( QString fileName, QString menuName);
@@ -171,7 +181,7 @@ public:
         bool checkable = false,
         bool checked = false );
 
-    int insertItem( ZOptionsMenuItem * item, int id = -1, int index = -1 );
+    //int insertItem( ZOptionsMenuItem * item, int id = -1, int index = -1 );
 
     int insertSeparator( int id = -1, int index = -1 );
 
@@ -212,10 +222,11 @@ public:
     int getItemSubMenuNum( int id );
 
     virtual void setPalette( const QPalette & );
-    void setAutoAddCloseItem(bool bAutoAddCloseItem);
-    bool isAutoAddCloseItem();
-
-
+    
+    //void setAutoAddCloseItem(bool bAutoAddCloseItem);
+    
+    //bool isAutoAddCloseItem();
+    
 signals:
 
     void aboutToHide();
@@ -235,6 +246,10 @@ signals:
     void rSoftkeyDown();
 
     void rSoftkeyUp();
+    
+    //Add by Ant-ON
+    void optionMenuToShow(); //???
+    //
 
 public slots:
     virtual void hide();
@@ -263,12 +278,18 @@ protected:
     virtual void keyReleaseEvent( QKeyEvent * e);
 
     virtual void keyPressEvent( QKeyEvent * e );
+    
+    //Add by Ant-ON
+    virtual void timerEvent( QTimerEvent * );
+    //
 
 private slots:
     void slotWaitWrapFinished();
 
     void objectDestroyed();
-    void clickCloseItem();
+    
+    //void clickCloseItem();
+    
 private:
     void startMarquee();
     int insertItemToMenu(ZOptionsMenuItem *item, int id, int index);

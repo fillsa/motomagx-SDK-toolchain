@@ -1,11 +1,16 @@
-
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 
+
 #ifndef ZHEADERDATAMODEL_H
 #define ZHEADERDATAMODEL_H
-
+	
+#define ZHeaderDataModel QObject
+	
+/*	
+	
 #ifndef __cplusplus
 #error "This is a C++ header file; it requires C++ to compile."
 #endif
@@ -57,6 +62,6 @@ private:
     static ZHeaderDataModel *m_pInstance;
     ZHeaderDataModelPrivate *d;
 };
-
+*/
 #endif
 

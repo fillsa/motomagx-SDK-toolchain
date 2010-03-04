@@ -1,5 +1,10 @@
-#ifndef Z_APPLICATION_H
-#define Z_APPLICATION_H
+//Fix for Z6W compobility by Ant-ON, 04.03.2010
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
+
+#ifndef ZAPPLICATION_H
+#define ZAPPLICATION_H
 
 #include <qapplication.h>
 #include <qwindowsystem_qws.h>
@@ -9,6 +14,9 @@
 #include "ZMorphingModeDef.h"
 #include "ZIMethod.h"
 #include "ZKeyDef.h"
+
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
 
 class ZApplicationData;
 class QUuid;
@@ -27,6 +35,11 @@ class ZApplication : public QApplication
 public:
     ZApplication( int& argc, char **argv, Type = GuiClient );
     virtual ~ZApplication();
+    
+    #ifdef EZX_Z6W
+    int getEndTaskWhenCloseSlider();
+    #endif
+    
     ZWidgetSkinProps * getSkinnableProperties();
     int exec();
     void setAutoInvokeKb( bool invoke = true );
@@ -112,4 +125,4 @@ private:
     friend class KbTouchInputEngine;
 };
 
-#endif // Z_APPLICATION_H
+#endif

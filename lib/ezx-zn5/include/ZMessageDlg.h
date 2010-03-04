@@ -1,4 +1,5 @@
-
+//Fix for Motorola ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -36,8 +37,10 @@ public:
         TypeNotice         
     };
 
+	#if !defined(yes_no) || !defined(just_ok)
 	#define yes_no TypeConfirm
 	#define just_ok TypeOK
+	#endif
 
 public:
 

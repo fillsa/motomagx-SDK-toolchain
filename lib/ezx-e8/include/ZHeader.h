@@ -1,4 +1,5 @@
-//Fix for E8 by Ant-ON
+//Fix for E8 by Ant-ON, 2009
+//Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -114,9 +115,10 @@ public:
         AppStatus_S* appStatus; 
     };
 
-    static bool registerInfo(const ZHeader::AppStatusInfo_S& as) {
-        return false;
-    }
+    static bool registerInfo(const ZHeader::AppStatusInfo_S& as); //Fix by Ant-ON
+    //{
+    //    return false;
+    //}
 
     static bool unregisterInfo(ZHeader::HEADER_STATUS s) {
         return false;
@@ -128,6 +130,12 @@ public:
             QWidget* parent = 0,
             const char* name = 0,
             WFlags f = 0);
+
+	// Add by Ant-ON
+	void setMeterRange(int, int);
+	void setMeterValue(int);
+	void showMeter();
+	//
 
     QString getPrimTitle();
 
@@ -174,12 +182,23 @@ signals:
 
     void blendedPixmapChanged(int nIdx);
 
+//Add by Ant-ON
+protected slots:
+    void slotChangePrimTitle(const QString&);
+    void slotChangeSecondTitle(const QString&);
+    void slotGetIcon(int);
+    void slotDisplayTime();
+    void slotPaletteChanged();
+//
+
 protected:
     void init();
 
     virtual void paintEvent(QPaintEvent*);
 
     virtual void resizeEvent(QResizeEvent*);
+    
+    void setTimeString();
 
 private:
     ZHeaderBase * d;

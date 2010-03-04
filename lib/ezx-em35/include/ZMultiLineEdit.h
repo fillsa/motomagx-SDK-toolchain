@@ -1,3 +1,5 @@
+//Fix for VE66/EM35 by Ant-ON, 2009
+
 // Copyright (c) 07-Dec-2004 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef Z_MULTILINE_H
@@ -1349,28 +1351,28 @@ public:
     /// \brief judge the TsBidiCharClass is Bidi.
     /// 
     //================================================================================================
-    bool  isLTRBidiClass(TsBidiCharClass);
+//    bool  isLTRBidiClass(TsBidiCharClass); //Delete by Ant-ON
 
     //================================================================================================
     ///
     /// \brief judge the TsBidiCharClass is Bidi .
     /// 
     //================================================================================================
-    bool  isRTLBidiClass(TsBidiCharClass);
+//    bool  isRTLBidiClass(TsBidiCharClass); //Delete by Ant-ON
 
     //================================================================================================
     ///
     /// \brief judge the TsBidiCharClass is Number.
     /// 
     //================================================================================================
-    bool isNumericBidiClass(TsBidiCharClass);
+//    bool isNumericBidiClass(TsBidiCharClass); //Delete by Ant-ON
     
     //================================================================================================
     ///
     /// \brief judge the TsBidiCharClass is  Neutral Bidi .
     /// 
     //================================================================================================
-    bool  isNeutralBidiClass(TsBidiCharClass); 
+//    bool  isNeutralBidiClass(TsBidiCharClass); //Delete by Ant-ON
 
 public slots:
     ///
@@ -2549,7 +2551,7 @@ private:
     ///
     /// \brief set editor to align automaticly.  
     ///
-    void autoAlignment(TsLayout* layout, TsLayoutInfo &layoutInfo);
+//    void autoAlignment(TsLayout* layout, TsLayoutInfo &layoutInfo); //Delete by Ant-ON
     
     ///
     /// \brief get the alignment of paragraph. 
@@ -2584,7 +2586,7 @@ private:
     ///
     /// \brief get the font glyph region.  
     ///
-    QRegion glyphRegion(const TsGlyphInfo & glinfo, int offset, int x, int y, int charBearing);
+//    QRegion glyphRegion(const TsGlyphInfo & glinfo, int offset, int x, int y, int charBearing); //Delete by Ant-ON
 
     ///
     /// \brief convert the relative position of cursor into logical position.  
@@ -2594,12 +2596,12 @@ private:
     ///
     /// \brief judge the TsBidiCharClass is LTR mark.
     ///
-    bool  isLTRM(TsBidiCharClass);
+//    bool  isLTRM(TsBidiCharClass); //Delete by Ant-ON
 
     ///
     /// \brief judge the TsBidiCharClass is Space.
     ///
-    bool  isSpaceNeutral(TsBidiCharClass);
+//    bool  isSpaceNeutral(TsBidiCharClass); //Delete by Ant-ON
 
     ///
     /// \brief update cursor flag after deletion.

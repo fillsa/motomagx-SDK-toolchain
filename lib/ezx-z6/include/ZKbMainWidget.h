@@ -39,8 +39,8 @@ public:
 	void setAppInfoArea(ZAppInfoArea*);
 	static bool setAppTitle(QString const& appTitle);
 	void setHeaderType(ZHeader::HEADER_TYPE);
-	void setMainWidgetTitle(QString const&);
-	void setMainWidgetTitleIcon(QPixmap const&);
+	bool setMainWidgetTitle(QString const&);
+	bool setMainWidgetTitleIcon(QPixmap const&);	
 	bool setSoftKey(ZSoftKey*);
 	void setTitleTruncEnable(bool);
 	void updateHeader();

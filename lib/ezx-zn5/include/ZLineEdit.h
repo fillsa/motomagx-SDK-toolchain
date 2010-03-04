@@ -1,5 +1,5 @@
-
 //Fix for Motorola ZN5 by Ant-ON
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,8 +22,7 @@ class ZScrollPanel;
 
 class ZLineEdit : public ZFormItem
 {
-	uint data[50];
-	
+	unsigned int data[100-sizeof(ZWidget)/4];
     Q_OBJECT
 	
 public:
@@ -72,8 +71,8 @@ public:
                const ZSkinService::WidgetClsID clsId = ZSkinService::clsZLineEdit);
     ~ZLineEdit();
     QString text() const;
-    QString textWithPredict() const;
-    QString displayText() const;
+    //QString textWithPredict() const;
+    //QString displayText() const;
     QString phonenoText() const;
     int  maxLength()	const;
     virtual void setMaxLength( int );
@@ -98,9 +97,9 @@ public:
     void setCursorFlagDirection(CursorFlagDirection d); 
     void setInitAutoAlign(InitAutoAlign align);
     void setCursorFlagExist(CursorFlagExist d); 
-    int  heightViewed() const;    
+    //int  heightViewed() const;    
 private:
-    void scrollN(QKeyEvent* e);
+    //void scrollN(QKeyEvent* e);
 
     InitAutoAlign initAlign;
     CursorFlagExist cursFlag;
@@ -110,33 +109,33 @@ private:
 public:
     virtual void setCursorPosition( int newPos );
     int cursorPosition() const;
-    bool validateAndSet( const QString &newText, int newPos, int newMarkAnchor, int newMarkDrag);
+    //bool validateAndSet( const QString &newText, int newPos, int newMarkAnchor, int newMarkDrag);
     void setAlignment( int flag );
-    int alignment() const;
+    //int alignment() const;
     void cursorLeft( bool mark);
     void cursorRight( bool mark);
     void        backspaceNew();
     void cursorRightFinish( bool mark, int cp );
-    void  cursorWordForward( bool mark );
-    void  cursorWordBackward( bool mark );
+    //void  cursorWordForward( bool mark );
+    //void  cursorWordBackward( bool mark );
     void  backspace();
-    void  del();
+    //void  del();
     void home( bool mark );
-    void  end( bool mark );
+    //void  end( bool mark );
     void  setEdited( bool on);
     bool  edited() const;
-    bool  hasMarkedText() const;
-    QString  markedText() const;
-    void setOffsetCursor(bool on);
+    //bool  hasMarkedText() const;
+    //QString  markedText() const;
+    //void setOffsetCursor(bool on);
     ZKbInputField  *getInputField();
-    void  emitTextChanged();
+    //void  emitTextChanged();
     int  calCursorPos( int col , int len );
-    QPoint  cursorPoint();
+    //QPoint  cursorPoint();
     void setPreferredWidth(int nWidth);
     int  getPreferredWidth() const;
-    void setPredefinedNumbers(int nCount);
+    //void setPredefinedNumbers(int nCount);
     int  getPredefinedNumbers( ) const;
-    bool autoResize () const;
+    //bool autoResize () const;
     void setAutoResize ( bool enable );
     void setInsertionMethod( enum InsertionMethod nSelection );
     void setEchoModeWhenNoFocus( EchoMode  mode );
@@ -145,20 +144,20 @@ public:
     ZLineEdit::EchoMode echoModeHasFocus() const;
     virtual void setEnabled(bool enable);
     bool isZEnabled();
-    bool isZDisabled();
-    QStringList wrapText(QString,int);
+    //bool isZDisabled();
+    //QStringList wrapText(QString,int);
 
 public slots:
     virtual void setText( const QString &text);
     void  selectAll();
-    void  deselect();
+    //void  deselect();
     void  clearValidator();
     void insert( const QString &);
     void        insertNew( const QString &);
-    bool     isLTRBidiClass(TsBidiCharClass);
-    bool     isRTLBidiClass(TsBidiCharClass);
-    bool     isNumericBidiClass(TsBidiCharClass);
-    bool     isNeutralBidiClass(TsBidiCharClass); 
+    //bool     isLTRBidiClass(TsBidiCharClass);
+    //bool     isRTLBidiClass(TsBidiCharClass);
+    //bool     isNumericBidiClass(TsBidiCharClass);
+    //bool     isNeutralBidiClass(TsBidiCharClass); 
     void  clear();
 
 signals:
@@ -201,19 +200,19 @@ protected:
     int  getPaddingHeight() const;
     QRect  getFieldRect() const;
     void  stateChanged(StateChangeReason stChangeReason);
-    void  titleChanged(const QString & title);
+    //void  titleChanged(const QString & title);
     void  getCurrentFont(QFont & font, QColor & ftColor, ItemType itemType) const;
     void  getFrameWidth(int & nleftw, int & nrightw, int & ntopw, int & nbottomw) const;
     void  updateSkin(bool redraw);
     virtual void setPalette(const QPalette &);
-    void  repaintArea( int, int );
+    //void  repaintArea( int, int );
     int  offset;
 
-private slots:
-    void  clipboardChanged();
-    void  blinkSlot();
-    void  dragScrollSlot();
-    void  fastDelTimerTimeout();
+//private slots:
+    //void  clipboardChanged();
+    //void  blinkSlot();
+    //void  dragScrollSlot();
+    //void  fastDelTimerTimeout();
 
 private:
     void  newMark( int pos, bool copy=TRUE );
@@ -237,7 +236,6 @@ private:
     bool isHyphenAuto() const;
 
     int  getRealMaxLen() const;
-    QString	tbuf;
     ZLineEditPrivate* d;
     int  cursorPos;
     int  maxLen;

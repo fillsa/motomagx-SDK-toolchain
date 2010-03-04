@@ -1,4 +1,4 @@
-
+//Fix for compobility ZSctollView by Ant-ON, 2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -33,6 +33,11 @@ public:
     virtual void removeChild(ZWidget* child);
 
     virtual void addChild( ZWidget* child, int x, int y );
+
+    void addChild( ZWidget* child, int x, int y, bool )//Add by Ant-ON
+    {
+		addChild( child, x, y );
+	}
 
     virtual void moveChild( ZWidget* child, int x, int y );
 

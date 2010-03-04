@@ -1,4 +1,5 @@
-//Non class in ZN5
+//Non class in E8
+//Create by Ant-ON
 
 #ifndef FixByQT
 

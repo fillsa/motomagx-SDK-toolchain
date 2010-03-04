@@ -1,3 +1,4 @@
+
 // Copyright (c) 07-Dec-2004 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef Z_MULTILINE_H
@@ -76,41 +77,6 @@ class ZSkinBase;
 //--------------------------------------------------------------------------------------------------
 //                                   CLASS DEFINITIONS
 //--------------------------------------------------------------------------------------------------
-///
-/// \class ZMultiLineEdit
-///
-/// \brief the ZMainWidget class implements the EZX style's MultiLineEdit,
-/// for example:<pre>
-/// 1. support indent 
-/// 2. support resize automatically(work with ZScrollView)
-/// 3. support under line
-/// 4. support input text filter</pre>
-///
-/// the ZMultiLineEdit is based on the QMultiLineEdit, so for more functions please refer to 
-/// the doc of the QMultiLineEdit, except for these:
-/// setIndent(), getIndent(), getLineHeight(), setUnderline(),
-/// setFilter(),getFilter(), drawLineText()
-///
-/// \code
-/// ZScrollView/// sv = new ZScrollView( this, "sv" );
-/// UTIL_MulitLineEdit *ml1, *ml2;
-///
-/// //add a 6 lines ZMultiLineEdit
-/// ml1 = new ZMultiLineEdit(sv->viewport(),true,6);
-///
-/// //set filter
-/// QRegExp tmp("[.*]");
-/// ml1->setFilter(tmp);
-/// sv->addChild(ml1,0,0);
-///
-/// //set indent
-/// ml1->setIndent(20);
-/// ml2 = new ZMultiLineEdit(sv->viewport());
-/// 
-/// //need to change the widget when ZScrollView's scrollbar is shown/hidden
-/// sv->addChild(ml2,0,30,true);
-/// \endcode
-///
 class Q_EXPORT ZMultiLineEdit : public ZTableView
 {
     Q_OBJECT
@@ -1579,13 +1545,13 @@ signals:
     ///
     void    copyAvailable( bool );
 
-#if defined(QT_NO_PUBLIC_INTERFACE) && defined(QT_NO_WORDCOMPLETE) && defined(QT_NO_GET_CONTEXT)
-#else
+//#if defined(QT_NO_PUBLIC_INTERFACE) && defined(QT_NO_WORDCOMPLETE) && defined(QT_NO_GET_CONTEXT)
+//#else
     ///
     /// \brief  when cursor is changed, the signal is emited.
     ///
     void  cursorChanged(int cursorX, int cursorY);
-#endif
+//#endif
 
 #ifndef QT_NO_GET_CONTEXT
     ///
@@ -2567,7 +2533,7 @@ private:
     ///
     /// \brief prepare the text layout.  
     ///
-    int prepareTsLayout(int lineNo); // return relative line
+    int prepareTsLayout(int lineNo);
     
     ///
     /// \brief  get the index of cursor in the text layout.  
@@ -2673,9 +2639,9 @@ private:
     int     markAnchorY;
     int     markDragX;
     int     markDragY;
-    int     curXPos;    // cell coord of cursor
-    int     blinkTimer; // #### not used anymore - remove in 3.0
-    int     scrollTimer; // #### not used anymore - remove in 3.0
+    int     curXPos;    
+    int     blinkTimer; 
+    int     scrollTimer;
 
 #ifndef QT_NO_MOT_CURSOR_FLA    
     InitAutoAlign initAlign;
@@ -2685,7 +2651,7 @@ private:
 #endif    
 
 };
-#endif // end Z_MULTILINE_H
+#endif
 
 
 

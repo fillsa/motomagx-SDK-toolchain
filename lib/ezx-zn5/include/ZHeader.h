@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,6 +22,13 @@ class ZHeader : public ZWidget
 {
 Q_OBJECT
 public:
+	// Add by Ant-ON
+    void setMeterRange(int, int);
+    void setMeterValue(int v);
+    void showMeter();
+    void hideMeter();	
+	//
+
     enum HEADER_TYPE
     {
         CLI_HEADER,         

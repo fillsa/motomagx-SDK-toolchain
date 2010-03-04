@@ -1,3 +1,5 @@
+//Fix for VE66/EM35 by Ant-ON, 2009
+
 // Copyright (c) 07-Dec-2007 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef __ZLINEEDIT_H__
@@ -1246,28 +1248,28 @@ public slots:
     /// \brief judge TsBidiCharClass is LTR Bidi.
     ///
     //================================================================================================
-    bool     isLTRBidiClass(TsBidiCharClass);
+//    bool     isLTRBidiClass(TsBidiCharClass); // Delete by Ant-ON
     
     //================================================================================================
     ///
     /// \brief judge TsBidiCharClass is RTL Bidi.
     ///
     //================================================================================================
-    bool     isRTLBidiClass(TsBidiCharClass);
+//    bool     isRTLBidiClass(TsBidiCharClass); // Delete by Ant-ON
 
     //================================================================================================
     ///
     /// \brief judge TsBidiCharClass is Number Bidi.
     ///
     //================================================================================================
-    bool     isNumericBidiClass(TsBidiCharClass);
+//    bool     isNumericBidiClass(TsBidiCharClass); // Delete by Ant-ON
     
     //================================================================================================
     ///
     /// \brief judge TsBidiCharClass is Neutral Bidi.
     ///
     //================================================================================================ 
-    bool     isNeutralBidiClass(TsBidiCharClass); 
+//    bool     isNeutralBidiClass(TsBidiCharClass); // Delete by Ant-ON
 
     //================================================================================================
     ///
@@ -1592,7 +1594,7 @@ private:
     ///
     ///  \brief get the font glyph region.
     ///
-    QRegion glyphRegion(const TsGlyphInfo & glinfo, int offset, int y);
+//    QRegion glyphRegion(const TsGlyphInfo & glinfo, int offset, int y);// Delete by Ant-ON
 #endif
                
     ///

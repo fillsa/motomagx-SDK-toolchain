@@ -1,4 +1,5 @@
-//Fix for ZN5 by Ant-ON
+//Fix for ZN5 by Ant-ON, 2009
+//Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -54,11 +55,9 @@ public:
 
     void insertStringList( const QStringList &, int index=-1 );
 
-    void insertStrList( const QStrList &, int index=-1 );
-
-    void insertStrList( const QStrList *, int index=-1 );
-
-    void insertStrList( const char **, int numStrings=-1, int index=-1);
+    //void insertStrList( const QStrList &, int index=-1 );
+    //void insertStrList( const QStrList *, int index=-1 );
+    //void insertStrList( const char **, int numStrings=-1, int index=-1);
 
     void insertItem( const QString &text, int index=-1 );
 
@@ -74,7 +73,7 @@ public:
 
     QString text( int index ) const;
 
-    const QPixmap pixmap( int index ) const;
+    //const QPixmap pixmap( int index ) const;
 
     void changeItem( const QString &text, int index );
 
@@ -89,37 +88,33 @@ public:
 
     virtual void setSizeLimit( int );
 
-    int sizeLimit() const;
+    //int sizeLimit() const;
 
     virtual void setMaxCount( int );
 
-    int maxCount() const;
+    //int maxCount() const;
 
     virtual void setInsertionPolicy( Policy policy );
 
-    Policy insertionPolicy() const;
+    //Policy insertionPolicy() const;
 
     virtual void setValidator( const QValidator * v);
 
-    const QValidator * validator() const;
+    //const QValidator * validator() const;
 
     ZListBox * listBox() const;
 
-    ZLineEdit * lineEdit() const;
+    //ZLineEdit * lineEdit() const;
 
     bool eventFilter( QObject *object, QEvent *event );
 
     virtual void setAutoCompletion( bool );
 
-    bool autoCompletion() const;
-
-    void setDuplicatesEnabled( bool enable );
-
-    bool duplicatesEnabled() const;
-
-    bool editable() const;
-
-    void setEditable( bool y);
+    //bool autoCompletion() const;
+    //void setDuplicatesEnabled( bool enable );
+    //bool duplicatesEnabled() const;
+    //bool editable() const;
+    //void setEditable( bool y);
 
     void setDlgTitle(const QString & title, DlgType dlgType = SingleSelectDlg);
 
@@ -138,13 +133,9 @@ public slots:
     void clearValidator();
 
 signals:
-
     void activated( int index );
-
     void highlighted( int index );
-
     void activated( const QString &);
-
     void highlighted( const QString &);
 
     void textChanged( const QString &);
@@ -156,7 +147,7 @@ private slots:
     void internalHighlight( int );
     void returnPressed();
     void pressPopupButton();
-    void slotClearKeyClick();
+    //void slotClearKeyClick();
 
 protected slots:
     virtual void slotLeftSoftkeyClick();
@@ -174,7 +165,7 @@ protected:
 
     virtual void setPalette(const QPalette &);
 
-    void popup(bool editable);
+    //void popup(bool editable);
 
     virtual QRect getContentRect() const;
     virtual void getBtnFrameWidth(int & nleftw, int & nrightw, int & ntopw, int & nbottomw) const;
@@ -196,9 +187,9 @@ private:
     void changeZItem(const QString & t,int index);
     void changeZItem(const QPixmap & pixmap,int index);
     void changeZItem(const QPixmap & pixmap,const QString & t,int index); 
-    void insertZItem(const QString & t, int index,int rsvData);
-    void insertZItem(const QPixmap & pixmap,int index,int rsvData);
-    void insertZItem(const QPixmap & pixmap,const QString & t, int index,int rsvData);
+    //void insertZItem(const QString & t, int index,int rsvData);
+    //void insertZItem(const QPixmap & pixmap,int index,int rsvData);
+    //void insertZItem(const QPixmap & pixmap,const QString & t, int index,int rsvData);
     void setDialog();
     void setPressBtn();
     void setUpListBox();
