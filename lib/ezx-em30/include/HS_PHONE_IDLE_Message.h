@@ -1,0 +1,1 @@
+/arm-eabi/lib/ezx-e8/include/HS_PHONE_IDLE_Message.h

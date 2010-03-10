@@ -155,7 +155,7 @@ public:
     void    keyPressEvent( QKeyEvent * );
     void keyReleaseEvent(QKeyEvent * );
     void    focusInEvent( QFocusEvent * );
-    int getCursorState();
+    void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
     
 public slots:
     virtual void changeContentSize( int lines,QPoint cursorPos );
@@ -304,8 +304,8 @@ private:
     QPixmap* getPixmap(const SelectionState state);
     void getLinePixSuffixName(const SelectionState state, QString & suffix);
     int getCursorOffset(int cursorRow, int cursorCol);
-    void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
-    //int getCursorState();
+    //void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
+    int getCursorState();
     int getParaAlignment(void);
     void overrideLineDirection(int line, eParaAlignment dir, int removed);
     ZMultiLineEdit( const ZMultiLineEdit & );

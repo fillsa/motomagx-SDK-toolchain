@@ -1,4 +1,5 @@
 //Fix for VE66/EM35 by Ant-ON, 2009
+//Fix for compobility by Ant-ON, 09-03-2010
 
 // Copyright (c) 07-Dec-2004 - 2008 Motorola, Inc. All rights reserved.
 
@@ -185,7 +186,8 @@ public:
      {
         INSERTION_METHOD_BEGIN,     ///< Begin,     indicates that text should begin at the first position
         INSERTION_METHOD_END,       ///< End,       indicates that text should begin at the current last position 
-        INSERTION_METHOD_SELECTION  ///< Selection, indicates that text should overwrite contents.  
+        INSERTION_METHOD_SELECTION,  ///< Selection, indicates that text should overwrite contents.  
+        atPosNoSelected //Add by Ant-ON
      };
         
     ///
@@ -1750,10 +1752,13 @@ protected:
     ///
     void    wheelEvent( QWheelEvent * );
 
+public://for compobility
     ///
     /// \brief accept key presses event
     ///
     void    keyPressEvent( QKeyEvent * );
+    
+protected://
 
     ///
     /// \brief accept key releases event
@@ -1841,6 +1846,8 @@ protected:
     int textWidth( const QString &s);
 #endif
 
+public: //for compobility
+
     ///
     /// Get the top center point where the cursor is drawn.
     ///
@@ -1851,6 +1858,8 @@ protected:
 #else
     QPoint  cursorPoint() const;
 #endif
+
+protected://
 
     ///
     /// Get the top center point where the cursor is drawn in the displayed cleartool 
@@ -1880,6 +1889,7 @@ protected:
     ///
     virtual void killLine();
     
+public: // for compobility
     ///
     /// Moves the cursor one page up. 
     ///
@@ -1925,6 +1935,8 @@ protected:
     /// \param mark if TRUE, the text is marked.
     ///
     virtual void cursorDown( bool mark=FALSE );
+  
+protected://
     
 #ifdef FEAT_UISTYLE_CHAMELEON
     ///
@@ -2351,6 +2363,8 @@ private:
     ///
     void    stopAutoScroll();
     
+public: //for compobility
+    
     ///
     /// \brief move the cursor left.  
     ///
@@ -2370,7 +2384,8 @@ private:
     /// \brief move the cursor down 
     ///
     void    cursorDown( bool mark, bool clear_mark );
-    
+ 
+private://    
     ///
     /// \brief wrap a line.  
     ///
@@ -2524,10 +2539,13 @@ private:
     ///
     int getCursorOffset(int cursorRow, int cursorCol);
     
+public://for compobility
     ///
     /// \brief get the cursor positon.  
     ///
     void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
+  
+private://  
     
     ///
     /// \brief get the state of cursor.  

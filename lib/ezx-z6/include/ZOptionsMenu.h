@@ -7,7 +7,6 @@
 #include <qmap.h>
 #include <ZSkinBase.h>
 #include <ZWidget.h>
-//#include "ZSkinService.h"
 
 class QSignal;
 class ZOptionsMenu;
@@ -25,7 +24,6 @@ protected:
     virtual void paint( QPainter * painter, int x1, int y1, int x2, int y2 );
 
 private:
-    virtual void calcHeight();
     uint hasSubMenu : 1;
     uint isCheckable : 1;
     uint isChecked : 1;
@@ -33,6 +31,9 @@ private:
     uint isEnabled : 1;
     uint isSelectable : 1;
     uint isTruncH : 1;
+    
+private:    
+    virtual void calcHeight();    
     int mId;
     int mHeight;
     int mYPos;

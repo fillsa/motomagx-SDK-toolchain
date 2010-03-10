@@ -1,15 +1,12 @@
 #ifndef Z_MULTILINE_H
 #define Z_MULTILINE_H
 
-#ifndef QT_H
 #include "qtableview.h"
 #include "qstring.h"
 #include "qlist.h"
 #include "qregexp.h"
-#endif // QT_H
 #include "ZTableView.h"
 
-//#include "tslayout.h"
 struct ZMultiLineData;
 class ZMultiLineEditCommand;
 class QValidator;
@@ -245,8 +242,10 @@ public slots:
     void    mouseReleaseEvent( QMouseEvent * );
     void    mouseDoubleClickEvent( QMouseEvent * );
     void    wheelEvent( QWheelEvent * );
+  public://Fix for compobility
     void    keyPressEvent( QKeyEvent * );
-    void keyReleaseEvent(QKeyEvent * );
+    void    keyReleaseEvent(QKeyEvent * );
+  protected:    
     void    focusInEvent( QFocusEvent * );
     void    focusOutEvent( QFocusEvent * );
     void    timerEvent( QTimerEvent * );
@@ -260,6 +259,7 @@ public slots:
     int	    textWidthWithTabs( int lineNo );
     int	    textWidth( int lineNo = -1 );
 
+  public://Fix for compobility
     QPoint  cursorPoint();
     QPoint  cursorPointViewed();
 
@@ -269,13 +269,14 @@ public slots:
     virtual void insert( const QString& c, bool mark );
     virtual void newLine();
     virtual void killLine();
+  public:  //Fix for compobility  
     virtual void pageUp( bool mark=FALSE );
     virtual void pageDown( bool mark=FALSE );
     virtual void cursorLeft( bool mark=FALSE, bool wrap = TRUE );
     virtual void cursorRight( bool mark=FALSE, bool wrap = TRUE );
     virtual void cursorUp( bool mark=FALSE );
     virtual void cursorDown( bool mark=FALSE );
-    
+   protected:    
     virtual void cursorMove(bool down);
     void linesChangedNoExp(int lines);
     int firstNoVisibleLines(int curLines, const QRect & rt, bool down);
@@ -377,7 +378,6 @@ public slots:
     bool    underline;
 
     int layoutLineNumber;
-    //TsLayoutInfo layoutInfo;
     TsLayout *layout;
     TsText *tstext;
     QFont *ts_qfont;
@@ -399,8 +399,8 @@ public slots:
 
 public:
     void specialInputModeCursorModel(bool);
+    
 private:
-
     bool    readOnly;
     bool    dummy;
     bool    markIsOn;
@@ -446,12 +446,12 @@ private:
 
     void    startAutoScroll();
     void    stopAutoScroll();
-
+  public:  //Fix for compobility 
     void    cursorLeft( bool mark, bool clear_mark, bool wrap );
     void    cursorRight( bool mark, bool clear_mark, bool wrap );
     void    cursorUp( bool mark, bool clear_mark );
     void    cursorDown( bool mark, bool clear_mark );
-
+  private:
     void    wrapLine( int line, int removed = 0);
     void    rebreakParagraph( int line, int removed = 0 );
     void    rebreakAll();
@@ -513,6 +513,8 @@ private:
 
     int getCursorOffset(int cursorRow, int cursorCol);
 
+  public:  //For compobility
+  
     void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
 
     int getCursorState();

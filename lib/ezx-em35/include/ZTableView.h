@@ -1,4 +1,5 @@
 //Fix for VE66/EM35 by Ant-ON, 2009
+//Fix for compobility by Ant-ON, 09-03-2010
 
 /////////////////////////////////////////////////////////////////////
 /// $Id: qt/src/widgets/qtableview.h   2.3.6   edited 2001-01-26 $
@@ -192,7 +193,9 @@ private:
     void	coverCornerSquare( bool );
     void	snapToGrid( bool horizontal, bool vertical );
     virtual void	setHorScrollBar( bool on, bool update = TRUE );
+public://for compobility
     virtual void	setVerScrollBar( bool on, bool update = TRUE );
+private://    
     void	updateView();
     int		findRawRow( int yPos, int *cellMaxY, int *cellMinY = 0,
 			    bool goOutsideView = FALSE ) const;

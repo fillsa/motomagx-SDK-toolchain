@@ -1,15 +1,12 @@
 #ifndef Z_MULTILINE_H
 #define Z_MULTILINE_H
 
-#ifndef QT_H
 #include "qtableview.h"
 #include "qstring.h"
 #include "qlist.h"
 #include "qregexp.h"
-#endif // QT_H
 #include "ZTableView.h"
 
-//#include "tslayout.h"
 struct ZMultiLineData;
 class ZMultiLineEditCommand;
 class QValidator;
@@ -123,8 +120,8 @@ class Q_EXPORT ZMultiLineEdit : public ZTableView
     int wrapColumnOrWidth() const;
     enum WrapPolicy 
         {
-            AtWhiteSpace, ///< \a \c break only after whitespace 
-            Anywhere ///< \a \c break anywhere 
+            AtWhiteSpace,
+            Anywhere
         };
     void setWrapPolicy( WrapPolicy policy );
     WrapPolicy wrapPolicy() const;
@@ -256,7 +253,9 @@ public slots:
     void    mouseReleaseEvent( QMouseEvent * );
     void    mouseDoubleClickEvent( QMouseEvent * );
     void    wheelEvent( QWheelEvent * );
+  public://	
     void    keyPressEvent( QKeyEvent * );
+  protected://      
     void keyReleaseEvent(QKeyEvent * );
     void    focusInEvent( QFocusEvent * );
     void    focusOutEvent( QFocusEvent * );
@@ -277,7 +276,9 @@ public slots:
     int	    textWidthWithTabs( int lineNo );
     int	    textWidth( int lineNo = -1 );
 
+  public://	
     QPoint  cursorPoint();
+  protected://    
     QPoint  cursorPointViewed();
 
    
@@ -286,13 +287,14 @@ public slots:
     virtual void insert( const QString& c, bool mark );
     virtual void newLine();
     virtual void killLine();
+  public://
     virtual void pageUp( bool mark=FALSE );
     virtual void pageDown( bool mark=FALSE );
     virtual void cursorLeft( bool mark=FALSE, bool wrap = TRUE );
     virtual void cursorRight( bool mark=FALSE, bool wrap = TRUE );
     virtual void cursorUp( bool mark=FALSE );
     virtual void cursorDown( bool mark=FALSE );
-    
+  protected://  
     virtual void cursorMove(bool down);
     void linesChangedNoExp(int lines);
     int firstNoVisibleLines(int curLines, const QRect & rt, bool down);
@@ -401,7 +403,6 @@ public slots:
     bool    underline;
 
     int layoutLineNumber;
-    //TsLayoutInfo layoutInfo;
     TsLayout *layout;
     TsText *tstext;
     QFont *ts_qfont;
@@ -473,11 +474,13 @@ private:
 #endif
     void    startAutoScroll();
     void    stopAutoScroll();
-
+    
+public://	
     void    cursorLeft( bool mark, bool clear_mark, bool wrap );
     void    cursorRight( bool mark, bool clear_mark, bool wrap );
     void    cursorUp( bool mark, bool clear_mark );
     void    cursorDown( bool mark, bool clear_mark );
+private://
 
     void    wrapLine( int line, int removed = 0);
     void    rebreakParagraph( int line, int removed = 0 );
@@ -540,7 +543,9 @@ private:
 
     int getCursorOffset(int cursorRow, int cursorCol);
 
+public://
     void getCorsorPosition(int & cursorRow, int & cursorCol, int cursorOffset);
+private://
 
     int getCursorState();
 
