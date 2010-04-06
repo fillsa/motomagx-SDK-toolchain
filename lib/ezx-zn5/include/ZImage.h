@@ -64,6 +64,8 @@ private:
 
 
     bool mIsEnabled;
+    
+    uint fix[5];
 };
 
 #endif //ZIMAGE_H

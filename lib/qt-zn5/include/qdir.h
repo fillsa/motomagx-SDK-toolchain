@@ -174,7 +174,7 @@ public:
 
     static char separator();
 
-    static bool setCurrent( const QString &path ){};//Not in lib - Fix by Ant-ON
+    static bool setCurrent( const QString &path ){return true;};//Not in lib - Fix by Ant-ON
     static QDir current();
     static QDir home();
     static QDir root();

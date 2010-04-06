@@ -20,14 +20,36 @@
 //For change SDK for ZN5/U9/Z6W
 #include "ZMyConfig.h"
 
-class ALERTSTYLE_DATA_S;
-class PROFILE_DATA_S;
 class STRU_IATC_PROFILE_RING_TONE_D;
-class SETUP_SYSTEM_INFORMATION;
-class JAVA_SYSTEM_S;
+
+struct ALERTSTYLE_DATA_S
+{
+    // ...
+};
+
+struct PROFILE_DATA_S
+{
+    // ...
+};
+
+struct JAVA_SYSTEM_S
+{
+    QString midp;
+    QString cldt;
+    QString s1;
+    QString s2;
+    QString heapSize;
+    QString cdc;
+};
 
 enum ENUM_PRELOADED_PROFILE_E
 {
+};
+
+struct SETUP_SYSTEM_INFORMATION
+{
+	QString s;//???
+    // ...	
 };
 
 struct PROFILE_CONFIG_S

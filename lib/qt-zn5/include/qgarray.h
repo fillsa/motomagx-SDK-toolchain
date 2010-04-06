@@ -1,3 +1,5 @@
+//Fix for ZN5 by Ant-ON, 11-03-2010
+
 
 /*
  * Copyright (C) 2007 Motorola Inc.
@@ -86,14 +88,14 @@ protected:
     QGArray    &duplicate( const QGArray &a );
     QGArray    &duplicate( const char *d, uint len );
     void	store( const char *d, uint len );
-
+public://
     array_data *sharedBlock()	const		{ return shd; }
     void	setSharedBlock( array_data *p ) { shd=(array_data*)p; }
-
+protected://
     QGArray    &setRawData( const char *d, uint len );
     void	resetRawData( const char *d, uint len );
 
-    int		find( const char *d, uint index, uint sz ) const;
+    //int		find( const char *d, uint index, uint sz ) const; // not in lib ZN5 (
     int		contains( const char *d, uint sz ) const;
     
     void	sort( uint sz );

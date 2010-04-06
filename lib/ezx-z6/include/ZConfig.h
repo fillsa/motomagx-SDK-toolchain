@@ -16,7 +16,7 @@ public:
     // No comments =)   
     bool changed() const;
     // May be flush on disk file?
-    virtual int flush();
+    virtual bool flush();
 
     int write(QString const&);
     // TODO - QString read();

@@ -94,8 +94,8 @@ public:
 						     n*sizeof(type)); }
     void resetRawData( const type *a, uint n )
 	{ QGArray::resetRawData((char*)a,n*sizeof(type)); }
-    int	 find( const type &d, uint i=0 ) const
-	{ return QGArray::find((char*)&d,i,sizeof(type)); }
+    //int	 find( const type &d, uint i=0 ) const
+	//{ return QGArray::find((char*)&d,i,sizeof(type)); }
     int	 contains( const type &d ) const
 	{ return QGArray::contains((char*)&d,sizeof(type)); }
     void sort() { QGArray::sort(sizeof(type)); }

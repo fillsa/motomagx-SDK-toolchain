@@ -7,13 +7,19 @@
 
 #undef  Q_DISABLE_COPY
 
+//???
+#define QT_NO_WTLE
+//???
+
 #undef  QT_NO_CURSOR
 #define QT_KEYPAD_MODE
 #undef  QT_NO_PALETTE
 #undef	QT_NO_COMPAT
 #undef	QT_NO_TRANSLATION
 #define QT_NO_SESSIONMANAGER
+#ifndef QT_THREAD_SUPPORT
 #define	QT_THREAD_SUPPORT
+#endif
 #undef	QT_NO_DATASTREAM
 #define QT_NO_DRAGANDDROP
 #define QT_NO_MESSAGEBOX

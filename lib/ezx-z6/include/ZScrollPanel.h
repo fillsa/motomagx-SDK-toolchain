@@ -74,11 +74,8 @@ public:
     ZWidget* prevChild(ZWidget* child) const;
     void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
     void setZBorder( ZSkinBase::BorderPixmaps& pixmaps);
-
-#ifndef QT_NO_PALETTE
-     void setPalette( const QPalette & ){updateSkin(TRUE);}
-#endif
-
+    void setPalette( const QPalette & ){updateSkin(TRUE);}
+	
 public:
     virtual bool  isScrollPanelTypeWidget() const {return TRUE;}
     virtual void  resetFocusItem(bool){}

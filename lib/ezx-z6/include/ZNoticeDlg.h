@@ -24,8 +24,8 @@ public:
     Information        
   };  
   
-	ZNoticeDlg(ZNoticeDlg::Type type, QString const &instructText, QString const &strMsg, QWidget* parent, char const* name, bool modal, unsigned flag, bool dismisTimer);
-	ZNoticeDlg(ZNoticeDlg::Type type, unsigned timeout_ms, QString const&, QString const&, QWidget*, char const*, bool, unsigned);
+	ZNoticeDlg(ZNoticeDlg::Type type, QString const &instructText, QString const &strMsg, QWidget* parent=NULL, char const* name=0, bool modal=true, unsigned flag=0, bool dismisTimer=0);
+	ZNoticeDlg(ZNoticeDlg::Type type, unsigned timeout_ms, QString const&, QString const&, QWidget* parent=NULL, char const* name=0, bool modal=true, unsigned flag=0);
 	~ZNoticeDlg();
 
 	void dismissDlg(ZPopup::PopupCode);

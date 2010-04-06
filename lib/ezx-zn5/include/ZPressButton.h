@@ -92,6 +92,6 @@ private:
     ZPressButton &operator=( const ZPressButton & );
 
 //private:
-//	char data[10000];
+//	uint data[1000];
 };
 #endif

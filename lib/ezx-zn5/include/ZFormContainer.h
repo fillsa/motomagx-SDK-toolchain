@@ -1,5 +1,5 @@
 //Fix for ZN5 by Ant-ON, 2009
-//Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Fix for ZN5/U9 by Ant-ON, 25-01-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
