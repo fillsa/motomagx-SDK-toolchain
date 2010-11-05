@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,12 +23,10 @@ class ZFmwItem;
 class ZMeterModule;
 class QPainter;
 class QTimer;
-#ifdef DEBUG
-class TestCase;
-#endif
 
 class ZAppInfoArea : public ZWidget
 {
+	uint fix[8];
     Q_OBJECT
 public:
 

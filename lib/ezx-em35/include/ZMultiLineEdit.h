@@ -1,5 +1,7 @@
 //Fix for VE66/EM35 by Ant-ON, 2009
 //Fix for compobility by Ant-ON, 09-03-2010
+//Fix for compobility by Ant-ON, 15-06-2010 (paintEvent to public)
+//Fix for compobility by Ant-ON, 25-10-2010 (hasMarkedText, getMarkedRegion to public)
 
 // Copyright (c) 07-Dec-2004 - 2008 Motorola, Inc. All rights reserved.
 
@@ -182,6 +184,8 @@ public:
      ///
      ///  \note  The default value is End.
      ///
+     #define InsertionMethod InsertionMethodType
+     
      enum InsertionMethodType
      {
         INSERTION_METHOD_BEGIN,     ///< Begin,     indicates that text should begin at the first position
@@ -1668,11 +1672,13 @@ protected:
     ///
     void    setCursorPixelPosition(QPoint p, bool clear_mark = true);
 
+public: //Added 15-06-2010
     ///
     /// Reimplemented from ZTableView
     ///
     void    paintEvent(QPaintEvent* );
 
+protected:
 #ifndef QT_NO_PUBLIC_INTERFACE
     ///
     /// \brief a part of paint action.
@@ -1797,14 +1803,16 @@ protected://
     ///
     bool    focusNextPrevChild( bool );
 
-
+public://for compobility
     ///
     /// Judge whether there is a marked text
     ///
     /// \retval TRUE if there is a marked text
     ///
     bool    hasMarkedText() const;
-    
+
+protected://
+   
     ///
     /// Get the marked text
     ///
@@ -1995,6 +2003,8 @@ protected://
     ///
     virtual void end( bool mark=FALSE );
 
+public: // for compobility
+
     ///
     /// If there is a marked text, set the marked region
     ///
@@ -2010,6 +2020,8 @@ protected://
     ///
     bool getMarkedRegion( int* line1, int* col1,
                           int* line2, int* col2 ) const;
+
+protected://
 
     ///
     /// Get the number of characters at the line number 

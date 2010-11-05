@@ -78,9 +78,9 @@ public:
 	enum Alignment {
 	};
 
-	ZSliderModule(ZSlider::Indicator, QWidget*, char const*, ZSkinService::WidgetClsID);
+	ZSliderModule(ZSlider::Indicator, QWidget*, const char * =0, ZSkinService::WidgetClsID = ZSkinService::clsZSliderModule);
 	ZSliderModule(QWidget*, char const*, ZSkinService::WidgetClsID);
-	ZSliderModule(int, int, int, int, ZSlider::Indicator, QWidget*, char const*, ZSkinService::WidgetClsID);
+	ZSliderModule(int, int, int, int, ZSlider::Indicator, QWidget*, const char* =0, ZSkinService::WidgetClsID = ZSkinService::clsZSliderModule);
 	~ZSliderModule();
 
 	void paintEvent(QPaintEvent*);
@@ -101,7 +101,7 @@ public:
 	void autoResize() const;
 	QSize minimumSizeHint() const;
 	QSize sizeHint() const;
-	void getSlider() const;
+	ZSlider *getSlider() const;
 };
 
 

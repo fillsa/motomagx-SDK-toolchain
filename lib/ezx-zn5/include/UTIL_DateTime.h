@@ -4,8 +4,8 @@
 // email: prozanton@gmail.com
 //
 
-#ifndef PUBLIC_UTIL_DATATIME_H 
-#define PUBLIC_UTIL_DATATIME_H
+#ifndef UTIL_DATATIME_H 
+#define UTIL_DATATIME_H
 
 #include <qstring.h>
 #include <qdatetime.h>

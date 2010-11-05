@@ -12,8 +12,15 @@ class ZTableView : public ZWidget
     unsigned int data[94 - sizeof(ZWidget)/4];
 
 public:
-  ZTableView( QWidget *parent=0, const char *name=0, WFlags f=0, ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal);
-  ~ZTableView();
+	ZTableView( QWidget *parent=0, const char *name=0, WFlags f=0, ZSkinService::WidgetClsID clsId = ZSkinService::clsTotal);
+	~ZTableView();
+    
+    bool rowYPos( int row, int *yPos ) const;
+    bool colXPos( int col, int *xPos ) const;
+    virtual int cellWidth( int col );
+    virtual int cellHeight( int row );
+    int		cellWidth()	const;
+    int		cellHeight()	const;
     
     virtual void setNumRows(int, bool);
     virtual void setNumCols(int);
@@ -23,8 +30,6 @@ public:
     virtual void setXOffset(int);
     virtual void setYOffset(int);
     virtual void setOffset(int, int, bool);
-    virtual void cellWidth(int);
-    virtual void cellHeight(int);
     virtual void setCellWidth(int);
     virtual void setCellHeight(int);
     virtual void totalWidth();

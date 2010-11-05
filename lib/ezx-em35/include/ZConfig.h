@@ -15,6 +15,7 @@
 
 class ZConfigData;
 typedef QMap< QString, QString > ZConfigGroup;
+typedef QMap<QString, ZConfigGroup >::Iterator ZConfigGroupIterator;
 
 class ZConfig
 {

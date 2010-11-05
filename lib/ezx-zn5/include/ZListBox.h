@@ -1,4 +1,5 @@
 //Fix for Motorola ZN5 by Ant-ON
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -18,7 +19,7 @@ class ZListBoxPrivate;
 
 class Q_EXPORT ZListBox : public ZScrollPanel
 {
-       uint temp[40];	
+       uint temp[60];
 
        friend class ZListItem;
        friend class ZListBoxItem;

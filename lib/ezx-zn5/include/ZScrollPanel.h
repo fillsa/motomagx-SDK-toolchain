@@ -1,6 +1,7 @@
 //Fix for Motorola ZN5 by Ant-ON, 2009
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -15,8 +16,8 @@ struct ZScrollPanelData;
 
 class Q_EXPORT ZScrollPanel : public ZWidget
 {
+	uint fix[20];
     Q_OBJECT
-
 public:
     ZScrollPanel(QWidget *parent=0, const char *name=0, WFlags f=0, ZSkinService::WidgetClsID = ZSkinService::clsZScrollPanel);
     ~ZScrollPanel();

@@ -21,124 +21,119 @@ class ZKbMainWidgetData;
 
 class ZKbMainWidget : public ZMainWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
-    ZKbMainWidget( QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
+	ZKbMainWidget( QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
 
-    ZKbMainWidget( const QString &mwTitle, QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
+	ZKbMainWidget( const QString &mwTitle, QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
 
-    ZKbMainWidget( ZHeader::HEADER_TYPE headerType, QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
+	ZKbMainWidget( ZHeader::HEADER_TYPE headerType, QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
 
-    virtual ~ZKbMainWidget();
+	virtual ~ZKbMainWidget();
 
 	//Add by Ant-ON
 	enum ENUM_CHILD{};
-    QRect getChildR(ENUM_CHILD);
-    QRect getChildR_Header();
-    QRect getChildR_AIA();
-    QRect getChildR_Content();
-    QRect getChildR_Cst();
-    
-    ZHeader* getHeader();
-    
-    void setChildWidgetLayout();
+	QRect getChildR(ENUM_CHILD);
+	QRect getChildR_Header();
+	QRect getChildR_AIA();
+	QRect getChildR_Content();
+	QRect getChildR_Cst();
+
+	ZHeader* getHeader();
+
+	void setChildWidgetLayout();
 	//
 
-  public:
-    void setHeaderType(ZHeader::HEADER_TYPE headerType);
+	void setHeaderType(ZHeader::HEADER_TYPE headerType);
 
-    static bool setAppTitle( const QString &appTitle );
+	static bool setAppTitle( const QString &appTitle );
 
-    static QString getAppTitle();
+	static QString getAppTitle();
 
-    QPixmap getTitlePixmap(int nIdx);
+	QPixmap getTitlePixmap(int nIdx);
 
-    bool setMainWidgetTitle( const QString &mwTitle );
+	bool setMainWidgetTitle( const QString &mwTitle );
 
-    QString getMainWidgetTitle();
+	QString getMainWidgetTitle();
 
-    bool setMainWidgetTitleIcon(const QPixmap& pmp);
+	bool setMainWidgetTitleIcon(const QPixmap& pmp);
 
-    QPixmap getMainWidgetTitleIcon();
+	QPixmap getMainWidgetTitleIcon();
 
-    bool setAppInfoArea( ZAppInfoArea *aia );
+	bool setAppInfoArea( ZAppInfoArea *aia );
 
-    ZAppInfoArea* getAppInfoArea();
+	ZAppInfoArea* getAppInfoArea();
 
-    bool setSoftKey( ZSoftKey *cstWidget );
+	bool setSoftKey( ZSoftKey *cstWidget );
 
-    ZSoftKey* getSoftKey( bool createZSoftKey = TRUE );
+	ZSoftKey* getSoftKey( bool createZSoftKey = TRUE );
 
-    //bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
+	//bool setCLISoftKey(ZCLISoftKey* cliSoftKey);
 
-    //ZCLISoftKey* getCLISoftKey(bool createZCLISoftKey = TRUE);
+	//ZCLISoftKey* getCLISoftKey(bool createZCLISoftKey = TRUE);
 
-    virtual bool eventFilter(QObject*, QEvent*);
+	virtual bool eventFilter(QObject*, QEvent*);
 
-    void setTitleTruncEnable(bool bTrunc);
+	void setTitleTruncEnable(bool bTrunc);
 
-    bool isTitleTruncEnable();
+	bool isTitleTruncEnable();
 
-    void updateHeader();
+	void updateHeader();
 
-    QSize headerSize();
+	QSize headerSize();
 
-    void setWidgetPixmapPrefix(QString& prefix );
-    void setHeaderPixmapPrefix(QString& prefix);
-    void hideHeader() ;
+	void setWidgetPixmapPrefix(QString& prefix );
+	void setHeaderPixmapPrefix(QString& prefix);
+	void hideHeader() ;
 
-    void showHeader() ;
-    virtual QWidget* getContentWidget(bool createZScrollView = TRUE);
+	void showHeader() ;
+	virtual QWidget* getContentWidget(bool createZScrollView = TRUE);
 
-    virtual bool setContentWidget(QWidget* w = NULL);
-    virtual QWidget* getCSTWidget( bool create = TRUE );
-    virtual bool setCSTWidget( QWidget* w = NULL );
-    virtual bool setTitleBarWidget( QWidget* w = NULL );
-    virtual QWidget* getTitleBarWidget();	
-    virtual void setFullScreenMode(bool fullScreen, bool reserved = FALSE);
+	virtual bool setContentWidget(QWidget* w = NULL);
+	virtual QWidget* getCSTWidget( bool create = TRUE );
+	virtual bool setCSTWidget( QWidget* w = NULL );
+	virtual bool setTitleBarWidget( QWidget* w = NULL );
+	virtual QWidget* getTitleBarWidget();	
+	virtual void setFullScreenMode(bool fullScreen, bool reserved = FALSE);
 
-    virtual bool getFullScreenMode();
+	virtual bool getFullScreenMode();
 
-    QSize getContentSize();
+	QSize getContentSize();
 
-    virtual bool getEditMode();
+	virtual bool getEditMode();
 
+signals:
 
- signals:
+	void clearKeyClicked( );
 
-    void clearKeyClicked( );
+	void serverInitialized();
 
-    void serverInitialized();
+	void TitlePixmapChanged(int nIdx);
+	protected slots:
+	virtual void slotKbWidgetSizeChanged(const QRect & resizeR,
+						 int topLevelWinId,
+						 bool show,
+						 bool changed);
+protected:
 
-    void TitlePixmapChanged(int nIdx);
-protected slots:
-    virtual void slotKbWidgetSizeChanged(const QRect & resizeR,
-                                 int topLevelWinId,
-                                 bool show,
-                                 bool changed);
-  protected:
+	virtual bool event( QEvent *e );
 
-    virtual bool event( QEvent *e );
+	int getLRSBaseIndex();
 
-    int getLRSBaseIndex();
+	virtual void keyPressEvent( QKeyEvent * e);
 
-    virtual void keyPressEvent( QKeyEvent * e);
+	virtual void resizeEvent( QResizeEvent * e);
 
-    virtual void resizeEvent( QResizeEvent * e);
+private slots:  
+	void slotAppMessage(const QCString &msg, const QByteArray &);
+	void childDestroyed();
 
+private:
+	void init(ZHeader::HEADER_TYPE headerType);
+	void initMainWidget();
 
-  private slots:  
-    void slotAppMessage(const QCString &msg, const QByteArray &);
-    void childDestroyed();
-
-  private:
-
-     void init(ZHeader::HEADER_TYPE headerType);
-
-    void initMainWidget();
-
-  private:
-    ZKbMainWidgetData *data;
+private:
+	ZKbMainWidgetData *data;
 };
 
 #endif

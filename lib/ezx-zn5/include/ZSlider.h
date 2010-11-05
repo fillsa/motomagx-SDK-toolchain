@@ -1,7 +1,7 @@
 //Fix for ZN5/U9 by Ant-ON, 26-10-2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
-
+//Chenge fix by Ant-ON, 11.08.2010
 
 #ifndef PUBLIC_API_WIDGET_ZSLIDER_H
 #define PUBLIC_API_WIDGET_ZSLIDER_H
@@ -19,6 +19,7 @@ struct ZSliderPrivate;
 
 class ZSlider : public ZWidget, public QRangeControl
 {
+	uint fix[10];
     Q_OBJECT
 
 public:

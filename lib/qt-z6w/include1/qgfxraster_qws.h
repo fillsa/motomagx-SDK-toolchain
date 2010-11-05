@@ -1,1 +1,0 @@
-/arm-eabi/lib/qt-zn5/include/qgfxraster_qws.h

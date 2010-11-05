@@ -1,3 +1,5 @@
+//Fix for compobility by Ant-ON, 15-06-2010 (paintEvent to public)
+
 #ifndef Z_MULTILINE_H
 #define Z_MULTILINE_H
 
@@ -236,8 +238,11 @@ public slots:
     void    pixelPosToCursorPos(QPoint p, int* x, int* y) const;
 #endif
     void    setCursorPixelPosition(QPoint p, bool clear_mark = true);
+    
+  public: //Added 15-06-2010
     void    paintEvent(QPaintEvent * );
-
+    
+  protected:
 #ifndef QT_NO_PUBLIC_INTERFACE
 	int paintCell_if( QPainter *p , int row , int underlineI , bool underlineHit , int reverseI ,\
                       bool reverseHit , int yPos , int x , QString s , QFontMetrics fm , QRect updateR , QColorGroup g );

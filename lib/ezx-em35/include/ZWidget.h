@@ -9,9 +9,6 @@
 #ifndef __cplusplus
 #error "This is a C++ header file; it requires C++ to compile."
 #endif
-#ifndef __cplusplus
-#error "This is a C++ header file; it requires C++ to compile."
-#endif
 
 #include <qwidget.h>
 #include <ZMorphingModeDef.h>
@@ -26,6 +23,8 @@ class ZWidgetPrivate;
 
 class Q_EXPORT ZWidget : public QWidget, public ZSkinBase
 {
+   uint fix[15];
+   
    Q_OBJECT
 
   public:

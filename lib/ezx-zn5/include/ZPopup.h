@@ -27,7 +27,6 @@ class ZCLISoftKey;
 class ZWidget;
 class ZPopupHeader;
 
-//class ZFormContainer;
 class ZDetailView;
 class ZIconView;
 class ZListBox;
@@ -64,8 +63,7 @@ public:
            const char *name = 0,
            bool modal = true,
            int dismiss_time = 0,
-           WFlags f = 0); //,
-           //Qt::DisplayID dislayId = MainDisplay);
+           WFlags f = 0);
 
     virtual ~ZPopup();
 

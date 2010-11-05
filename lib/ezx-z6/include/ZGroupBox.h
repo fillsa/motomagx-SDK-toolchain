@@ -23,12 +23,12 @@ public:
 	void count() const;
 	void doLayout();
 //	void eventFilter(QObject*, QEvent*);
-  void eventFilter(QEvent*);
+	void eventFilter(QEvent*);
 //	void getBgImageForTransparent(bool&);
-  void getBgImageForTransparent();
+	void getBgImageForTransparent();
 	void getButton(int) const;
 	void getId(ZWidget*) const;
-	void insert(ZWidget*, int);
+	void insert(ZWidget *w,int id = -1);
 	bool isZEnabled() const;
 	void keyPressEvent(QKeyEvent*);
 	void paintEvent(QPaintEvent*);

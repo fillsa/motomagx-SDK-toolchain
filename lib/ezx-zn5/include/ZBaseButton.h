@@ -1,3 +1,7 @@
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
+
 #ifndef ZBASEBUTTON_H
 #define ZBASEBUTTON_H
 
@@ -13,34 +17,32 @@ class Q_EXPORT ZBaseButton : public ZFormItem
 public:
     ZBaseButton( QWidget *parent, const char *name, WFlags f,ZSkinService::WidgetClsID clsId );
    ~ZBaseButton();
+
     QString text() const;
-    virtual void setText( const QString &);    //???
+    virtual void setText( const QString &);
     const QPixmap *pixmap() const;
-    virtual void setPixmap( const QPixmap & ); //???
-//    int		accel()	const;
+    virtual void setPixmap( const QPixmap & );
+    int		accel()	const;
     virtual void	setAccel( int );
     bool	isToggleButton() const;
     enum ToggleType { SingleShot, Toggle, Tristate };
-//    ToggleType	toggleType() const;
+    ToggleType	toggleType() const;
     virtual void setDown( bool );
     bool	isDown() const;
     bool	isOn() const;
     enum ToggleState { Off, NoChange, On };
-//    ToggleState	state() const;
-//    bool	autoResize() const;
+    ToggleState	state() const;
+    bool	autoResize() const;
     virtual void setAutoResize( bool );
-//    bool	autoRepeat() const;
+    bool	autoRepeat() const;
     virtual void setAutoRepeat( bool );
     bool	isExclusiveToggle() const;
     bool	focusNextPrevChild( bool next );
     ZBaseButtonGroup *group() const;
 
-	virtual void	setToggleType( ToggleType );
-	virtual void	setState( ToggleState );
-	
-//public slots:
-//    void	animateClick();
-//    void	toggle();
+public slots:
+    void	animateClick();
+    void	toggle();
 
 signals:
     void	pressed();
@@ -50,26 +52,26 @@ signals:
     void	stateChanged( int );
 
 protected:
-//    void	setToggleButton( bool );
-///   virtual void	setToggleType( ToggleType ); //move in public
-//    void	setOn( bool );
-///    virtual void	setState( ToggleState ); //move in public
+    void	setToggleButton( bool );
+    virtual void	setToggleType( ToggleType );
+    void	setOn( bool );
+    virtual void	setState( ToggleState );
     virtual bool hitButton( const QPoint &pos ) const;
-//    virtual void drawButton( QPainter * );
-//    virtual void drawButtonLabel( QPainter * );
+    virtual void drawButton( QPainter * );
+    virtual void drawButtonLabel( QPainter * );
     void	keyPressEvent( QKeyEvent *);
     void	keyReleaseEvent( QKeyEvent *);
     void	mousePressEvent( QMouseEvent * );
     void	mouseReleaseEvent( QMouseEvent * );
     void	mouseMoveEvent( QMouseEvent * );
     void	paintEvent( QPaintEvent * );
-//    void	focusInEvent( QFocusEvent * );
-//    void	focusOutEvent( QFocusEvent * );
+    void	focusInEvent( QFocusEvent * );
+    void	focusOutEvent( QFocusEvent * );
     void	enabledChange( bool );
 
-//private slots:
-//    void	animateTimeout();
-//    void	autoRepeatTimeout();
+private slots:
+    void	animateTimeout();
+    void	autoRepeatTimeout();
 
 private:
     QString	btext;
@@ -85,16 +87,10 @@ private:
 
     friend class ZBaseButtonGroup;
     friend class QToolBar;
-//    void          ensureData();
+    void          ensureData();
     virtual void setGroup( ZBaseButtonGroup* );
-//    QTimer	 *timer();
-//    void	nextState();
-
-private:
-#if defined(Q_DISABLE_COPY)
-    ZBaseButton( const ZBaseButton & );
-    ZBaseButton &operator=( const ZBaseButton & );
-#endif
+    QTimer	 *timer();
+    void	nextState();
 };
 
-#endif //ZBASEBUTTON_H
+#endif

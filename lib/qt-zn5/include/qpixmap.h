@@ -63,6 +63,7 @@ class QMultiCellPixmap;
 
 class Q_EXPORT QPixmap : public QPaintDevice, public Qt
 {
+//	uint fix[50];
 public:
     enum ColorMode { Auto, Color, Mono };
     enum Optimization { DefaultOptim, NoOptim, MemoryOptim=NoOptim,

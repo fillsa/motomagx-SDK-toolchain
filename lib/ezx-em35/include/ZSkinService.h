@@ -203,8 +203,8 @@ public:
         ///
         clsZFieldButton,
         clsZSearchBox,
-        clsZCLISoftKeyTop,
-        clsZCLISoftKeyBottom,
+        //clsZCLISoftKeyTop,
+        //clsZCLISoftKeyBottom,
 	clsZFsba1,
 	clsZFsba2,
         clsMax = clsZFsba2,

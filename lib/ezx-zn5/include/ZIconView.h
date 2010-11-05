@@ -1,5 +1,6 @@
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -42,6 +43,7 @@ struct ZIVItemContainer;
 
 class ZIconViewItem : public Qt
 {
+	uint fix[16];
 public:
     enum MARKTYPE {MARK_NONE, MARK_CHECKBOX, MARK_RADIOBOX};
     ZIconViewItem();
@@ -173,6 +175,8 @@ class ZIconView : public ZScrollPanel
 {
     friend class ZIconViewItem;
     friend class ZIconViewPrivate;
+
+	uint fix[40];
 
     Q_OBJECT
 public:

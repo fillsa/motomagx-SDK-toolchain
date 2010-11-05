@@ -1,4 +1,6 @@
-//Fix for ZN5/U9 by Ant-ON, 26-10-2010
+//Fix for ZN5/U9 by Ant-ON, 26-01-2010
+//Add "fix" by Ant-ON, 11-08-2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -16,7 +18,9 @@ struct ZSliderModuleData;
 
 class ZSliderModule:public ZWidget
 {
-Q_OBJECT
+	uint fix[10];
+	
+	Q_OBJECT
 
 public:
     enum Alignment{
@@ -56,7 +60,7 @@ public:
 
     virtual void setPalette(const QPalette &palette);
 
-/public:
+//public:
     //QSize minimumSizeHint() const;
     //bool autoResize() const;
     //void setAutoResize( bool enable );

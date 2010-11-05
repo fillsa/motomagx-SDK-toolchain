@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9/Z6W by Ant-ON, 08-04-2010
 
 // Copyright (c) 22-Nov-06 - 2008 Motorola, Inc. All rights reserved.
 
@@ -11,6 +11,7 @@ extern "C" {
 #endif
 
 #include "TAPI_SETUP_General.h"
+#include "TAPI_USSD_AppData.h"
 
 extern TAPI_RESULT_E   
 TAPI_USSD_MakeRequest( 

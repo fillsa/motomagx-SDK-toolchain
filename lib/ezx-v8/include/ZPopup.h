@@ -30,6 +30,7 @@ class ZPopup : public QDialog
 {
     Q_OBJECT
     //unsigned int data[54 - sizeof(QDialog)/4];
+    unsigned int data[53 - sizeof(QDialog)/4];
 
 public:
     enum POPUP_TYPE_E {

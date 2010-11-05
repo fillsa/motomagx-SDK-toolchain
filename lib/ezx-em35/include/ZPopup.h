@@ -11,6 +11,7 @@
 #endif
 
 #include "ZSkinBase.h"
+#include "ZLabel.h"
 #include "ZUNS_PopupDefines.h"
 
 #include <qdialog.h>
@@ -27,7 +28,6 @@ class ZDetailView;
 class ZIconView;
 class ZListBox;
 class ZScrollPanel;
-class ZLabel;
 class ZPopupEventFilter;
 
 struct ZPopupPrivate;

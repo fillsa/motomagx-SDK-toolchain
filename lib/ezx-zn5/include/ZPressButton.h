@@ -1,30 +1,24 @@
-//Fix for ZN5 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
 
 #ifndef ZPRESSBUTTON_H
 #define ZPRESSBUTTON_H
 
-#include <ZBaseButton.h>
-#include <qiconset.h>
-#include <ZSkinService.h>
-#include <ZSkinBase.h>
+#include "ZBaseButton.h"
+#include "qiconset.h"
+#include "ZSkinService.h"
+#include "ZSkinBase.h"
 
 class ZPressButtonPrivate;
 
 class Q_EXPORT ZPressButton : public ZBaseButton
 {
     Q_OBJECT
-    Q_ENUMS(TitlePosition)
-    Q_OVERRIDE( bool toggleButton WRITE setToggleButton )
-    Q_OVERRIDE( bool on WRITE setOn )
-    Q_PROPERTY( AlignmentFlags alignment READ alignment WRITE setAlignment )
-    Q_PROPERTY( TitlePosition titlePosition READ titlePosition WRITE setTitlePosition )
-	
 public:
    enum TitlePosition{
-        TitleTop = 0,      
-        TitleLeft		 
+        TitleTop = 0,    
+        TitleLeft		
     };
 
 public:
@@ -35,12 +29,17 @@ public:
     ZPressButton( const QPixmap & pixmap, const QString &text, QWidget *parent, const char* name=0,
             const ZSkinService::WidgetClsID clsId = ZSkinService::clsZPressButton);
     ~ZPressButton();
+    
     QString text() const;
     virtual void setText( const QString & text);
+    const QPixmap *pixmap() const;
     virtual void setPixmap( const QPixmap & pixmap);
+    AlignmentFlags alignment() const;
     void      setAlignment(AlignmentFlags align);
+    RelativeAlignment relativeAlignment() const;
+    void      setRelativeAlignment(RelativeAlignment relativeAlign);
     QSize sizeHint() const;
-    virtual void setToggleButton( bool enable); //### fjern virtual 3.0
+    virtual void setToggleButton( bool enable);
     void  getFrameWidth(int & nleftf, int & nrightf, int & ntopf, int & nbottomf) const;
     void  setTitle(const QString & string);
     QString title() const;
@@ -51,8 +50,13 @@ public:
     void setEnabled(bool enable);
     bool isZEnabled();
     void setAvailableWidth(int nLen);
+
+signals:
+    void selectionStateChanged(const SelectionState state);
+
 public slots:
     virtual void setOn( bool enable);
+    void toggle();
 
 protected:
     void drawButton( QPainter * );
@@ -77,21 +81,17 @@ private:
 
 private:
     void init();
+    void setState( const SelectionState state  );
     void setPixmap_internal( const QPixmap & pixmap );
 
 private:
     ZPressButtonPrivate * d;
+    RelativeAlignment mrelpos;
     TitlePosition mreltitlepos;
     AlignmentFlags    malign;
     QString     mtext;
     QPixmap     * mpixmap;
     QString     mTitleText;
-
-private:
-    ZPressButton( const ZPressButton & );
-    ZPressButton &operator=( const ZPressButton & );
-
-//private:
-//	uint data[1000];
 };
+
 #endif

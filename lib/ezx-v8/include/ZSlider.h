@@ -10,7 +10,8 @@
 class ZSlider : public ZWidget
 {
 	Q_OBJECT
-	unsigned int data[92-sizeof(ZWidget)/4];
+	//unsigned int data[91-sizeof(ZWidget)/4];
+	uint fix[99-sizeof(ZWidget)/4];
 public:
 	virtual int setOrientation(Qt::Orientation);
         virtual int setValue(int);
@@ -19,7 +20,10 @@ public:
         virtual int paintSlider(QPainter*, QRect const&);
 
 	enum Indicator {
-	    NONE,
+		NULL_MINMAX,
+        TEXT,
+        ICON,
+	    NONE = 0
 	};
 
   ZSlider(QWidget*, char const*, ZSkinService::WidgetClsID = ZSkinService::clsZSliderModule);
@@ -70,14 +74,15 @@ public:
 class ZSliderModule : public ZWidget
 {
 	Q_OBJECT
-	unsigned int data[71-sizeof(ZWidget)/4];
+	//unsigned int data[71-sizeof(ZWidget)/4];
+	uint fix[78-sizeof(ZWidget)/4];
 public:
 	enum Alignment {
 	};
 
-	ZSliderModule(ZSlider::Indicator, QWidget*, char const*, ZSkinService::WidgetClsID);
+	ZSliderModule(ZSlider::Indicator, QWidget*, const char * =0, ZSkinService::WidgetClsID = ZSkinService::clsZSliderModule);
 	ZSliderModule(QWidget*, char const*, ZSkinService::WidgetClsID);
-	ZSliderModule(int, int, int, int, ZSlider::Indicator, QWidget*, char const*, ZSkinService::WidgetClsID);
+	ZSliderModule(int, int, int, int, ZSlider::Indicator, QWidget*, const char* =0, ZSkinService::WidgetClsID = ZSkinService::clsZSliderModule);
 	~ZSliderModule();
 
 	void paintEvent(QPaintEvent*);
@@ -98,7 +103,7 @@ public:
 	void autoResize() const;
 	QSize minimumSizeHint() const;
 	QSize sizeHint() const;
-	void getSlider() const;
+	ZSlider *getSlider() const;
 };
 
 

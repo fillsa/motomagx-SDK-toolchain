@@ -48,11 +48,9 @@
 #include <qdatastream.h>
 #endif // QT_H
 
-//#include <linux/morphing_mode.h>
+#include <morphing_mode.h>
 
 #define QTE_PIPE "QtEmbedded-%1"
-
-#define MORPHING_MODE_E int
 
 /*********************************************************************
  *

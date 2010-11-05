@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 16-02-2010 ( Fix for compobility )
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -14,6 +15,7 @@ class QCornerSquare;
 
 class Q_EXPORT ZTableView : public ZWidget
 {
+	uint fix[6];
     Q_OBJECT
 public:
     virtual void setBackgroundColor( const QColor & );
@@ -84,8 +86,10 @@ protected:
     void	resizeEvent( QResizeEvent * );
     int		findRow( int yPos ) const;
     int		findCol( int xPos ) const;
+
     bool	rowYPos( int row, int *yPos ) const;
     bool	colXPos( int col, int *xPos ) const;
+
     int		maxXOffset();
     int		maxYOffset();
     int		maxColOffset();

@@ -1,4 +1,4 @@
-
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -27,6 +27,7 @@ struct ZNumPickerData;
 
 class ZNumPicker : public ZWidget
 {
+	uint fix[2];
     Q_OBJECT
 
 public:

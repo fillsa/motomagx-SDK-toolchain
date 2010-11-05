@@ -91,7 +91,7 @@ public:
 	
 	#ifdef LJ_6_3
 	//virtual 
-	void getColorKey();//return type ?
+	int getColorKey();//return type ?
 	//virtual 
 	int getXOffset();//int??
 	//virtual 
@@ -126,7 +126,7 @@ protected:
 	void resizeEvent(QResizeEvent *);//non v
 	
 	#ifdef LJ_6_3
-	virtual void eventFilter(QObject*, QEvent*);
+	virtual bool eventFilter(QObject*, QEvent*);
 	virtual void moveEvent(QMoveEvent*);
 	#endif
 
@@ -151,10 +151,11 @@ protected:
 			}
 
 		protected:
-			uint fix[4];
+			uint fix[6];
 	};
 	MyQPixmap *pix;
-	uint fix[100]; 
+	
+	uint fix[200]; 
 };
 
 #endif

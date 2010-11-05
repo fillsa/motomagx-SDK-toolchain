@@ -1,5 +1,6 @@
 //Fix for ZN5/U9 by Ant-ON, 26-01-2010
 //Fix for ZN5/U9 by Ant-ON, 15-02-2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -15,7 +16,6 @@ class ZWidgetPrivate;
 
 class Q_EXPORT ZWidget : public QWidget, public ZSkinBase
 {
-   unsigned int data[65 - sizeof(QWidget)/4];
    Q_OBJECT
 
   public:
@@ -30,30 +30,31 @@ class Q_EXPORT ZWidget : public QWidget, public ZSkinBase
      ZSkinService* getScreenSkinService();
      int getFrameBufferAlphaValue();
   public:
-     //bool transparentBgImageCached() const;
+     bool transparentBgImageCached() const;
      void cacheTransparentBgImage(bool cache);
      virtual QPixmap* getBgImageForTransparent(bool& freeImage);
      QPixmap& getCachedBgPixmap() const;
      bool scrolledInPanel() const;
-     //void setScrolledInPanel(bool scrolled);
+     void setScrolledInPanel(bool scrolled);
      void setAutoAdjustWidthInPanel(bool adjustWidth);
      bool autoAdjustWidthInPanel() const;
      virtual QSize maxmumSizeHint() const {return QSize(width(), height());}
      virtual bool isScrollPanelTypeWidget() const {return FALSE;}
      virtual bool isSeparatorTypeWidget() const {return FALSE;}
      virtual uint getStepInScrollPanel(bool) const {return 20;}
-     //bool isInternalWidget() const;
+     bool isInternalWidget() const;
      void setInternalWidget(bool internal);
      enum LayoutDirection{DefaultLayout, LeftToRight, RightToLeft, CachedLtoR, CachedRtoL};
      void setScreenLayoutDirection(LayoutDirection);
      LayoutDirection getScreenLayoutDirection() const;
-     //bool isLeftToRightLanguage() const; 
+     bool isLeftToRightLanguage() const; 
      enum ResizeMethod{ResizeByDefault,ResizeByParent,ResizeByContent,FixedSize};
      void setResizeMethod(ResizeMethod method);
-     //ResizeMethod resizeMethod() const;
+     ResizeMethod resizeMethod() const;
      void setPalette( const QPalette & ){updateSkin(TRUE);}
      
      //virtual void setLandScapeFlag(bool  bLandScape);
+     //virtual bool getLandScapeFlag();
 	 
 signals:
      void needResize();
@@ -62,10 +63,10 @@ protected:
      virtual void drawBackgroundAndBorder(QPainter& painter, const QRect* rect = NULL);
      virtual void drawBorder(QPainter& painter, const QRect* rect = NULL);
      virtual void drawBackground(QPainter& painter, const QRect* rect = NULL, bool border = TRUE);
-     //void setPixmapAlpha(QPixmap& pmap);
-     //void setPixmapAlpha(QPixmap& dst, const QPixmap& src, int dstStartX, int dstStartY, int srcW, int srcH);
-     //void setPixmapAlphaWithBorder(QPixmap& pmap);  
-     //virtual bool eventFilter(QObject *, QEvent *);
+     ///void setPixmapAlpha(QPixmap& pmap);
+     ///void setPixmapAlpha(QPixmap& dst, const QPixmap& src, int dstStartX, int dstStartY, int srcW, int srcH);
+     ///void setPixmapAlphaWithBorder(QPixmap& pmap);  
+     ///virtual bool eventFilter(QObject *, QEvent *);
      
 protected slots:
      virtual void slotResizeChild();

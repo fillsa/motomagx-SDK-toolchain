@@ -1,4 +1,4 @@
-
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -24,7 +24,7 @@ class ZSoftKeyPrivate;
 
 class ZSoftKey : public ZWidget
 {
-	unsigned int data[90-sizeof(ZWidget)/4];
+	unsigned int data[14];
     Q_OBJECT
 public:
     enum KEY_IDX

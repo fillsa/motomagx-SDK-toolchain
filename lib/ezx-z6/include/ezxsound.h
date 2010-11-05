@@ -3,9 +3,10 @@
 
 #include <stdlib.h>
 
+#define DIVECE_OK 0
+
 enum SOUNDM_AUDIO_NORMALDEV_TYPE_ENUM_T {
-	used_by_flashclient = 0x405,
-	SOUNDM_AUDIOLVL_NORMALOUT_2  = 0x02
+	used_by_flashclient = 0x405
 };
 
 enum SOUNDM_AUDIO_SYSTEMDEV_TYPE_ENUM_T {
@@ -16,9 +17,39 @@ enum AAL_STATUS_ENUM_T {
 };
 
 
-class AM_VIRTUAL_DEV_BASE_CLASS
+class AM_VIRTUAL_CODEC_CLASS
 {
 public:
+	AM_VIRTUAL_CODEC_CLASS();
+	~AM_VIRTUAL_CODEC_CLASS();    
+
+	int setGEQStatus(bool);
+	int getGEQStatus(bool);
+	int setGEQGainProfile(int);
+	int getGEQGainProfile(int&);
+	int setBassboostStatus(bool);
+	int setBassboostValue(int, int);
+	int getBassboostStatus(bool&);
+	int getBassboostValue(int&, int&);
+	int setAIEStatus(bool);
+	int setAIEValue(int, int);
+	int getAIEStatus(bool);
+	int getAIEValue(int&, int&);
+	int setCodecType(int);
+	int getCodecType(int&);
+
+private:
+	uint fix[9];
+};
+
+class AM_VIRTUAL_DEV_BASE_CLASS
+{
+private:
+	uint fix[5];
+
+public:
+	AM_VIRTUAL_CODEC_CLASS *codec;
+
 	AM_VIRTUAL_DEV_BASE_CLASS();
 	virtual ~AM_VIRTUAL_DEV_BASE_CLASS();
 
@@ -54,10 +85,10 @@ public:
 
 class AM_NORMAL_DEV_INTERFACE : public AM_VIRTUAL_DEV_BASE_CLASS
 {
-	unsigned int data[30];
-
+private:
+	uint fix[30];
+	
 public:
-
 	AM_NORMAL_DEV_INTERFACE(SOUNDM_AUDIO_NORMALDEV_TYPE_ENUM_T);
 	AM_NORMAL_DEV_INTERFACE(SOUNDM_AUDIO_SYSTEMDEV_TYPE_ENUM_T, unsigned int, unsigned int, unsigned int);
 	/* arg1 = SOUNDM_AUDIO_SYSTEMDEV_NORMAL - devType 
@@ -104,6 +135,7 @@ public:
 	void writeAlignedData(short*, unsigned int, AAL_STATUS_ENUM_T*);
 	void vr_notify_enabled(bool);
 	void am_normdev_verify_freq(unsigned int);
+
 };
 
 #endif

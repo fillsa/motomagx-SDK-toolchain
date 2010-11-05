@@ -1,4 +1,4 @@
-
+//Fix for ZN5/U9/Z6W by Ant-ON, 08-04-2010
 
 // Copyright (c) 22-Nov-06 - 2008 Motorola, Inc. All rights reserved.
 
@@ -155,6 +155,13 @@ typedef UINT8 TAPI_USSD_STK_TYPE_E;
 
 typedef struct  _TAPI_USSD_REQ_APP_MSG_S
 {
+    UINT8   numLen;
+    UINT8   number[TAPI_USSD_REQ_STRING_MAX_LENGTH];
+} TAPI_USSD_REQ_APP_MSG_S;
+
+/*
+typedef struct  _TAPI_USSD_REQ_APP_MSG_S
+{
 
     UINT16  numLen;         
     BOOLEAN isDCSIncluded;  
@@ -165,6 +172,7 @@ typedef struct  _TAPI_USSD_REQ_APP_MSG_S
     TAPI_USSD_NUMBER_PLAN_IDENTIFIER_E  npi;  
     TAPI_USSD_STK_TYPE_E                stk_type;       
 } TAPI_USSD_REQ_APP_MSG_S;
+*/
 
 typedef struct  _TAPI_USSD_RSP_APP_MSG_S
 {

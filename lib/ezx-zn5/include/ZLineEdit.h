@@ -1,5 +1,6 @@
 //Fix for Motorola ZN5 by Ant-ON
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,7 +23,7 @@ class ZScrollPanel;
 
 class ZLineEdit : public ZFormItem
 {
-	unsigned int data[100-sizeof(ZWidget)/4];
+	uint fix[20];
     Q_OBJECT
 	
 public:
@@ -256,4 +257,4 @@ public:
     void setScrollParent(ZScrollPanel *);
     void ensureDisplayed();
 };
-#endif // __ZLINEEDIT_H__
+#endif

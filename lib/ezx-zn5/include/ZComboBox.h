@@ -25,6 +25,7 @@ class ZListBoxItem;
 
 class Q_EXPORT ZComboBox : public ZButton
 {
+	uint fix[15];
     Q_OBJECT
 
 public:
@@ -206,12 +207,6 @@ private:
     int mEventData;   
 
     ZComboData     *d;
-
-private:     
-#if defined(Q_DISABLE_COPY)
-    ZComboBox( const ZComboBox & );
-    ZComboBox &operator=( const ZComboBox & );
-#endif
 };
 
 #endif 

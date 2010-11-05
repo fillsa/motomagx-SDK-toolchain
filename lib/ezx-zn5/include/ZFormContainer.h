@@ -4,12 +4,8 @@
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 
-#ifndef PUBLIC_API_WIDGET_ZFORMCONTAINER_H
-#define PUBLIC_API_WIDGET_ZFORMCONTAINER_H
-
-#ifndef __cplusplus
-#error "This is a C++ header file; it requires C++ to compile."
-#endif
+#ifndef ZFORMCONTAINER_H
+#define ZFORMCONTAINER_H
 
 #include "ZScrollPanel.h"
 #include "ZFormItem.h"
@@ -27,7 +23,6 @@ class ZFormContainerPrivate;
 class Q_EXPORT ZFormContainer : public ZScrollPanel
 {
        Q_OBJECT
-
 public:
       ZFormContainer( QWidget* parent = 0, WFlags f = 0,
                   ZSkinService::WidgetClsID clsId = ZSkinService::clsZFormContainer );

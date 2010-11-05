@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -12,6 +13,7 @@ struct ZMeterData;
 
 class ZMeter : public ZWidget
 {
+	uint fix[14];
     Q_OBJECT
 
 public:

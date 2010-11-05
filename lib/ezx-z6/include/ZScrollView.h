@@ -13,12 +13,12 @@ class ZScrollView : public QScrollView
 public:
   ZScrollView(QWidget* parent = 0, const char* name = 0, WFlags f = 0);
 	~ZScrollView();
-
+	
+	virtual void addChild(QWidget*, int x, int y);
 	virtual void addChild(QWidget*, int x, int y, bool);
-	virtual void moveChild(QWidget*, int x, int y, bool);
+	virtual void moveChild(QWidget*, int x, int y, bool = FALSE);
 	virtual void doLayout(QWidget*, QSize, QPoint, int);
 
-	void addChild(QWidget*, int x, int y);
 	void drawContents(QPainter*, int, int, int, int);
 	void enableClipper(bool);
 	bool event(QEvent*);

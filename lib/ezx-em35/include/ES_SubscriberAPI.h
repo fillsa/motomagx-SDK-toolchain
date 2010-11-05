@@ -1,4 +1,4 @@
-
+//Fix for EM35/VE66 by Ant-ON, 03-05-2010
 
 // Copyright (c) 26-May-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -93,6 +93,11 @@ public:
         int * pErrorCode = 0,
         int * pSID = 0
     );
+    
+    static const ES_Event * getEvent(
+        ES_Event * = 0, 
+        int * pSID = 0
+    );    
 
     static int Done();
 };

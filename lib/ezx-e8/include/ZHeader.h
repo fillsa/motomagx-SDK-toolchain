@@ -1,4 +1,3 @@
-//Fix for E8 by Ant-ON, 2009
 //Fix for E8/EM30 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
@@ -18,7 +17,9 @@
 #define FULL_TYPE MAINDISPLAY_HEADER
 #define NORMAL_TYPE CLI_HEADER
 
-class ZHeaderBase;
+class ZHeaderSysStatus;
+class QTimer;
+class ZHeaderPrivate;
 
 class ZHeader : public ZWidget
 {
@@ -26,182 +27,147 @@ Q_OBJECT
 public:
     enum HEADER_TYPE
     {
-        CLI_HEADER,         
-        CLI_IDL,            
-        MAINDISPLAY_IDL,    
+        CLI_HEADER,       
+        CLI_IDL,      
+        MAINDISPLAY_IDL,   
         MAINDISPLAY_HEADER, 
-        HEADER_TYPE_NUM     
+        INVALID_TYPE,   
+        HEADER_TYPE_NUM = INVALID_TYPE
     };
 
     enum HEADER_STATUS
     {
-        AIRPLANE = 1,   
-        ROAMING,        
-        SIGNAL,         
+        AIRPLANE,     
+        ROAMING,      
+        SIGNAL,       
         ACTIVE_CIRCUIT_DATA_CALL,   
-        ACTIVE_VOICE_CALL,          
+        ACTIVE_VOICE_CALL,      
         VIDEO_CALL,     
-        UMA,            
-        WIFI,           
-        GPRS,           
-        EDGE,           
+        UMA,         
+        WIFI,        
+        GPRS,          
+        EDGE,         
+        HSDPA,         
         THREEG,         
-        CDMAPDS,        
+        CDMAPDS,       
         SERVICE,        
-        CALLFORWARDING, 
-        ACTIVELINE,     
+        CALLFORWARDING,
+        ACTIVELINE,    
         VOICEPRIVACY,   
-        VR,             
-        BATTERY,        
-        IM,             
+        VR,            
+        ROGERSMAIL,    
+        BATTERY,      
+        IM,            
         SYNC,           
-        BT,             
-        NOTIFY,         
-        PRESENCE,       
-        LOCATION,       
-        HOMEZONE,       
-        ALERT,          
-        WIFISIGNAL,     
-        USB,            
-        SPEAKER,        
-        FDN,            
-        HSDPA,          
-        JAVA,           
+        BT,            
+        NOTIFY,        
+        PRESENCE,      
+        MESSAGE,       
+        LOCATION,     
+        HOMEZONE,     
+        ALERT,        
+        WIFISIGNAL,   
+        USB,       
+        AIM,        
+        YAHOO,       
+        ICQ,          
+        MSN,           
+        SPEAKER,     
+        FDN,          
+        JAVA,        
+        NEWVOICE,     
+        UNHEARD_VOICE,
+        EMAIL,         
+        ALARMCLOCK,     
         PTT,            
-        ROGERSMAIL,     
-        VIDEO_MAIL,     
-        VOICE_MAIL,     
-        EMAIL,          
-        VIDEO_MESSAGE,  
-        VOICE_MESSAGE,  
-        TEXT_MESSAGE,   
-        MESSAGE,        
-        MULTIMEDIA,     
-        RADIO,          
-        DLNA,           
-        STATUS_NUM      
+        MEDIAPLAYER,  
+        RADIO,         
+        INVALID_MODE,   
+        STATUS_NUM  
     };
 
     enum
     {
-        EMPTY_STATUS = -1,  
-        START_BLINK = -3,   
+        EMPTY_STATUS = -1, 
+        START_BLINK = -3,
         END_BLINK = -4,     
-        MIN_VALID_VALUE = END_BLINK
+        START_ANIMATION = -5,
+        END_ANIMATION = -6
     };
 
     typedef struct AppStatus
     {
-        Q_INT8 status;  
-        QString strResID[HEADER_TYPE_NUM+1];
+        Q_INT8 status;
+        QString strResID[HEADER_TYPE_NUM];
     } AppStatus_S;
 
     class AppStatusInfo_S
     {
     public:
-        AppStatusInfo_S() : appStatus(NULL) {
-        }    
+        AppStatusInfo_S();
+        ~AppStatusInfo_S();
 
-        ~AppStatusInfo_S() {
-            if (appStatus) {
-                delete []appStatus;
-                appStatus = NULL;
-            }
-        }
-
-        Q_INT8 status;          
-        Q_INT32 numStatus;      
-        Q_INT32 priority;       
-        AppStatus_S* appStatus; 
+        Q_INT8 status;        
+        Q_INT32 numStatus; 
+        Q_INT32 priority;      
+        AppStatus_S* appStatus;
     };
-
-    static bool registerInfo(const ZHeader::AppStatusInfo_S& as); //Fix by Ant-ON
-    //{
-    //    return false;
-    //}
-
-    static bool unregisterInfo(ZHeader::HEADER_STATUS s) {
-        return false;
-    }
-
+    
     ZHeader(QWidget* parent = 0, const char* name = 0, WFlags f = 0);
-
     ZHeader(ZHeader::HEADER_TYPE t,
             QWidget* parent = 0,
             const char* name = 0,
             WFlags f = 0);
 
-	// Add by Ant-ON
-	void setMeterRange(int, int);
-	void setMeterValue(int);
-	void showMeter();
-	//
-
     QString getPrimTitle();
-
     QString getSecondTitle();
-
     void setPrimTitle(const QString &text);
-
     void setSecondTitle(const QString &text);
-
     bool setTitleIcon(const QPixmap& pmp);
-
     QPixmap getTitleIcon();
-
     void setAlignment(int alignment);
-
     int alignment();
-
-    bool isZEnable();
-
-    void setTruncEnable(bool bTrunc);
-
-    bool isTruncEnable();
-
-    QPixmap getBlendedPixmap(int nIdx);
-
-    void setPalette(const QPalette& pal);
-
-    bool switchHeader(ZHeader::HEADER_TYPE);
-
     static QSize headerSize(ZHeader::HEADER_TYPE t);
-
+    static bool registerInfo(const ZHeader::AppStatusInfo_S& as);
     static bool changeStatus(ZHeader::HEADER_STATUS s, int statusVal);
-
+    static bool unregisterInfo(ZHeader::HEADER_STATUS s);
+    bool switchHeader(ZHeader::HEADER_TYPE t);
+    void setPalette(const QPalette& pal);
+    QPixmap getBlendedPixmap(int nIdx);
+    bool isZEnable();
     static int getStatusVal(ZHeader::HEADER_STATUS s);
-
+    void setTruncEnable(bool bTrunc);
+    bool isTruncEnable();
     ~ZHeader();
+    void setMeterRange(int min, int max);
+    void setMeterValue(int val);
+    void showMeter();
+    void hideMeter();
 
 signals:
     void primTitleChanged(const QString& s);
-
     void secondTitleChanged(const QString& s);
-
     void serverInitialized();
-
     void blendedPixmapChanged(int nIdx);
 
-//Add by Ant-ON
 protected slots:
-    void slotChangePrimTitle(const QString&);
-    void slotChangeSecondTitle(const QString&);
-    void slotGetIcon(int);
+    void slotChangePrimTitle(const QString& text);
+    void slotChangeSecondTitle(const QString& text);
+    void slotGetIcon(int nIdx);
     void slotDisplayTime();
     void slotPaletteChanged();
-//
+    void slotLoadDataFromSharedMemory();
 
 protected:
+    void updateArea(int nIdx);
     void init();
-
+    void initStatus(ZHeader::HEADER_TYPE t);
     virtual void paintEvent(QPaintEvent*);
-
     virtual void resizeEvent(QResizeEvent*);
-    
-    void setTimeString();
+    void setTimeString();    
 
 private:
-    ZHeaderBase * d;
+    ZHeaderPrivate * d;
 };
 
 #endif

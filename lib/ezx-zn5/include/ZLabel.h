@@ -27,6 +27,8 @@ class ZLabelPrivate;
 
 class Q_EXPORT ZLabel : public ZWidget
 {
+	uint fix[25];
+	
     Q_OBJECT
 
 public:

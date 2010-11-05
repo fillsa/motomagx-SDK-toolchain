@@ -67,7 +67,7 @@
 class QPTF;
 #endif
 
-//#include <linux/morphing_mode.h>
+#include <morphing_mode.h>
 
 class QLayout;
 struct QWExtra;
@@ -75,26 +75,6 @@ struct QTLWExtra;
 class QFocusData;
 class QStyle;
 class QWSRegionManager;
-
-/*
- * Morphing modes
-*/
-typedef enum {
-    MORPHING_MODE_KEEP_CURRENT = -1,
-    MORPHING_MODE_STANDBY = 0,
-    MORPHING_MODE_NAVIGATION,
-    MORPHING_MODE_PHONE,
-    MORPHING_MODE_PHONE_WITHOUT_REVIEW,
-    MORPHING_MODE_STILL_VIDEO_CAPTURE,
-    MORPHING_MODE_STILL_VIDEO_PLAYBACK,
-    MORPHING_MODE_STILL_VIDEO_PLAYBACK_WITHOUT_SHARE,
-    MORPHING_MODE_STILL_VIDEO_PLAYBACK_WITHOUT_TRASH,
-    MORPHING_MODE_STILL_VIDEO_PLAYBACK_WITHOUT_TOGGLE,
-    MORPHING_MODE_SHARE,
-    MORPHING_MODE_TRASH,
-    MORPHING_MODE_NUM,
-    MORPHING_MODE_TEST
-}MORPHING_MODE_E;
 
 class Q_EXPORT QWidget : public QObject, public QPaintDevice
 {
@@ -167,37 +147,9 @@ public:
 
     WId		 winId() const;
     void	 setName( const char *name );
-    // Morphing Feature
-	
-	/*
-	0 : normal
-	1 : normal powersave mode
-	2 : no num keypad
-	3 : normal
-	4 : music mode
-	5 : music powersave mode
-	6 : camera mode
-	7 : camera mode without take
-	8 : only single view key in numpad area
-	*/
-/*	
-	enum MORPHING_MODE_E
-	{
-	NORMAL1,
-	NORMAl_POWER_SAVE,
-	NO_NUM,
-	NORMAL2,
-	MUSIC_MODE,
-	MUSIC_MODE_POWER_SAVE,
-	CAMERA_MODE,
-	CAMERA_MODE2,
-	SINGLE_VIEW,
-	CUSTOM
-	};
-*/	
-	
+    // Morphing Feature	
 	void setMorphMode( MORPHING_MODE_E morphMode, int winId=0 ); //Set morph mode for current TLW
-	void setMorphMode( int morphMode, int winId=0 ); //Set morph mode for current TLW
+	//void setMorphMode( int morphMode, int winId=0 ); //Set morph mode for current TLW
     //void                setMorphMode( const int morphMode, int winId=0 ); //Set morph mode for current TLW
     int     getMorphMode( void ) const; //Get morph mode for current TLW
     //MORPHING_MODE_E getMorphMode( void ) const; //Get morph mode for current TLW

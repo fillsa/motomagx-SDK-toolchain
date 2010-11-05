@@ -1,4 +1,4 @@
-
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -33,6 +33,7 @@ class ZLabel;
 
 class ZNumModule : public ZWidget
 {
+	uint fix[5];
 //Q_OBJECT
 
 public:

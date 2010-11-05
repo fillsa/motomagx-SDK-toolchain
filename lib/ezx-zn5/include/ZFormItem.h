@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Chenge fix by Ant-ON, 11.08.2010
 
 #ifndef ZFORMITEM_H
 #define ZFORMITEM_H
@@ -9,6 +10,7 @@ class ZFormItemPrivate;
 
 class Q_EXPORT ZFormItem : public ZWidget
 {
+	uint fix[8];
        Q_OBJECT
 
 public:

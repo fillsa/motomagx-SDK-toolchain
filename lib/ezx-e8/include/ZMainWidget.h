@@ -19,7 +19,6 @@ class ZMainWidgetPrivate;
 
 class ZMainWidget: public ZWidget
 {
-	//uint temp[20];
     Q_OBJECT
 
 public:

@@ -1,5 +1,6 @@
 //Fix for VE66/EM35 by Ant-ON, 2009
 //Fix for compobility by Ant-ON, 09-03-2010
+//Fix for compobility by Ant-ON, 15-06-2010 (rowYPos, colXPos to public)
 
 /////////////////////////////////////////////////////////////////////
 /// $Id: qt/src/widgets/qtableview.h   2.3.6   edited 2001-01-26 $
@@ -164,9 +165,11 @@ protected:
     int		findRow( int yPos ) const;
     int		findCol( int xPos ) const;
 
+public: //Added 15-06-2010
     bool	rowYPos( int row, int *yPos ) const;
     bool	colXPos( int col, int *xPos ) const;
-
+    
+protected:
     int		maxXOffset();
     int		maxYOffset();
     int		maxColOffset();

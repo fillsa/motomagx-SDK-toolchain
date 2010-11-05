@@ -4,8 +4,8 @@
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 
-#ifndef PUBLIC_API_WIDGET_ZNAVTABWIDGET_H
-#define PUBLIC_API_WIDGET_ZNAVTABWIDGET_H
+#ifndef ZNAVTABWIDGET_H
+#define ZNAVTABWIDGET_H
 
 #ifndef __cplusplus
 #error "This is a C++ header file; it requires C++ to compile."
@@ -24,9 +24,8 @@ class ZNavTabWidget : public ZWidget
 {
     Q_OBJECT
     Q_PROPERTY( TabPosition tabPosition READ tabPosition WRITE setTabPosition )
-//    Q_PROPERTY( int margin READ margin WRITE setMargin )
     Q_PROPERTY( int currentPage READ currentPageIndex WRITE setCurrentPage )
-
+    
 public:
     enum TabPosition { TOP, BOTTOM };
     enum ButtonPos{NEIGHBOR,SEPARATE};
@@ -40,7 +39,7 @@ public:
 
     void stopNextWhenKeyRepeat(bool bStop = FALSE);
 
-    //void setLabelCountVisible(bool bLabelCountVisible);
+    void setLabelCountVisible(bool bLabelCountVisible);
 
     void setSubHeaderVisible( bool bHeaderVisible);
 
@@ -52,9 +51,9 @@ public:
 
     void addTab( QWidget *child, ZNavTab *tab );
 
-    //void insertTab( QWidget *child, const QString &label, int index = -1);
-    //void insertTab( QWidget *child, const QIconSet& iconset, const QString &label, int index = -1);
-    //void insertTab( QWidget *child, ZNavTab *tab, int index = -1 );
+    void insertTab( QWidget *child, const QString &label, int index = -1);
+    void insertTab( QWidget *child, const QIconSet& iconset, const QString &label, int index = -1);
+    void insertTab( QWidget *child, ZNavTab *tab, int index = -1 );
 
     void changeTab( QWidget *w, const QString &label);
 
@@ -66,9 +65,9 @@ public:
 
     void showPage( QWidget *w );
 
-    //void removePage( QWidget *w );
+    void removePage( QWidget *w );
 
-    //QString tabLabel( QWidget *w ); 
+    QString tabLabel( QWidget *w ); 
 
     QWidget * currentPage() const;
 
@@ -79,30 +78,30 @@ public:
     QSize sizeHint() const;
     QSize minimumSizeHint() const;
 
-    //TabPosition tabPosition() const;
+    TabPosition tabPosition() const;
 
     void setTabPosition( TabPosition pos);
 
-    //int margin() const;
-    //void setMargin( int w);
+    int margin() const;
+    void setMargin( int w);
 
     QSizePolicy sizePolicy() const;
 
-    //void setSpacingH1(short nSpacing);
+    void setSpacingH1(short nSpacing);
 
     short getSpacingH1()const;
 
     void  setEnabled(bool enable);
 
-    //bool  isZEnabled();
-    //bool  isZDisabled();
+    bool  isZEnabled();
+    bool  isZDisabled();
     
 protected:
     void showEvent( QShowEvent * );
     void resizeEvent( QResizeEvent * );
     void setTabBar( ZNavTabBar* );
 
-    //ZNavTabBar* tabBar() const;
+    ZNavTabBar* tabBar() const;
     void styleChange( QStyle& );
     void updateMask();
     bool eventFilter( QObject *, QEvent * );
@@ -121,11 +120,5 @@ private slots:
 
 private:
     ZNavTabWidgetData *d;
-
-private:        
-#if defined(Q_DISABLE_COPY)
-	ZNavTabWidget( const ZNavTabWidget & );
-    ZNavTabWidget& operator=( const ZNavTabWidget & );
-#endif
 };
 #endif 

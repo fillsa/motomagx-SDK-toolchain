@@ -1,14 +1,8 @@
-
-
 #ifndef KB_EDITCONTEXT_H
 #define KB_EDITCONTEXT_H
 
 #include <qstring.h>
-//#include "ZKbTypes.h"
-
 class KbEditContextData; 
-
-typedef QUuid KbInputModeId;
 
 class KbEditContext
 {
@@ -29,15 +23,14 @@ public:
     //KbInputMethod getFieldLastIm(int fieldType);
     //void setFieldLastIm(int fieldType, const KbInputMethod& im);
 
-    ///for 18340 down merge
     QString getDefaultInputLang();
     void setDefaultInputLang(const QString& langCode);
 
     QString getFieldInputLang(int fieldType);
     void setFieldInputLang(int fieldType, const QString& langCode);
 
-    KbInputModeId getFieldInputMode(int fieldType);
-    void setFieldInputMode(int fieldType, const KbInputModeId& mode);
+    QUuid getFieldInputMode(int fieldType);
+    void setFieldInputMode(int fieldType, const QUuid& mode);
  
     static void appExit(void);
     void saveFieldInputMode();
@@ -50,4 +43,4 @@ private:
     KbEditContextData *d; 
 }; 
 
-#endif //ZKB_CONTEXT_H
+#endif

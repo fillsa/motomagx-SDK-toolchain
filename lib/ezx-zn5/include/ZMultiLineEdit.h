@@ -1,6 +1,7 @@
 //Fix for Motorola ZN5 by Ant-ON, 2009
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010 ( add/remove function )
 //Fix for ZN5/U9 by Ant-ON, 16-02-2010 ( Fix setText )
+//Fix for compobility by Ant-ON, 15-06-2010 (paintEvent to public)
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -176,7 +177,9 @@ signals:
     
 protected:
     void    updateMask();
+public: //Added 15-06-2010
     void    paintEvent(QPaintEvent* );
+protected:    
 	int paintCell_if( QPainter* p , int row , int underlineI , bool underlineHit , int reverseI ,\
                       bool reverseHit , int yPos , int x , QString s , QFontMetrics fm , QRect updateR , QColorGroup g );
     void    paintCell( QPainter *, int row, int col, int xPos, int yPos );

@@ -17,7 +17,6 @@ class ZSoftKey : public ZWidget
 {
 Q_OBJECT
 public:
-//enum {NUM  = 3};
     enum KEY_IDX {LEFT, RIGHT ,MID};
     enum TEXT_PRIORITY {ZERO, ONE, TWO};
     ZSoftKey(const QString& type, QWidget* parent, QWidget *watcher = 0); 

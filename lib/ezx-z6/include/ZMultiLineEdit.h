@@ -227,8 +227,9 @@ public slots:
     void    updateMask();
     void    pixelPosToCursorPos(QPoint p, int* x, int* y);
     void    setCursorPixelPosition(QPoint p, bool clear_mark = true);
+  public://Fix for compobility
     void    paintEvent(QPaintEvent * );
-
+  protected:
 	int paintCell_if( QPainter *p , int row , int underlineI , bool underlineHit , int reverseI ,\
                       bool reverseHit , int yPos , int x , QString s , QFontMetrics fm , QRect updateR , QColorGroup g );
     void    paintCell( QPainter *, int row, int col, int xPos, int yPos );

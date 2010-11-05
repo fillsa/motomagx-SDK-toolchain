@@ -1,4 +1,4 @@
-
+//Chenge fix by Ant-ON, 11.08.2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -114,11 +114,6 @@ private:
     void wrapLine(int nTextWidth) const;
     int getTextHeight() const;
     QSize sizeForWidth(int w) const;
-
-#if defined(Q_DISABLE_COPY)
-    ZCheckBox( const ZCheckBox & );
-    ZCheckBox &operator=( const ZCheckBox & );
-#endif
 };
 
 #endif  
