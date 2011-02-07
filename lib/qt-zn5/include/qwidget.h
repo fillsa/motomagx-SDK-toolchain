@@ -1,5 +1,5 @@
 //Fix for ZN5 by Ant-ON
-
+//Fix setMorphMode for compatibiliti by Ant-ON, 1.02.2011
 
 /*
  * Copyright (C) 2007 Motorola Inc.
@@ -68,6 +68,8 @@ class QPTF;
 #endif
 
 #include <morphing_mode.h>
+
+#define QT_SUPPORT_LANDSCAPE_MODE
 
 class QLayout;
 struct QWExtra;
@@ -148,7 +150,8 @@ public:
     WId		 winId() const;
     void	 setName( const char *name );
     // Morphing Feature	
-	void setMorphMode( MORPHING_MODE_E morphMode, int winId=0 ); //Set morph mode for current TLW
+	void setMorphMode( MORPHING_MODE_E morphMode, int winId ); //Set morph mode for current TLW
+	void setMorphMode( int morphMode ){setMorphMode((MORPHING_MODE_E)morphMode, 0);};
 	//void setMorphMode( int morphMode, int winId=0 ); //Set morph mode for current TLW
     //void                setMorphMode( const int morphMode, int winId=0 ); //Set morph mode for current TLW
     int     getMorphMode( void ) const; //Get morph mode for current TLW
