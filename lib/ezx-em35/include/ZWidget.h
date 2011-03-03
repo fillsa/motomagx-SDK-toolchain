@@ -23,7 +23,7 @@ class ZWidgetPrivate;
 
 class Q_EXPORT ZWidget : public QWidget, public ZSkinBase
 {
-   uint fix[15];
+   uint fix[20];
    
    Q_OBJECT
 

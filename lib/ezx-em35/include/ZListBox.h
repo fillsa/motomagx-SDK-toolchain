@@ -254,8 +254,6 @@ signals:
     void showedSubItemChanged(int index, int subIndex);
 
 protected:
-
-
     void viewportResizeEvent( QResizeEvent* );
     void hideEvent ( QHideEvent * );
    void viewportPaintEvent( QPaintEvent * event);
@@ -277,11 +275,13 @@ protected:
     void resizeEvent( QResizeEvent * );
 
     void showEvent( QShowEvent * );
-
+    
+public:
     void updateItem( int index );
 
     void updateItem( ZListItem * );
-
+    
+protected:
     void toggleCurrentItem();
 
     void doLayout() const;

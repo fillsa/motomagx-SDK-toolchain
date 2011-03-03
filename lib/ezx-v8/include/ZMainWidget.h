@@ -36,7 +36,7 @@ public:
         virtual QWidget* getCSTWidget(bool);
         virtual int setCSTWidget(QWidget*);
         virtual int setTitleBarWidget(QWidget*);
-        virtual int setFullScreenMode(bool, bool);
+        virtual int setFullScreenMode(bool fullScreen, bool reserved = false);
         virtual int hideInputWidget();
         virtual int slotPopupMenu(int);
         virtual int invokeInputWidget();

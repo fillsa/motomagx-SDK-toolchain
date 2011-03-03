@@ -1,7 +1,7 @@
 //Non class in EM35/VE66
 //Create by Ant-ON
 
-#ifndef FixByQT
+#ifdef FixByMAGX
 
 #define ZScrollView ZScrollPanel
 

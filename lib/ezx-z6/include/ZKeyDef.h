@@ -1,108 +1,142 @@
+
+
+// Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
+
 #ifndef Z_KEYDEF_H
 #define Z_KEYDEF_H
 
-#include  <qnamespace.h>
-#include  <qcstring.h>
-#define EAT_KEY_BROADCAST_CHANNEL "eatkey/bc"
-#define EAT_KEY_IN_FLIPOFF_MESSAGE "eatkey_in_flipoff"
-#define HARDKEY_LCDSTATUS_NOTIFY_CHANNEL "/hardkey/lcdstatus"
-#define EAT_KEY_NOTIFY_CHANNEL HARDKEY_LCDSTATUS_NOTIFY_CHANNEL
-#define EAT_KEY_NOTIFY_LCD_STATUS_MESSAGE "lcd_status_in_flipoff"
-#define HARDKEY_LCD_BACKLIGHTSTATUS_MESSAGE "lcd_backlight_status_in_flipoff"
-#define KEYLOCK_BYPASS_CHANNEL "keylock_bypass_channel"
-#define KEYLOCK_KEY_LOCK_MESSAGE "KeyLocked"
-#define KEYLOCK_KEY_UNLOCK_MESSAGE "KeyUnlocked"
-#define KEYLOCK_FEEDBACK_SOUNDKEY "soundKey(int,int)"
-#define EZX_KEY_0                       Qt::Key_0           // 0
-#define EZX_KEY_1                       Qt::Key_1           // 1
-#define EZX_KEY_2                       Qt::Key_2           // 2
-#define EZX_KEY_3                       Qt::Key_3           // 3
-#define EZX_KEY_4                       Qt::Key_4           // 4
-#define EZX_KEY_5                       Qt::Key_5           // 5
-#define EZX_KEY_6                       Qt::Key_6           // 6
-#define EZX_KEY_7                       Qt::Key_7           // 7
-#define EZX_KEY_8                       Qt::Key_8           // 8
-#define EZX_KEY_9                       Qt::Key_9           // 9 
-#define EZX_KEY_STAR                    Qt::Key_Asterisk    // *
-#define EZX_KEY_POUND                   Qt::Key_NumberSign  // #
+#ifndef __cplusplus
+#error "This is a C++ header file; it requires C++ to compile."
+#endif
 
-#define EZX_KEY_UP                      Qt::Key_Up          // Navi up
-#define EZX_KEY_DOWN                    Qt::Key_Down        // Navi down
-#define EZX_KEY_LEFT                    Qt::Key_Left        // Navi left
-#define EZX_KEY_RIGHT                   Qt::Key_Right       // Navi right
-#define EZX_KEY_CENTER_SELECT           Qt::Key_Return          // Center select
+#include <qnamespace.h>
 
-#define EZX_KEY_SIDE_UP                 Qt::Key_PageUp      // side up
-#define EZX_KEY_SIDE_DOWN               Qt::Key_PageDown    // side down
-#define EZX_KEY_SIDE_SELECT             Qt::Key_Enter       // side select
+#define KEYCODE_0                              0x30       
+#define KEYCODE_1                              0x31       
+#define KEYCODE_2                              0x32       
+#define KEYCODE_3                              0x33       
+#define KEYCODE_4                              0x34       
+#define KEYCODE_5                              0x35       
+#define KEYCODE_6                              0x36       
+#define KEYCODE_7                              0x37       
+#define KEYCODE_8                              0x38       
+#define KEYCODE_9                              0x39       
+#define KEYCODE_STAR                           0x2a       
+#define KEYCODE_POUND                          0x23       
 
-#define EZX_KEY_CLEAR                   Qt::Key_F3          //  Qt::Key_Backspace   // Back/Clear key
+#define KEYCODE_UP                             0x1013     
+#define KEYCODE_DOWN                           0x1015     
+#define KEYCODE_LEFT                           0x1012     
+#define KEYCODE_RIGHT                          0x1014     
+#define KEYCODE_CENTER_SELECT                  0x1004     
 
-#define EZX_KEY_SEND                    Qt::Key_F1          // Send key
-#define EZX_KEY_END                     Qt::Key_F2          // End key
+#define KEYCODE_SIDE_UP                        0x1016     
+#define KEYCODE_SIDE_DOWN                      0x1017     
+#define KEYCODE_SIDE_SELECT                    0x1005     
 
-#define EZX_KEY_MSG                     Qt::Key_F20          // Messaging key
-#define EZX_KEY_CARRIER                 Qt::Key_F4          // Carrier key
-#define EZX_KEY_IMAGING                 Qt::Key_F5          // Imaging key 
-#define EZX_KEY_VR                      Qt::Key_F6          // VR key
-#define EZX_KEY_PTX                     Qt::Key_F7          // Push to X key
-#define EZX_KEY_TASK                    Qt::Key_F14          // Task manager key.
-#define EZX_KEY_LSK                     Qt::Key_F9          // Left soft key
-#define EZX_KEY_MSK                     Qt::Key_F10         // Middle soft key
-#define EZX_KEY_RSK                     Qt::Key_F11         // Right soft key
+#define KEYCODE_CLEAR                          0x1032     
 
-#define EZX_KEY_HOME                    Qt::Key_F12         // Home key
+#define KEYCODE_SEND                           0x1030     
+#define KEYCODE_END                            0x1031     
 
-#define EZX_KEY_FLIP                    Qt::Key_F13         // Lid for clamshell device
+#define KEYCODE_MSG                            0x1043     
+#define KEYCODE_CARRIER                        0x1033     
+#define KEYCODE_IMAGING                        0x1034     
+#define KEYCODE_VR                             0x1035     
+#define KEYCODE_PTX                            0x1036     
+#define KEYCODE_TASK                           0x103d     
+#define KEYCODE_LSK                            0x1038     
+#define KEYCODE_MSK                            0x1039     
+#define KEYCODE_RSK                            0x103a     
 
-#define EZX_KEY_POWER                   Qt::Key_F16         // Power key
+#define KEYCODE_HOME                           0x103b     
 
-#define EZX_KEY_HEADSET_ANSWER          Qt::Key_F21         // Headset answer
-#define EZX_KEY_HEADSET_INSERT          Qt::Key_F22         // Headset insert
+#define KEYCODE_FLIP                           0x103c     
 
-#define EZX_KEY_FM                   
-#define EZX_KEY_JUMP                    Qt::Key_F25
-#define EZX_KEY_PLAY_PAUSE              Qt::Key_F26
-#define EZX_KEY_STOP                    Qt::Key_F27
-#define EZX_KEY_PREV                    Qt::Key_F28
-#define EZX_KEY_NEXT                    Qt::Key_F29
-#define EZX_KEY_LOCK                    Qt::Key_F15
+#define KEYCODE_POWER                          0x103f     
 
-#define KEYCODE_TS_PREV                 0x104d              //Prev and Rewind of Touch Sensitive keys
-#define KEYCODE_TS_PLAY_PAUSE           0x104e              //Play and Pause of Touch Sensitive Keys
-#define KEYCODE_TS_NEXT                 0x104f              //Next and Forward of Touch Sensitive Keys
+#define KEYCODE_VIDEO_CALL	               0x1040     
 
-#define EZX_KEY_SLIDER                  Qt::Key_F23
+#define KEYCODE_HEADSET_ANSWER                 0x1044     
+#define KEYCODE_HEADSET_INSERT                 0x1045     
 
-#define KEYCODE_UNKNOWN                 0xffff              //Qt::Key_unknown
+#define KEYCODE_JUMP                           0x1048     
+#define KEYCODE_PLAY_PAUSE                     0x1049     
+#define KEYCODE_STOP                           0x104a     
+#define KEYCODE_PREV                           0x104b     
+#define KEYCODE_NEXT                           0x104c     
+#define KEYCODE_LOCK                           0x103e     
+
+#define KEYCODE_SLIDER                         0x1046     
+
+#define KEYCODE_TS_PREV                        0x104d     
+#define KEYCODE_TS_PLAY_PAUSE                  0x104e     
+#define KEYCODE_TS_NEXT                        0x104f     
+
+#define KEYCODE_BT_PLAY                        0x1050       
+#define KEYCODE_BT_STOP                        0x1051       
+#define KEYCODE_BT_PAUSE                       0x1052       
+#define KEYCODE_BT_REWIND                      0x1053       
+#define KEYCODE_BT_FAST_FORWARD                0x1054       
+#define KEYCODE_BT_FORWARD                     0x1055       
+#define KEYCODE_BT_BACKWARD                    0x1056
+inline bool UTIL_KeyIsBTKey(int keycode){return keycode >=KEYCODE_BT_PLAY && keycode <= KEYCODE_BT_BACKWARD;}
+
+#define KEYCODE_PROXIMITY                      0x4001                           
+
+#define KEYCODE_SHUFFLE                        0x4002     
+#define KEYCODE_REPEAT                         0x4003     
+#define KEYCODE_ZOOM_OUT                       0x4004     
+#define KEYCODE_ZOOM_IN                        0x4005     
+#define KEYCODE_CAPTURE_PLAYBACK_TOGGLE        0x4006     
+#define KEYCODE_STILL_VIDEO_TOGGLE             0x4007     
+#define KEYCODE_EXIT                           0x4008     
+#define KEYCODE_FLASH                          0x4009     
+#define KEYCODE_TRASH                          0x400a     
+
+#define KEYCODE_OMG_TOUCH                      Qt::Key_Omg_Touch      
+#define KEYCODE_OMG_PAGEUP                     Qt::Key_Omg_Pageup     
+#define KEYCODE_OMG_PAGEDOWN                   Qt::Key_Omg_Pagedown   
+#define KEYCODE_OMG_SCROLL                     Qt::Key_Omg_Scroll     
+#define KEYCODE_OMG_STOP                       Qt::Key_Omg_Stop       
+#define KEYCODE_OMG_RESUME                     Qt::Key_Omg_Resume     
+#define KEYCODE_OMG_RATE                       Qt::Key_Omg_Rate       
+
+#define KEYCODE_SPEAKER                        0x4020                           
+#define KEYCODE_AUTO_FOCUS                     0x4021                           
+#define KEYCODE_CINGULARVIDEO                  0x4030                           
+#define KEYCODE_UNKNOWN                        0xffff                           
 
 typedef enum {
-    SYSTEM_FLIP_OPEN = 0,
-    SYSTEM_FLIP_CLOSE
-} FLIP_STATUS;
+    SYSTEM_FLIP_OPEN = 0,   
+    SYSTEM_FLIP_CLOSE       
+} SYSTEM_FLIP_STATUS;
 
 typedef enum {
-    KEY_SLIDER_OPEN = 0, // Release event.
-    KEY_SLIDER_CLOSE     // Press event.
-} KEY_SLIDER_STATUS;
-
-	
-
+    SYSTEM_SLIDER_OPEN = 0, 
+    SYSTEM_SLIDER_CLOSE     
+} SYSTEM_SLIDER_STATUS;
 
 typedef enum {
-    KEY_MSG_PRESS             = 0x00000001,
-    KEY_MSG_RELEASE           = 0x00000002,
-    KEY_MSG_PRESS_AND_HOLD    = 0x00000004,
-    KEY_MSG_AUTO_REPEAT_FLAG  = 0x10000000
+    KEY_MSG_PRESS             = 0x00000001, 
+    KEY_MSG_RELEASE           = 0x00000002, 
+    KEY_MSG_PRESS_AND_HOLD    = 0x00000004, 
+    KEY_MSG_AUTO_REPEAT_FLAG  = 0x10000000  
 } KEY_MSG_T;
 
+int UTIL_GetKeyPressAndHoldTime();
+int UTIL_GetKeyFirstRepeatTime();
+int UTIL_GetTimeBetweenKeyRepeat();
 
-#define KEY_PRESS_AND_HOLD_TIME         1500
-#define KEY_FIRST_REPEAT_TIME           300
-#define KEY_TIME_BETWEEN_REPEAT         150
+const char * UTIL_GetKeyBypassChannel();
+const char * UTIL_GetKeyLockedMessage();
+const char * UTIL_GetKeyUnlockedMessage();
 
 void UTIL_BroadcastKeyMsg(int key, int type);
-QCString UTIL_GetKeyEventChannel();
-QCString UTIL_GetKeySoundChannel();
 
-#endif  // UTIL_KEYDEF_H
+const char * UTIL_GetKeyEventChannel();
+
+const char * UTIL_GetPttKeyChannel();
+
+#endif  

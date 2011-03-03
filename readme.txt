@@ -12,6 +12,7 @@ Included:
  - U9 SDK ( by Ant-ON )
  - VE66 SDK ( by Ant-ON )
  - EM35 SDK ( by Ant-ON )
+ - VA76 SDK ( by Ant-ON )
 
 Install:
 

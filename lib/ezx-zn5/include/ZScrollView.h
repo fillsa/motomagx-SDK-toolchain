@@ -2,7 +2,7 @@
 
 //Non class in ZN5
 
-#ifndef FixByQT
+#ifdef FixByMAGX
 
 #define ZScrollView ZScrollPanel
 

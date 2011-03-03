@@ -164,7 +164,7 @@ public:
         bool checked = false,
         int id = -1,
         int index = -1,
-	bool hide = false );
+		bool hide = false );
 
     int insertItem(
         const QString & text,
@@ -173,7 +173,7 @@ public:
         bool enable = true,
         int id = -1,
         int index = -1,
-	bool hide = false,
+		bool hide = false,
         bool checkable = false,
         bool checked = false );
 

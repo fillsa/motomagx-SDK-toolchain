@@ -554,7 +554,7 @@ protected:
     virtual void setWState( uint );
     void	 clearWState( uint n );
 
-// public:
+ public:
 
     WFlags	 getWFlags() const;
     virtual void setWFlags( WFlags );

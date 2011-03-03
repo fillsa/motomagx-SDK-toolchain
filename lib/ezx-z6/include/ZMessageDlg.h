@@ -8,6 +8,7 @@
 #define TypeOK just_ok
 #define TypeConfirm yes_no
 #define TypeChoose ok_cancel
+#define TypeCustom NONE
 
 class ZMessageDlg : public ZPopup
 {
@@ -23,7 +24,7 @@ public:
 		NONE //custom
 	};
 
-  ZMessageDlg(QWidget* parent = NULL, char const* name = 0, bool modal, WFlags f = 0);
+  ZMessageDlg(QWidget* parent = NULL, char const* name = 0, bool modal=true, WFlags f = 0);
   ZMessageDlg(QString const& header, QString const& message, MessageDlgType type, int timeout_ms = 0, QWidget* parent = NULL, char const* name = 0, bool modal = TRUE,  WFlags f = 0); //TODO: fix if parent and name parameters are correct
 	~ZMessageDlg();
 

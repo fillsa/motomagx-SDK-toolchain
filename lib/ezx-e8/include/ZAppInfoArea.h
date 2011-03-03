@@ -1,4 +1,4 @@
-
+//Fixed for compatibility by Ant-ON, 03.03.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,9 +22,6 @@ class ZFmwItem;
 class ZMeterModule;
 class QPainter;
 class QTimer;
-#ifdef DEBUG
-class TestCase;
-#endif
 
 class ZAppInfoArea : public ZWidget
 {
@@ -39,6 +36,8 @@ public:
         STORAGE,    
         AREA_NUM    
     };
+
+	#define activity ACTIVITY
 
     enum COUNTER_MODE
     {
@@ -66,6 +65,9 @@ public:
         PROGRESS_METER,     
         NO_PROGRESS_METER   
     };
+
+	#define no_progress_meter NO_PROGRESS_METER
+	#define progress_meter PROGRESS_METER
 
     enum METER_STYLE
     {
@@ -187,11 +189,9 @@ public:
 
     ~ZAppInfoArea();
 
-#ifdef DEBUG
     int getWidth(AREA_IDX nIdx);
     bool printArea(AREA_IDX nIdx);
-    friend class TestCase;
-#endif
+
 signals:
     void itemNum(int num);
 

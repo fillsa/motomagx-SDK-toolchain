@@ -1,7 +1,7 @@
 //Non class in E8
 //Create by Ant-ON
 
-#ifndef FixByQT
+#ifdef FixByMAGX
 
 #define ZScrollView ZScrollPanel
 

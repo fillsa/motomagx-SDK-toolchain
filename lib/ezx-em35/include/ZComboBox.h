@@ -1,3 +1,4 @@
+// Fix for VE66/EM35 by Ant-ON, 07.12.10
 
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
@@ -84,7 +85,8 @@ public:
 
     int currentItem() const;
 
-    virtual void setCurrentItem( int index );
+    //virtual
+    void setCurrentItem( int index );//Fix by Ant-ON
 
     virtual void setSizeLimit( int );
 

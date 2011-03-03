@@ -243,6 +243,7 @@ extern DECLSPEC void SDLCALL SDL_UnlockAudio(void);
  */
 extern DECLSPEC void SDLCALL SDL_CloseAudio(void);
 
+extern DECLSPEC void SDL_CalculateAudioSpec(SDL_AudioSpec *spec);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

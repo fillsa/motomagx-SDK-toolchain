@@ -25,7 +25,7 @@
 
 #include <features.h>
 /* Get the type definitions.  */
-#include <stdint.h>
+#include "stdint.h"
 
 /* Get a definition for wchar_t.  But we must not define wchar_t itself.  */
 #ifndef ____gwchar_t_defined

@@ -1,4 +1,4 @@
-
+//Fix by Ant-ON, 6.12.10
 
 // Copyright (c) 26-Oct-06 - 2008 Motorola, Inc. All rights reserved.
 
@@ -46,7 +46,7 @@ extern "C" {
 
 #define LM_NO_TIMEOUT              0xFFFFFFFF
 
-#define LM_REGION_TO_MASK(region)  (1 << (region))
+#define LM_REGION_TO_MASK(region)  (1 << (region-1)) //fix by Ant-ON
 
 #define LM_FL_REGION01_MSK         LM_REGION_TO_MASK(LM_FL_REGION_CAMERA_FLASH)
 #define LM_FL_REGION02_MSK         LM_REGION_TO_MASK(LM_FL_REGION_DISPLAY_BL)

@@ -11,7 +11,9 @@
 #include <qcopchannel_qws.h>
 #include <qwsevent_qws.h>
 #include <qvaluelist.h>
+#ifdef EZX_ZN5
 #include "ZMorphingModeDef.h"
+#endif
 #include "ZIMethod.h"
 #include "ZKeyDef.h"
 
@@ -39,6 +41,12 @@ public:
     #ifdef EZX_Z6W
     int getEndTaskWhenCloseSlider();
     #endif
+    
+    void showMainWidget( QWidget* wMain)
+    {
+		setMainWidget( wMain );
+		wMain->show();
+	}
     
     ZWidgetSkinProps * getSkinnableProperties();
     int exec();

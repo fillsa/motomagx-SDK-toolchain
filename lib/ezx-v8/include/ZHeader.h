@@ -15,6 +15,8 @@ class ZHeaderDisplayWindow;
 class ZHeaderIDL;
 class QTimer;
 
+#define MAINDISPLAY_HEADER FULL_TYPE
+
 class ZHeader : public ZWidget
 {
 Q_OBJECT

@@ -1,3 +1,6 @@
+// Writed by Ant-ON <prozanton@gmal.com>, 2010
+// Based on QCopChannel header file.
+
 #ifndef ESCOPCHENEL_H
 #define ESCOPCHENEL_H
 

@@ -109,14 +109,6 @@ extern "C" {
     
     DLLINTERFACE SDL_Surface *shrinkSurface(SDL_Surface * src, int factorx, int factory);
 
-/* 
-
-    Other functions
-    
-*/
-
-    DLLINTERFACE SDL_Surface* rotateSurface90Degrees(SDL_Surface* pSurf, int numClockwiseTurns);
-
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus
 }

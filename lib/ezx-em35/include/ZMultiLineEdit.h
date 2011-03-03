@@ -2,6 +2,7 @@
 //Fix for compobility by Ant-ON, 09-03-2010
 //Fix for compobility by Ant-ON, 15-06-2010 (paintEvent to public)
 //Fix for compobility by Ant-ON, 25-10-2010 (hasMarkedText, getMarkedRegion to public)
+//Fix comment sections. Ant-ON, 13.12.10
 
 // Copyright (c) 07-Dec-2004 - 2008 Motorola, Inc. All rights reserved.
 
@@ -121,7 +122,6 @@ public:
 //--------------------------------------------------------------------------------------------------
 //                                         ENUMS
 //--------------------------------------------------------------------------------------------------
-#ifndef QT_NO_MOT_CURSOR_FLAG
    ///
    ///  \brief The enum type defines the relative position of title
    ///
@@ -159,7 +159,6 @@ public:
 	AlignmentRight   //initial alignment right
     };
     
-#endif
     ///
     ///  \enum  EchoMode
     ///
@@ -461,7 +460,6 @@ public:
     //================================================================================================
     virtual void removeLine( int line );
 
-#ifndef QT_NO_MOT_CURSOR_FLAG
     //================================================================================================
     ///
     /// \brief set the direction of cursor flag. 
@@ -473,7 +471,7 @@ public:
     ///             CF_LTR   shows the left cursor flag.
     //================================================================================================
     void setCursorFlagDirection(CursorFlagDirection d);
-#endif
+
     //================================================================================================
     ///
     /// Get the cursor's position
@@ -1102,7 +1100,6 @@ public:
     //================================================================================================
     void setAutoFixedHeight(bool enable);
 
-#ifdef FEAT_UISTYLE_CHAMELEON
     //================================================================================================
     ///
     /// \brief For navigate mode, to reset the foucus item.
@@ -1184,9 +1181,7 @@ public:
     ///
     //================================================================================================
     bool autoExpandInNestMode() const;
-#endif
 
-#ifndef QT_NO_WORDCOMPLETE
     //================================================================================================
     ///
     ///  \brief it is used by input method. To get the previous position of cursor.
@@ -1213,9 +1208,7 @@ public:
     ///
     //================================================================================================
     void setWordComplete(bool wc);
-#endif
 
-#ifndef QT_NO_GET_CONTEXT
     //================================================================================================
     ///
     ///  \brief  get the string of a line.
@@ -1224,7 +1217,6 @@ public:
     ///
     //================================================================================================
     QString getRowString(int i);
-#endif
 
 #if defined(QT_NO_PUBLIC_INTERFACE) && defined(QT_NO_WORDCOMPLETE)
 #else
@@ -1236,7 +1228,6 @@ public:
     void emitTextChanged();
 #endif
 
-#ifndef QT_NO_PUBLIC_INTERFACE
     //================================================================================================
     ///
     ///  \brief calculate the pos 'len' steps from the given position 'startPos'
@@ -1287,8 +1278,7 @@ public:
     ///  
     //================================================================================================
     void insertString_if( QPoint pos, QString text ); 
-#endif
-
+    
     //================================================================================================
     ///
     ///  \brief get the height of a line. 
@@ -1309,14 +1299,13 @@ public:
     //================================================================================================
     bool isValidChar( const QChar& ch );
     
-#ifndef QT_NO_WTLE
     //================================================================================================
     ///
     /// \brief special cursor mode.
     /// 
     //================================================================================================
     void specialInputModeCursorModel(bool);
-#endif //end QT_NO_WTLE
+
     //================================================================================================
     ///
     /// \brief set cursor mode of input mode.
@@ -1474,7 +1463,6 @@ public slots:
     ///
     void  smartPunctuation(); 
     
-#ifndef QT_NO_CLIPBOARD
     ///
     /// Copies the plain text from the clipboard onto the current cursor position. 
     /// Any marked text is deleted first
@@ -1509,7 +1497,6 @@ public slots:
     /// Deletes the selected text
     ///
     void       deleteText();
-#endif
 
     ///
     /// Inserts the text at the current cursor position
@@ -1592,7 +1579,6 @@ signals:
     void  cursorChanged(int cursorX, int cursorY);
 #endif
 
-#ifndef QT_NO_GET_CONTEXT
     ///
     /// \brief  when buffer is updated,the signal is emited.
     /// 
@@ -1602,7 +1588,6 @@ signals:
     /// \brief  when content is changed, the signal is emited.
     ///
     void  contentChanged();
-#endif
     
     ///
     /// \brief the signal is emitted when size hint is changed
@@ -1628,13 +1613,11 @@ signals:
     ///
     void sigCursorUpDown(bool down);
 
-#ifdef FEAT_UISTYLE_CHAMELEON
     ///
     /// \note internal use
     ///
     void contentsResizing(ZMultiLineEdit* , int width, int height);
-#endif
-    
+
 protected:
     ///
     /// Reimplemented from QFrame.
@@ -1679,7 +1662,6 @@ public: //Added 15-06-2010
     void    paintEvent(QPaintEvent* );
 
 protected:
-#ifndef QT_NO_PUBLIC_INTERFACE
     ///
     /// \brief a part of paint action.
     ///
@@ -1687,7 +1669,6 @@ protected:
     ///
 	int paintCell_if( QPainter* p , int row , int underlineI , bool underlineHit , int reverseI ,\
                       bool reverseHit , int yPos , int x , QString s , QFontMetrics fm , QRect updateR , QColorGroup g );
-#endif
 
     ///
     /// Reimplemented from ZTableView
@@ -1946,7 +1927,6 @@ public: // for compobility
   
 protected://
     
-#ifdef FEAT_UISTYLE_CHAMELEON
     ///
     /// \brief when mutliLine is readonly, the method is used to move the cursor.
     ///
@@ -1965,7 +1945,7 @@ protected://
     /// \brief get the first invisible line number.
     ///
     int firstNoVisibleLines(int curLines, const QRect & rt, bool down);
-#endif
+
     ///
     /// Deletes the character on the left side of the text cursor and moves the cursor
     /// one position to the left. If a text has been marked by the user (e.g. by clicking 
@@ -2130,13 +2110,11 @@ private slots:
     /// 
     void    fastDelTimerTimeout();
 
-#ifndef QT_NO_GET_CONTEXT
     ///
     ///  \brief used by input methods. update buffer.
     ///         Mainly support for touch pad.
     ///
     void    bufferUpdate(); 
-#endif
 
 private:
     ///
@@ -2158,7 +2136,6 @@ private:
         Field
     };
  
-#ifndef QT_NO_WTLE
     ///
     /// \brief the alignment of paragraph.  
     ///
@@ -2168,7 +2145,7 @@ private:
     	LTR,
     	RTL
     };
-#endif
+
     ///
     /// \struct   a row of multiline editor.
     ///
@@ -2569,14 +2546,11 @@ private://
     ///
     bool isTextEmpty() const;
 
-#ifndef QT_NO_MIME
     ///
     /// \internal  
     ///
     QCString pickSpecial( QMimeSource* ms, bool always_ask, const QPoint& );
-#endif
-    
-#ifndef QT_NO_WTLE
+
 
     ///
     /// \brief set editor to align automaticly.  
@@ -2651,7 +2625,6 @@ private://
     ///
     /// \brief override line direction ( LTR or RTL )
     void overrideLineDirection(int line, eParaAlignment dir, int removed);
-#endif
 
     ///
     /// scroll with omega event in non-edit state
@@ -2702,19 +2675,17 @@ private://
     int     markAnchorY;
     int     markDragX;
     int     markDragY;
-    int     curXPos;    // cell coord of cursor
-    int     blinkTimer; // #### not used anymore - remove in 3.0
-    int     scrollTimer; // #### not used anymore - remove in 3.0
-
-#ifndef QT_NO_MOT_CURSOR_FLA    
+    int     curXPos;    
+    int     blinkTimer; 
+    int     scrollTimer;
+  
     InitAutoAlign initAlign;
     CursorFlagExist cursFlag;
     CursorFlagDirection cursFlagDirection;
-    InputContext inputContext;
-#endif    
+    InputContext inputContext;   
 
 };
-#endif // end Z_MULTILINE_H
+#endif
 
 
 

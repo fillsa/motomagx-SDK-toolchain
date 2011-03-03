@@ -6,9 +6,6 @@
 
 class ZColorControlPrivate;
 class ZColorPickerDlg;
-#ifndef QRgb
-//class QRgb;
-#endif
 
 class ZColorControl: public ZFormItem
 {

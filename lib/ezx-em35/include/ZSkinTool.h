@@ -12,9 +12,9 @@
 
 #include <qpixmap.h>
 
-#ifdef FEAT_UISTYLE_CHAMELEON
+//#ifdef FEAT_UISTYLE_CHAMELEON
 #include <ZWidgetSkinProps.h>
-#endif
+//#endif
 
 class ZSkinTool
 {
@@ -22,9 +22,9 @@ public:
 
 
 
-#ifdef FEAT_UISTYLE_CHAMELEON
+//#ifdef FEAT_UISTYLE_CHAMELEON
     QPixmap process(QPixmap &pm, int width, int height, PIXMAP_STRETCH_POLICY_E type);
-#endif
+//#endif
     QPixmap stretchV(QPixmap &, int height);
     QPixmap stretchH(QPixmap &, int width);
 private:

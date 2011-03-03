@@ -194,7 +194,6 @@ public:
 
     int getWidth(AREA_IDX nIdx);
     bool printArea(AREA_IDX nIdx);
-    friend class TestCase;
 
 signals:
     void itemNum(int num);
