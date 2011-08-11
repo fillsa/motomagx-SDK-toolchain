@@ -10,8 +10,8 @@ Included:
  - E8 SDK ( by tulanix and Ant-ON )
  - EM30 SDK ( by Ant-ON )
  - U9 SDK ( by Ant-ON )
- - VE66 SDK ( by Ant-ON )
- - EM35 SDK ( by Ant-ON )
+ - VE66 SDK ( by ilov3d + fix Ant-ON )
+ - EM35 SDK ( by ilov3d + fix Ant-ON )
 
 Install:
 

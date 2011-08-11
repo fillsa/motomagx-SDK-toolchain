@@ -12,7 +12,7 @@
 
 #define MPH_MODE_KEEP_CURRENT                 -1    
 #define MPH_MODE_KEYLESS                       0    
-#define MPH_MODE_STANDBY                       1    
+#define MPH_MODE_STANDBY                       1   
 #define MPH_MODE_INT_NAVI                      2    
 #define MPH_MODE_INT_PHONE                     3    
 #define MPH_MODE_INT_MUSIC                     4    

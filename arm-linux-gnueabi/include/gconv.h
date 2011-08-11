@@ -23,7 +23,6 @@
 #ifndef _GCONV_H
 #define _GCONV_H	1
 
-#include <stdlib.h>
 #include <features.h>
 #define __need_mbstate_t
 #include <wchar.h>
