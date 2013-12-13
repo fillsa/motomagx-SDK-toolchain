@@ -1,6 +1,6 @@
 //Fix for ZN5 by Ant-ON, 2009
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
-
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -10,14 +10,13 @@
 #include <ZPopup.h>
 #include <ZMeter.h>
 
-/* Size: 216=54*4 */
+// Size in ZN5: 0xC4
 
-
-class ZProgressDlg : public ZPopup
+class ZProgressDlg: public ZPopup
 {	
 	Q_OBJECT
-	unsigned int data[54-sizeof(ZPopup)/4];
-
+	
+	unsigned char fix[0xC4-sizeof(ZPopup)];
 public:
     ZProgressDlg(const QString& strDlgTitle,
                  const QString& strInstructText,
@@ -38,8 +37,6 @@ public:
 
 	void autoClose() const;
 	void autoReset() const;
-	void cancel();
-	void cancelled();
 	void changeMeter(QString const&);
 	void changeMeter(int);
 	void changeMeter(int, int);
@@ -53,7 +50,6 @@ public:
 	void getProgressTotalStep();
 	void initialize(QString const&, QString const&);
 	void keyPressEvent(QKeyEvent*);
-	void reset();
 	void setAutoClose(bool);
 	void setAutoPercentFlag(bool);
 	void setAutoReset(bool);
@@ -68,6 +64,11 @@ public:
 public slots:
 //	void slotLeftSoftKeyClicked();
 	void  slotResizeAllChild(int);
+    void    cancel();
+    void    reset();
+
+signals:
+    void    cancelled();
 };
 
 #endif

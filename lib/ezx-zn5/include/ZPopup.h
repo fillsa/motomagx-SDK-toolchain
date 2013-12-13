@@ -37,10 +37,13 @@ class ZPopupEventFilter;
 struct ZPopupPrivate;
 struct ZPopupPrivateUNS;
 
+//Size in ZN5: ??
+
 class ZPopup : public QDialog
 {
     Q_OBJECT
-
+    
+	unsigned char fix[0xC4-sizeof(QDialog)];
 public:
 
     enum POPUP_TYPE_E
@@ -246,9 +249,8 @@ private:
     //void drawSingleBodyBorder(QPainter& p, QPixmap& bg, QPixmap & border, int percent, int left, int top, int bodyY);
     //void drawBodyBorder();
 
-private:
-
-    ZPopupPrivate* mpData;
+//private:
+//    ZPopupPrivate* mpData;
 
 public:
 
@@ -277,11 +279,11 @@ signals:
     //void slotConnectionClosed();
     //void slotFlipOnOff(int);
 
-private:
-    ZPopupPrivateUNS* mpDataUNS;
+//private:
+//    ZPopupPrivateUNS* mpDataUNS;
 
-private:    
-    ZPopupEventFilter *evtFilter;
+//private:    
+//    ZPopupEventFilter *evtFilter;
 };
 
 class ZPopupEventFilter : public QObject

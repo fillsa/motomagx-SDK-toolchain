@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,10 +23,13 @@
 
 struct ZMultiSelectDlgPrivate;
 
+// Size in ZN5: 0xC4
+
 class ZMultiSelectDlg : public ZPopup
 {
     Q_OBJECT
-
+    
+    unsigned char fix[0xC4-sizeof(ZPopup)];
 public:
     enum MENU_INDEX_E
     {
@@ -77,9 +81,8 @@ private:
     //void initAIAinfo();
     //void updateAppInfoArea(int nSelCount);
 
-private:
-
-    ZMultiSelectDlgPrivate* mpData;
+//private:
+    //ZMultiSelectDlgPrivate* mpData;
 
 };
 

@@ -46,7 +46,7 @@ extern "C" {
 
 #define LM_NO_TIMEOUT              0xFFFFFFFF
 
-#define LM_REGION_TO_MASK(region)  (1 << (region-1)) //fix by Ant-ON
+#define LM_REGION_TO_MASK(region)  (1 << region)
 
 #define LM_FL_REGION01_MSK         LM_REGION_TO_MASK(LM_FL_REGION_CAMERA_FLASH)
 #define LM_FL_REGION02_MSK         LM_REGION_TO_MASK(LM_FL_REGION_DISPLAY_BL)
@@ -80,10 +80,10 @@ typedef enum
     LM_FL_REGION_DISPLAY_BL,                                   
     LM_FL_REGION_CLI_DISPLAY_BL,                               
     LM_FL_REGION_LOGO,                                         
-    LM_FL_REGION_KEYPAD_NAV_BL,                                
-    LM_FL_REGION_KEYPAD_NUM_BL,                                
-    LM_FL_REGION_BT_LED,                                       
-    LM_FL_REGION_SOL_LED,                                      
+    LM_FL_REGION_KEYPAD_NAV_BL=5,                                
+    LM_FL_REGION_KEYPAD_NUM_BL=5,                                
+    LM_FL_REGION_BT_LED=6,                                       
+    LM_FL_REGION_SOL_LED=7,                                      
     LM_FL_REGION_PRIVACY_IND,                                  
 
     LM_FL_REGION_MORPHING_START,

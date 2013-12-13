@@ -1,4 +1,4 @@
-
+//Fix by Ant-ON, 12.03.2011
 
 // Copyright (c) 09-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -17,16 +17,15 @@ class QWidget;
 class HSPluginSettingInfo
 {
 public:
-
     virtual ~HSPluginSettingInfo(){};
 
-    virtual QString getIcon() const = 0;
+    //virtual QString getIcon() const = 0;
+    
+    virtual QString getValue() const {return QString::null;}
 
     virtual QString getName() const = 0;
 
-    virtual QString getValue() const {return QString::null;}
-
-    virtual bool IsItemGrayout() const {return false;}
+    //virtual bool IsItemGrayout() const {return false;}
 
     virtual void showSetting(QWidget* parent) = 0;
 };

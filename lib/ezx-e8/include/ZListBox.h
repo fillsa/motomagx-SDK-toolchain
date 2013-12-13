@@ -31,84 +31,84 @@ class Q_EXPORT ZListBox : public ZScrollPanel
        Q_OBJECT
 
 public:
-      ZListBox( QWidget* parent = 0, WFlags f = 0,
-                  ZSkinService::WidgetClsID clsId = ZSkinService::clsZListBox1 );
+	ZListBox( QWidget* parent = 0, WFlags f = 0,
+			  ZSkinService::WidgetClsID clsId = ZSkinService::clsZListBox1 );
 
-      ZListBox( QString type, QWidget* parent=0, WFlags f = 0,
-                  ZSkinService::WidgetClsID clsId = ZSkinService::clsZListBox1);
+	ZListBox( QString type, QWidget* parent=0, WFlags f = 0,
+			  ZSkinService::WidgetClsID clsId = ZSkinService::clsZListBox1);
 
-      virtual ~ZListBox();
+	virtual ~ZListBox();
 
-      void setListItemType(ZListItem::ListItemType type);
+	void setListItemType(ZListItem::ListItemType type);
 
-      uint count() const;
+	uint count() const;
 
-      void insertItem( const ZListItem * item, int index=-1, bool autoHighlighted = TRUE );
+	void insertItem( const ZListItem * item, int index=-1, bool autoHighlighted = TRUE );
 
-      void insertItem( const ZListItem * item, const ZListItem *after, bool autoHighlighted = TRUE);
+	void insertItem( const ZListItem * item, const ZListItem *after, bool autoHighlighted = TRUE);
 
-      void clear();
+	void clear();
 
-      void changeItem( const ZListItem * item, int index );
+	void changeItem( const ZListItem * item, int index );
 
-      void takeItem( const ZListItem * item);
+	void takeItem( const ZListItem * item);
 
-      void removeItem( int index );
+	void removeItem( int index );
 
-      int currentItem() const;
+	int currentItem() const;
 
-      virtual void setCurrentItem( int index );
+	virtual void setCurrentItem( int index );
 
-      virtual void setCurrentItem( ZListItem * item);
+	virtual void setCurrentItem( ZListItem * item);
 
-      int topItem() const;
+	int topItem() const;
 
-      virtual void setTopItem( int index );
+	virtual void setTopItem( int index );
 
-      virtual void setBottomItem( int index );
+	virtual void setBottomItem( int index );
 
-      //ZListItem *item( int index ) const;
-      ZSettingItem *item( int index ) const;
+	//ZListItem *item( int index ) const;
+	ZSettingItem *item( int index ) const;
 
-      int index( const ZListItem * item) const;
+	int index( const ZListItem * item) const;
 
-      bool itemVisible( int index );
+	bool itemVisible( int index );
 
-      bool itemVisible( const ZListItem * item);
+	bool itemVisible( const ZListItem * item);
 
-      QRect itemRect( ZListItem *item ) const;
+	QRect itemRect( ZListItem *item ) const;
 
-      ZListItem *firstItem() const;
+	ZListItem *firstItem() const;
 
-      ZListItem *lastItem() const;
+	ZListItem *lastItem() const;
 
-      void setSelected( int index, bool select);
+	void setSelected( int index, bool select);
 
-      virtual void setSelected( ZListItem * item, bool select);
+	virtual void setSelected( ZListItem * item, bool select);
 
-      bool isSelected( int index) const;
+	bool isSelected( int index) const;
 
-      bool isSelected( const ZListItem * item) const;
+	bool isSelected( const ZListItem * item) const;
 
-      void sort( bool ascending = TRUE );
+	void sort( bool ascending = TRUE );
 
-      QSize sizeHint() const;
+	QSize sizeHint() const;
 
-      QSize maxmumSizeHint() const;
+	QSize maxmumSizeHint() const;
 
-      QSize minimumSizeHint() const;
+	QSize minimumSizeHint() const;
 
-      void triggerUpdate( bool doLayout );
+	void triggerUpdate( bool doLayout );
 
-      int itemHeight( int index = 0 ) const;
+	int itemHeight( int index = 0 ) const;
 
-      virtual void  resetFocusItem(bool);
+	virtual void  resetFocusItem(bool);
 
-      virtual QRect getCurrentFocusRect(int) const;
+	virtual QRect getCurrentFocusRect(int) const;
 
-      virtual bool  hasNextPrevFocusItem(bool)const;
+	virtual bool  hasNextPrevFocusItem(bool)const;
 
-      int getListBoxSpace(ZListItem*) const;
+	int getListBoxSpace(ZListItem*) const;
 
 	QString getItemType();
 
@@ -122,78 +122,78 @@ public:
 
 	bool itemChecked( ZListItem* item );
 
-        QList<ZListItem>* itemsChecked();
+	QList<ZListItem>* itemsChecked();
 
-        int radioItemChecked();
+	int radioItemChecked();
 
-        void moveItem(int from, int to);
+	void moveItem(int from, int to);
 
-      void updateSkin(bool redraw);
+	void updateSkin(bool redraw);
 
-      void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
+	void setZBorder( WIDGET_BORDER_INFO_T borderItems[StateCount]);
 
-      void enableEllpsis(bool enable);
+	void enableEllpsis(bool enable);
 
-      bool isEnableEllpsis();
+	bool isEnableEllpsis();
 
-       void setCurrentItem(int index, bool next);
+	void setCurrentItem(int index, bool next);
 
-        typedef void (*DeleteItemCallBack)(ZListItem*);
+	typedef void (*DeleteItemCallBack)(ZListItem*);
 
-        void setDeleteItemCallBackFunction(DeleteItemCallBack func);
+	void setDeleteItemCallBackFunction(DeleteItemCallBack func);
 
-        DeleteItemCallBack getDeleteItemCallBackFunction() const ;
+	DeleteItemCallBack getDeleteItemCallBackFunction() const ;
 
-       void setDefaultItemHeight(int height);
+	void setDefaultItemHeight(int height);
 
-       int defaultItemHeight() const;
+	int defaultItemHeight() const;
 
-       ZSkinBase* getItemSkin(ZSkinService::WidgetClsID style, SelectionState state) const ;
+	ZSkinBase* getItemSkin(ZSkinService::WidgetClsID style, SelectionState state) const ;
 
 public:
 
-        enum ITEMALIGN{ALIGN_MARK, ALIGN_IMAGE, ALIGN_REGION_A, ALIGN_REGION_B, ALIGN_REGION_C, ALIGN_ROWTYPETHREE};
+	enum ITEMALIGN{ALIGN_MARK, ALIGN_IMAGE, ALIGN_REGION_A, ALIGN_REGION_B, ALIGN_REGION_C, ALIGN_ROWTYPETHREE};
 
-        void setAlign(ITEMALIGN element, int align);
+	void setAlign(ITEMALIGN element, int align);
 
-        int align(ITEMALIGN element) const;
+	int align(ITEMALIGN element) const;
 
-      enum ListItemRegion 
-         {LISTITEM_REGION_A,
-          LISTITEM_REGION_B, 
-          LISTITEM_REGION_C};
+	enum ListItemRegion 
+	 {LISTITEM_REGION_A,
+	  LISTITEM_REGION_B, 
+	  LISTITEM_REGION_C};
 
-      void setEllpsis(QString ellpsis, ListItemRegion region = LISTITEM_REGION_C);
+	void setEllpsis(QString ellpsis, ListItemRegion region = LISTITEM_REGION_C);
 
-      QString getEllpsis(ListItemRegion region = LISTITEM_REGION_C);
+	QString getEllpsis(ListItemRegion region = LISTITEM_REGION_C);
 
-      void setZItemStyle(ZSkinService::WidgetClsID style);
+	void setZItemStyle(ZSkinService::WidgetClsID style);
 
-      ZSkinService::WidgetClsID getZItemStyle(bool isSeparator = FALSE) const;
+	ZSkinService::WidgetClsID getZItemStyle(bool isSeparator = FALSE) const;
 
-       void setItemFont(ListItemRegion region, SelectionState state, QFont& font);
+	void setItemFont(ListItemRegion region, SelectionState state, QFont& font);
 
-       QFont& itemFont(ListItemRegion region, SelectionState state) const;
+	QFont& itemFont(ListItemRegion region, SelectionState state) const;
 
-       void enableMarquee(ListItemRegion region, bool enable);
+	void enableMarquee(ListItemRegion region, bool enable);
 
-       bool marqueeEnabled(ListItemRegion region) const;
+	bool marqueeEnabled(ListItemRegion region) const;
 
-  public:
-        void setShowSubItemIcon(bool show);
+public:
+	void setShowSubItemIcon(bool show);
 
-        bool isShowSubItemIcon() const;
+	bool isShowSubItemIcon() const;
 
-        void showAllSubItem(bool bShow = true);
+	void showAllSubItem(bool bShow = true);
 
-        bool isShowAllSubItem() const;
+	bool isShowAllSubItem() const;
 
-        ZListItem * itemAt( QPoint pt) const;
+	ZListItem * itemAt( QPoint pt) const;
 
 	void setPartialColor(QColor &c,SelectionState state);
 
 	QColor getPartialColor(SelectionState state);
-    QColor getPartialColor(SelectionState state, ListItemRegion region);
+	QColor getPartialColor(SelectionState state, ListItemRegion region);
 
 #ifndef QT_NO_PALETTE
      void setPalette( const QPalette & );
@@ -201,91 +201,66 @@ public:
 
 
 public:
-       void setItemFont(ListItemRegion region, QFont& font, bool highlighted = FALSE);
-
-       QFont& getItemFont(ListItemRegion region, bool highlighted = FALSE) const;
+	void setItemFont(ListItemRegion region, QFont& font, bool highlighted = FALSE);
+	QFont& getItemFont(ListItemRegion region, bool highlighted = FALSE) const;
 
 public slots:
     virtual void ensureCurrentVisible();
 
 signals:
-
     void highlighted( int index );
-
     void highlighted( ZListItem * );
-
     void highlighted( ZListBoxItem * );
-
     void highlighted( ZSettingItem * );
-
     void selected( int index );
-
     void selected( ZListItem * );
-
     void selected( ZListBoxItem * );
-
     void selected( ZSettingItem * );
-
     void selectionChanged( ZListItem * );
-
     void selectionChanged( ZListBoxItem * );
-
     void selectionChanged( ZSettingItem * );
-
     void currentChanged( ZListItem * );
-
     void currentChanged( ZListBoxItem * );
-
     void currentChanged( ZSettingItem * );
-
     void returnPressed( int );
-
     void returnPressed( ZListItem * );
-
     void returnPressed( ZListBoxItem * );
-
     void returnPressed( ZSettingItem * );
-
     void clicked( ZListItem * );
-
     void clicked( ZListItem *, const QPoint & );
-
     void doubleClicked( ZListItem * );
-
     void showedSubItemChanged(int index, int subIndex);
 
 protected:
+	void viewportResizeEvent( QResizeEvent* );
+	void hideEvent ( QHideEvent * );
+	void viewportPaintEvent( QPaintEvent * event);
 
+	void viewportMousePressEvent( QMouseEvent * );
 
-    void viewportResizeEvent( QResizeEvent* );
-    void hideEvent ( QHideEvent * );
-   void viewportPaintEvent( QPaintEvent * event);
+	void mousePressEvent ( QMouseEvent * );
 
-    void viewportMousePressEvent( QMouseEvent * );
+	void viewportMouseDoubleClickEvent( QMouseEvent * );
 
-    void mousePressEvent ( QMouseEvent * );
+	void mouseDoubleClickEvent( QMouseEvent * );
 
-    void viewportMouseDoubleClickEvent( QMouseEvent * );
+	void keyPressEvent( QKeyEvent *e );
 
-    void mouseDoubleClickEvent( QMouseEvent * );
+	void focusInEvent( QFocusEvent *e );
 
-    void keyPressEvent( QKeyEvent *e );
+	void focusOutEvent( QFocusEvent *e );
 
-    void focusInEvent( QFocusEvent *e );
+	void resizeEvent( QResizeEvent * );
 
-    void focusOutEvent( QFocusEvent *e );
+	void showEvent( QShowEvent * );
 
-    void resizeEvent( QResizeEvent * );
+	void updateItem( int index );
 
-    void showEvent( QShowEvent * );
+	void updateItem( ZListItem * );
 
-    void updateItem( int index );
+	void toggleCurrentItem();
 
-    void updateItem( ZListItem * );
-
-    void toggleCurrentItem();
-
-    void doLayout() const;
+	void doLayout() const;
 
 private slots:
     void refreshSlot();

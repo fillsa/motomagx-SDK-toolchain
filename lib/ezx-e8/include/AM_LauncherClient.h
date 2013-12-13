@@ -1,4 +1,4 @@
-
+//Fix for E8 by Ant-ON, 18.03.2011
 
 // Copyright (c) 25-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -72,9 +72,7 @@ public:
 
     static AM_RESULT_CODE_T openDocument(const QString &docFileName, 
                                          const QString &mimeType = QString::null, 
-                                         bool  applockCheck = true,
-                                         const QString &operation = QString::null,
-                                         const QByteArray &invocationData = 0);
+                                         bool  applockCheck = true);
 
     static AM_RESULT_CODE_T openDocumentWith(const QString &docFileName, 
                                              const QString &appId, 

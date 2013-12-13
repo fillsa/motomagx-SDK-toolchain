@@ -1,4 +1,4 @@
-
+//Fix for ZN5 by Ant-ON, 18-03-2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -33,14 +33,14 @@ public:
     void paint(QPainter& painter,
                int x, int y,
                int width = -1, const QString ellpsis = "...",
-               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0));
+               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0), int outlineSize = 1);
 
     void paint(QPainter& painter,
                QRect& rect, bool wraped = FALSE,
                int align = Qt::AlignLeft|Qt::AlignTop,
                const QString ellpsis = "...",  uint spacing = 2,
                ZWrapLine::WrapPolicy wrapPolicy = ZWrapLine::Anywhere,
-               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0));
+               bool outline = FALSE, QColor outlineColor = QColor(255, 0, 0), int outlineSize = 1);
 
     static uint getStringWidth(const QFont& font,
                                const QString& str,

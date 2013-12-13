@@ -1,3 +1,5 @@
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
+
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
 #ifndef ZLISTBOXITEM_H
@@ -22,8 +24,11 @@ class ZListBoxItemPrivate;
 class LBSubItemInfo;
 class LBItemInfo;
 
+// Size in ZN5: 0x38
+
 class Q_EXPORT ZListBoxItem : public ZListItem
 {
+    unsigned char fix[0x38-sizeof(ZListItem)];
 public:        
     ZListBoxItem( ZListBox* listbox, const QString itemType = NULL);
     virtual ~ZListBoxItem();
@@ -47,7 +52,7 @@ public:
     void setCurrentSubItem(int index, int subIndex);
     void setSubItemShowed(int index, int subIndex, bool showed, bool doUpdate = true);
     QPixmap getPixmap(int index);
-    bool setPixmap(int index, const QPixmap& pixmap, bool imageContainer = true);
+    bool setPixmap(int index, const QPixmap& pixmap, bool imageContainer = false);
     void setShowIndicator(bool isShow);
     void keyPressEvent( QKeyEvent *e );
     void showColumn(int index, bool show);
@@ -65,8 +70,8 @@ private:
     virtual void stopMarquee();
     friend void enalbeAllItemsCache(QList<ZListBoxItem>& list);
 
-private:
-    ZListBoxItemPrivate *d;
+//private:
+//    ZListBoxItemPrivate *d;
 };
 
 #endif

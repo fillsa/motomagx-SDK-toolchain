@@ -1,5 +1,6 @@
 //Fix for Motorola ZN5 by Ant-ON
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -17,16 +18,18 @@
 
 class ZListBoxPrivate;
 
+// Size in ZN5: 0xF4
+
 class Q_EXPORT ZListBox : public ZScrollPanel
 {
-       uint temp[60];
+	friend class ZListItem;
+	friend class ZListBoxItem;
+	friend class ZSettingItem;
+	friend class ZListBoxPrivate;
 
-       friend class ZListItem;
-       friend class ZListBoxItem;
-       friend class ZSettingItem;
-       friend class ZListBoxPrivate;
+	Q_OBJECT
 
-       Q_OBJECT
+	unsigned char fix[0xF4 - sizeof(ZScrollPanel)];       
 public:
     ZListBox( QWidget* parent = 0, WFlags f = 0,
                 ZSkinService::WidgetClsID clsId = ZSkinService::clsZListBox1 );
@@ -155,7 +158,7 @@ private:
     int textAlign(ListItemRegion region, SelectionState state);
     QColor textColor(ListItemRegion region, SelectionState state);
 
-    ZListBoxPrivate * d;
+//    ZListBoxPrivate * d;
 };
 
 #endif

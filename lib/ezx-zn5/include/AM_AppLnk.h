@@ -1,4 +1,4 @@
-
+//Fix for ZN5 by Ant-ON, 18.03.11
 
 // Copyright (c) 24-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -14,29 +14,6 @@
 
 class AM_AppRegistryImpl;
 
-/*
-AM_AppLnk::getAnimationIcon() const@@VERSION		 // FUNC
-AM_AppLnk::getArgs() const@@VERSION		 // FUNC
-AM_AppLnk::getAutoRunArgs() const@@VERSION		 // FUNC
-AM_AppLnk::getBigIcon() const@@VERSION		 // FUNC
-AM_AppLnk::getDevice() const@@VERSION		 // FUNC
-AM_AppLnk::getDirectory() const@@VERSION		 // FUNC
-AM_AppLnk::getExec() const@@VERSION		 // FUNC
-AM_AppLnk::getExecFullPath() const@@VERSION		 // FUNC
-AM_AppLnk::getGroupID() const@@VERSION		 // FUNC
-AM_AppLnk::getInstalledDate() const@@VERSION		 // FUNC
-AM_AppLnk::getJavaId() const@@VERSION		 // FUNC
-AM_AppLnk::getSize() const@@VERSION		 // FUNC
-AM_AppLnk::getSmallIcon() const@@VERSION		 // FUNC
-AM_AppLnk::getUserID() const@@VERSION		 // FUNC
-AM_AppLnk::getVendor() const@@VERSION		 // FUNC
-AM_AppLnk::isDaemon() const@@VERSION		 // FUNC
-AM_AppLnk::isMovable() const@@VERSION		 // FUNC
-AM_AppLnk::isRemovable() const@@VERSION		 // FUNC
-AM_AppLnk::isSharable() const@@VERSION		 // FUNC
-AM_AppRegistry::getInstalledApplications(bool, QValueList<AM_AppLnk const*>&) const@@VERSION		 // FUNC
-*/
-
 class AM_AppLnk : public AM_AppObject
 {
 
@@ -50,7 +27,7 @@ public:
         FaultlineApp = 2,
         WebuiApp = 3
     };
-
+/*
     enum Attribute
     {
         InvalidAttr = 0,    
@@ -59,6 +36,7 @@ public:
         Preloaded = 2,      
         Installed = 3       
     }; 
+*/
 protected:
     AM_AppLnk();
 
@@ -69,7 +47,7 @@ private:
     AM_AppLnk & operator=(const AM_AppLnk &rhs);
 
 public:
-    virtual AM_AppLnk::Attribute getAttribute() const;
+    //virtual AM_AppLnk::Attribute getAttribute() const;
 
     virtual QString getExec() const;
 

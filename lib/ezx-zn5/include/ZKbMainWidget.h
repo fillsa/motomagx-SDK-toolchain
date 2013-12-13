@@ -1,5 +1,6 @@
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -14,14 +15,17 @@
 //For change SDK for ZN5/U9/Z6W
 #include "ZMyConfig.h"
 
-//class ZSoftKey;
 class ZAppInfoArea;
 class ZKbMainWidgetData;
 
+//0x3B8, 0x13C, 0x190, 0x118, 0x104, 0x100, 0xFC
+// Size in ZN5: 0xFC (??)
+
 class ZKbMainWidget : public ZMainWidget
 {
-	unsigned int data[90 - sizeof(ZMainWidget)/4];
     Q_OBJECT
+    
+    unsigned char fix[0xFC - sizeof(ZMainWidget)];
 public:
     ZKbMainWidget( QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
     ZKbMainWidget( const QString &mwTitle, QWidget *parent = 0, const char *name = 0, WFlags f = 0 );
@@ -46,7 +50,7 @@ public:
     bool setAppInfoArea( ZAppInfoArea *aia );
     ZAppInfoArea* getAppInfoArea();
     virtual bool setSoftKey( ZSoftKey *cstWidget );
-    ZSoftKey* getSoftKey( bool createZSoftKey = TRUE );
+    virtual ZSoftKey* getSoftKey( bool createZSoftKey = TRUE );
     virtual bool eventFilter(QObject*, QEvent*);
     void setTitleTruncEnable(bool bTrunc);
     bool isTitleTruncEnable();
@@ -73,8 +77,8 @@ private slots:
 private:
     void init(ZHeader::HEADER_TYPE headerType);
     
-  private:
-    ZKbMainWidgetData *d;
+//private:
+//    ZKbMainWidgetData *d;
 
 };
 

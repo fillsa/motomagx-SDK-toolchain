@@ -13,9 +13,9 @@
 class ZColorPickerDlg : public ZPopup
 {
 	Q_OBJECT
-	unsigned int data[54 - sizeof(ZPopup)];
+	//unsigned int data[54 - sizeof(ZPopup)];
 public:
-	ZColorPickerDlg(QColor const&, unsigned*, int, QWidget*, char const*, unsigned);
+	ZColorPickerDlg(QColor const&, unsigned* = NULL, int = 0, QWidget* = 0, char const* = 0, unsigned = 0);
 	~ZColorPickerDlg();
 	QColor getColor();
 };

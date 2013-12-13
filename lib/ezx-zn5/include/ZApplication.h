@@ -1,4 +1,5 @@
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -30,10 +31,13 @@ class KbTouchInputEngine;
 #include <ZWidget.h>
 class ZSkinService;
 
+//Size in ZN5: 0x3C
+
 class ZApplication : public QApplication
 {
     Q_OBJECT
-
+    
+	unsigned char fix[0x3C-sizeof(QApplication)];
 public:
     ZApplication( int& argc, char **argv, Type = GuiClient );
     virtual ~ZApplication();
@@ -128,7 +132,7 @@ private:
     QCopChannel*  getAppChannel();
 
 private:
-    ZApplicationData* d;
+//    ZApplicationData* d;
     friend class ZMainWidget;
     friend class KbTouchInputEngine;
 };

@@ -3,6 +3,8 @@
 //
 // email: prozanton@gmail.com
 //
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
+
 
 #ifndef PUBLIC_JUMPBOX_H 
 #define PUBLIC_JUMPBOX_H
@@ -15,10 +17,13 @@
 class ZInputField;
 class ZJumpBoxPrivate;
 
+//Size in ZN5: 0xF0
+
 class Q_EXPORT ZJumpBox: public ZWidget
 {
-	uint fix[10];
     Q_OBJECT
+
+	unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
 	ZJumpBox(QWidget* parent, char const* name=0, WFlags f=0, ZSkinService::WidgetClsID = ZSkinService::clsZJumpBox, bool b=true);
 	~ZJumpBox();
@@ -36,8 +41,8 @@ public:
 	void setLabelText(QString const&);
 	void setMaxLength(int);
 
-private:
-    ZJumpBoxPrivate * d;
+//private:
+//    ZJumpBoxPrivate * d;
 };
 
 #endif

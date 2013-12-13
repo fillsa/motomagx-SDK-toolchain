@@ -1,3 +1,4 @@
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -12,9 +13,13 @@
 
 class ZPressButtonPrivate;
 
+//Size in ZN5: 0x11C
+
 class Q_EXPORT ZPressButton : public ZBaseButton
 {
     Q_OBJECT
+    
+    unsigned char fix[0x11C-sizeof(ZBaseButton)];
 public:
    enum TitlePosition{
         TitleTop = 0,    
@@ -84,6 +89,7 @@ private:
     void setState( const SelectionState state  );
     void setPixmap_internal( const QPixmap & pixmap );
 
+/*
 private:
     ZPressButtonPrivate * d;
     RelativeAlignment mrelpos;
@@ -92,6 +98,7 @@ private:
     QString     mtext;
     QPixmap     * mpixmap;
     QString     mTitleText;
+*/
 };
 
 #endif

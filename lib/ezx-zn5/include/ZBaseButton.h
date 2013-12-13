@@ -11,9 +11,13 @@ class ZBaseButtonGroup;
 struct ZBaseButtonData;
 class QToolBar;
 
+//Size in ZN5: ??
+
 class Q_EXPORT ZBaseButton : public ZFormItem
 {
     Q_OBJECT
+    
+    unsigned char fix[0x104-sizeof(ZFormItem)];
 public:
     ZBaseButton( QWidget *parent, const char *name, WFlags f,ZSkinService::WidgetClsID clsId );
    ~ZBaseButton();
@@ -74,6 +78,7 @@ private slots:
     void	autoRepeatTimeout();
 
 private:
+/*
     QString	btext;
     QPixmap    *bpixmap;
     uint	toggleTyp	: 2;
@@ -84,6 +89,7 @@ private:
     uint	animation	: 1;
     uint	repeat		: 1;
     ZBaseButtonData *d;
+*/
 
     friend class ZBaseButtonGroup;
     friend class QToolBar;

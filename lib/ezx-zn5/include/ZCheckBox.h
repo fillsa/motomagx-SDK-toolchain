@@ -1,4 +1,5 @@
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -14,13 +15,13 @@
 
 class ZCheckBoxPrivate;
 
+//Size in ZN5: 0x104
+
 class Q_EXPORT ZCheckBox : public ZBaseButton
 {
     Q_OBJECT
-    Q_ENUMS(TitlePosition)
-    Q_PROPERTY( bool checked READ isChecked WRITE setChecked )
-    Q_PROPERTY( bool tristate READ isTristate WRITE setTristate )
-    Q_PROPERTY( TitlePosition titlePosition READ titlePosition WRITE setTitlePosition )
+    
+	unsigned char fix[0x104-sizeof(ZBaseButton)];
 public:
     enum TitlePosition
     {
@@ -108,7 +109,7 @@ private slots:
     void slotStateChanged( int );
 
 private:
-    ZCheckBoxPrivate * d;
+//    ZCheckBoxPrivate * d;
     void init();
     void wrapLine();
     void wrapLine(int nTextWidth) const;

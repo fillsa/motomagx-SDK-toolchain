@@ -1,5 +1,6 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -17,9 +18,11 @@
 class ZDetailView;
 class ZDetailItemPrivate;
 
+// Size in ZN5: 0x08
+
 class ZDetailItem
 {
-	uint fix[8];
+	unsigned char fix[0x08];
 public:
 
       enum ItemType
@@ -94,7 +97,7 @@ private:
       QRect getSDRect(int index) const;
       //void setCurrentSD(int index);
 
-      ZDetailItemPrivate* d;
+      //ZDetailItemPrivate* d;
 
       friend class ZDetailView;
       friend class ZDetailItemPrivate;

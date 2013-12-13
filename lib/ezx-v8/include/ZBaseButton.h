@@ -43,38 +43,23 @@
 #ifndef PUBLIC_API_WIDGET_ZBASEBUTTON_H
 #define PUBLIC_API_WIDGET_ZBASEBUTTON_H
 
-#ifndef __cplusplus
-#error "This is a C++ header file; it requires C++ to compile."
-#endif
-
-//--------------------------------------------------------------------------------------------------
-//                                    INCLUDE FILES
-//--------------------------------------------------------------------------------------------------
-
 #include "ZFormItem.h"
 
-#ifndef QT_NO_BUTTON
+//#ifndef QT_NO_BUTTON
 
-//-----------------------------------------------------------------------------
-//                            FORWARD CLASS DECLARATIONS
-//-----------------------------------------------------------------------------
+
 class ZBaseButtonGroup;
 struct ZBaseButtonData;
 class QToolBar;
 
+/* Size: UNKNOWN >= 276=69*4 */
 
-///----------------------------------------------------------------------------
-//                               CLASS DEFINITION
-//-----------------------------------------------------------------------------
-
-/// It is a base class of button widget,inherit by ZCheckBox,ZRadioButton,etc.
-
-/// Category:    General
-/// Persistence: Transient
-/// Cardinality/Multiplicity:  None
-/// API Migration State: DRAFT
 class Q_EXPORT ZBaseButton : public ZFormItem
 {
+    unsigned int data[68 - sizeof(ZFormItem)/4];//68
+    /* Flags are at offset 272 */
+    unsigned int state2;
+    	
     Q_OBJECT
     Q_ENUMS( ToggleType ToggleState )
     Q_PROPERTY( QString text READ text WRITE setText )
@@ -90,253 +75,74 @@ class Q_EXPORT ZBaseButton : public ZFormItem
     Q_PROPERTY( bool exclusiveToggle READ isExclusiveToggle )
 
 public:
-    ///
-    /// Constructor of ZBaseButton.
-    /// \param parent The parent of the ZBaseButton
-    /// \param name Class name string.
-    /// \param f The flag of the ZBaseButton
-    /// \param clsId The skin style ID of the ZBaseButton
-    ///
     ZBaseButton( QWidget *parent, const char *name, WFlags f,ZSkinService::WidgetClsID clsId );
-
-    ///
-    /// Destructor of ZBaseButton
-    ///
    ~ZBaseButton();
 
-    ///
-    ///Returns the button text, or null string if the button has no text.
-    ///
     QString text() const;
-
-    ///
-    ///Sets the button to display text.
-    ///
     virtual void setText( const QString &);
-
-    ///
-    ///Returns the button pixmap, or 0 if the button has no pixmap.
-    ///
     const QPixmap *pixmap() const;
-
-    ///
-    ///Sets the button to display pixmap
-    ///
     virtual void setPixmap( const QPixmap & );
 
-    ///
-    ///Returns the accelerator key currently set for the button, or 0 if no accelerator key has 
-    ///been set.
-    ///
     int		accel()	const;
-
-    ///
-    ///Specifies an accelerator key for the button, or removes the accelerator if key is 0.
-    ///
     virtual void	setAccel( int );
 
-    ///
-    ///Returns TRUE if the button is a toggle button.
-    ///
     bool	isToggleButton() const;
-
-    //-----------------------------------------------------------------------------
-    //                                  ENUMS
-    //-----------------------------------------------------------------------------
-    ///
-    /// enum type ToggleType,This enum type defines what a button can do in response to a 
-    /// mouse/keyboard press
-    ///
     enum ToggleType { SingleShot, Toggle, Tristate };
-
-    ///
-    ///Returns the current toggle type.
-    ///
     ToggleType	toggleType() const;
 
-    ///
-    ///Sets the state of the button to pressed down if enable is TRUE or to standing up if 
-    ///enable is FALSE.
-    ///
     virtual void setDown( bool );
-
-    ///
-    ///Returns TRUE if the button pressed down, or FALSE if it is standing up.
-    ///
     bool	isDown() const;
 
-    ///
-    ///Returns TRUE if this toggle button is switched on, or FALSE if it is switched off.
-    ///
     bool	isOn() const;
 
-    //-----------------------------------------------------------------------------
-    //                                  ENUMS
-    //-----------------------------------------------------------------------------
-    ///
-    /// enum type ToggleState,This enum defines the state of a toggle button at any moment.
-    ///
     enum ToggleState { Off, NoChange, On };
     ToggleState	state() const;
 
-    ///
-    ///It is a obsolete function,please don't call it.
-    ///
-    bool	autoResize() const;
+    bool	autoResize() const; // obsolete
+    virtual void setAutoResize( bool ); // obsolete
 
-    ///
-    ///It is a obsolete function,please don't call it.
-    ///
-    virtual void setAutoResize( bool );
-
-    ///
-    ///Returns TRUE if the button is auto-repeating, else FALSE.
-    ///
     bool	autoRepeat() const;
-
-    ///
-    ///Turns on auto-repeat for the button if enable is TRUE, or turns it off if enable is FALSE.
-    ///
     virtual void setAutoRepeat( bool );
 
-    ///
-    ///Returns TRUE if this button behaves exclusively inside a ZBaseButtonGroup
-    ///
     bool	isExclusiveToggle() const;
-   
-    ///
-    ///Reimplement
-    ///
+
     bool	focusNextPrevChild( bool next );
 
-    ///
-    ///Returns a pointer to the group of which this button is a member.
-    ///
     ZBaseButtonGroup *group() const;
 
-public slots:
-    ///
-    ///Performs an animated click: The button is pressed and a short while later released.
-    ///
-    void	animateClick();
+    void setState( ToggleState );
+    virtual void	setToggleType( ToggleType );
 
-    ///
-    ///if this is a toggle button, toggles it.
-    ///
+public slots:
+    void	animateClick();
     void	toggle();
 
 signals:
-    ///
-    /// This signal is emitted when the button is pressed down
-    ///
     void	pressed();
-
-    ///
-    /// This signal is emitted when the button is released
-    ///
     void	released();
-
-    ///
-    /// This signal is emitted when the button is activated, i.e. first pressed down 
-    /// and then released when the mouse cursor is inside the button, or when the accelerator 
-    /// key is typed, or when animateClick() is called.
-    ///
     void	clicked();
-
-    ///
-    /// This signal is emitted whenever a toggle button changes status.
-    /// on is TRUE if the button is on, or FALSE if the button is off.
-    ///
     void	toggled( bool );
-
-    ///
-    /// This signal is emitted whenever a toggle button changes status.
-    /// state is 2 if the button is on, 1 if it is in the "no change" state or 0 if the button is off.
-    ///
     void	stateChanged( int );
 
 protected:
-
-    ///
-    ///Makes the button a toggle button if enable is TRUE, or a normal button if enable is FALSE.
-    ///
     void	setToggleButton( bool );
+    ///virtual void	setToggleType( ToggleType ); //move in public
+    virtual void	setOn( bool );
+    //virtual void	setState( ToggleState );
 
-    ///
-    /// Sets the type of toggling behavior. The default is SingleShot.
-    /// Subclasses use this, and present it with a more comfortable interface
-    ///
-    virtual void	setToggleType( ToggleType );
-
-    ///
-    /// Switches a toggle button on if enable is TRUE or off if enable is FALSE. This function should 
-    /// be called only for toggle buttons.
-    ///
-    void	setOn( bool );
-
-    ///
-    /// This protected function sets the button state into state t but does not cause repainting.
-    ///
-    virtual void	setState( ToggleState );
-
-    ///
-    /// Returns TRUE if pos is inside the clickable button rectangle, or FALSE if it is outside.
-    ///
     virtual bool hitButton( const QPoint &pos ) const;
-
-    ///
-    /// Draws the button. The default implementation does nothing.
-    ///
     virtual void drawButton( QPainter * );
-
-    ///
-    /// Draws the button text or pixmap.
-    ///
     virtual void drawButtonLabel( QPainter * );
 
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	keyPressEvent( QKeyEvent *);
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	keyReleaseEvent( QKeyEvent *);
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	mousePressEvent( QMouseEvent * );
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	mouseReleaseEvent( QMouseEvent * );
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	mouseMoveEvent( QMouseEvent * );
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	paintEvent( QPaintEvent * );
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	focusInEvent( QFocusEvent * );
-
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	focusOutEvent( QFocusEvent * );
 
-    ///
-    /// Reimplemented in ZBaseButton
-    ///
     void	enabledChange( bool );
 
 private slots:
@@ -363,13 +169,67 @@ private:
     void	nextState();
 
 private:	// Disabled copy constructor and operator=
-#if defined(Q_DISABLE_COPY)
     ZBaseButton( const ZBaseButton & );
     ZBaseButton &operator=( const ZBaseButton & );
-#endif
 };
 
 
-#endif // QT_NO_BUTTON
+inline QString ZBaseButton::text() const
+{
+    return btext;
+}
+
+inline const QPixmap *ZBaseButton::pixmap() const
+{
+    return bpixmap;
+}
+
+inline bool ZBaseButton::isToggleButton() const
+{
+    return toggleTyp != SingleShot;
+}
+
+inline  bool ZBaseButton::isDown() const
+{
+    return buttonDown;
+}
+
+inline bool ZBaseButton::isOn() const
+{
+    return stat != Off;
+}
+
+inline bool ZBaseButton::autoResize() const // obsolete
+{
+    return autoresize;
+}
+
+inline bool ZBaseButton::autoRepeat() const
+{
+    return repeat;
+}
+
+inline ZBaseButton::ToggleState ZBaseButton::state() const
+{
+    //return ToggleState(stat);
+    return (ToggleState)((state2>>3) & 3);
+}
+
+inline void ZBaseButton::setToggleButton( bool b )
+{
+    setToggleType( b ? Toggle : SingleShot );
+}
+
+inline void ZBaseButton::setOn( bool y )
+{
+    setState( y ? On : Off );
+}
+
+inline ZBaseButton::ToggleType ZBaseButton::toggleType() const
+{
+    return ToggleType(toggleTyp);
+}
+
+//#endif // QT_NO_BUTTON
 
 #endif //PUBLIC_API_WIDGET_ZBASEBUTTON_H

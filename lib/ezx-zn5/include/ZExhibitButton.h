@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -14,13 +15,15 @@
 #include "ZPressButton.h"
 
 class ZLabel;
-//class ZPressButton;
 class ZExhibitButtonPrivate;
+
+// Size in ZN5: 0xF4
 
 class Q_EXPORT ZExhibitButton : public ZFormItem
 {
     Q_OBJECT
-
+    
+	unsigned char fix[0xF4 - sizeof(ZFormItem)];
 public:
 
     ZExhibitButton( QWidget * parent = 0,const char * name = 0,WFlags f = 0,
@@ -97,8 +100,8 @@ private:
     QRect getExhibitBtnRect() const;
     void setLabelFontInfo(SelectionState nState);
 
-private:
-    ZExhibitButtonPrivate * d;
+//private:
+//    ZExhibitButtonPrivate * d;
 };
 #endif 
 

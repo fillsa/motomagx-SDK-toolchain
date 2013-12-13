@@ -127,4 +127,18 @@ private:
 #endif
 };
 
+inline bool ZCheckBox::isChecked() const
+{
+	return (state()==ZBaseButton::On);   
+}
+
+inline void ZCheckBox::setChecked( bool check )
+{
+if (check)
+	setState(ZBaseButton::On);
+else
+	setState(ZBaseButton::Off);
+
+}
+
 #endif

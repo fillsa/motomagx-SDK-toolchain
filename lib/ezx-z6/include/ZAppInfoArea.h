@@ -15,18 +15,29 @@ class ZAppInfoArea : public ZWidget
 	unsigned int data[78-sizeof(QWidget)/4];
 
 public:
-	enum AREA_IDX {
-    input, 
-    activity, 
-    counter, 
-    storage , 
-    area_num
+	enum AREA_IDX 
+	{
+		input=0, 
+		activity=1, 
+		counter=2, 
+		storage=3, 
+		area_num=4,
+		
+        INPUT=0,      
+        ACTIVITY=1,   
+        COUNTER=2,    
+        STORAGE=3,    
+        AREA_NUM=4    
 	};
+	
 	enum ACTIVITY_MODE 
-  {
-    progress_meter, 
-    no_progress_meter 
+	{
+		progress_meter =0, 
+		no_progress_meter=1,
+        PROGRESS_METER=0,     
+        NO_PROGRESS_METER=1        
 	};
+	
 	enum COUNTER_MODE {
     two_variable_qualifier, 
     one_variable_qualifier, 

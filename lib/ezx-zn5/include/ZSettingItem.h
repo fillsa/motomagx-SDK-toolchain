@@ -1,4 +1,5 @@
 //Fix for Motorola ZN5 by Ant-ON
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -44,8 +45,11 @@ public:
     QList<SetSubItemInfo> mtiList; 
 };
 
+//Size in ZN5: 0x38
+
 class Q_EXPORT ZSettingItem : public ZListItem
 {
+	unsigned char fix[0x38-sizeof(ZListItem)];
 public:        
     ZSettingItem( ZListBox* container = 0, const QString itemType = NULL);
     virtual ~ZSettingItem();
@@ -68,8 +72,7 @@ private:
     virtual void startMarquee();
     virtual void stopMarquee();
     virtual ListItemType listitemType() const;
-    ZSettingItemPrivate *d;
-
+//    ZSettingItemPrivate *d;
 };
 
 #endif

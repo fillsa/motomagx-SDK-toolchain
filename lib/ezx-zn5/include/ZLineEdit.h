@@ -1,6 +1,7 @@
 //Fix for Motorola ZN5 by Ant-ON
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -21,11 +22,13 @@ class ZLineEditPrivate;
 class QValidator;
 class ZScrollPanel;
 
+//Size in ZN5: 0x138
+
 class ZLineEdit : public ZFormItem
 {
-	uint fix[20];
     Q_OBJECT
-	
+
+    unsigned char fix[0x138-sizeof(ZFormItem)];	
 public:
    enum    TitlePosition
    {
@@ -82,9 +85,9 @@ public:
     bool frame() const;
     virtual void setEchoMode( EchoMode mode);
     ZLineEdit::EchoMode echoMode() const;
-    TitlePosition titlePosition() const {return mTitlePos;}
+    //TitlePosition titlePosition() const {return mTitlePos;}
     void setTitlePosition(TitlePosition titlePos);
-    QString title() const {return mTitle;}
+    //QString title() const {return mTitle;}
     void setTitle(const QString & titleStr);
     void setReadOnly( bool enable);//virtual
     bool isReadOnly() const;
@@ -101,11 +104,13 @@ public:
     //int  heightViewed() const;    
 private:
     //void scrollN(QKeyEvent* e);
-
+/*
+ * delete on fix size
     InitAutoAlign initAlign;
     CursorFlagExist cursFlag;
     CursorFlagDirection cursFlagDirection;
     InputContext inputContext;
+*/
 
 public:
     virtual void setCursorPosition( int newPos );
@@ -207,7 +212,7 @@ protected:
     void  updateSkin(bool redraw);
     virtual void setPalette(const QPalette &);
     //void  repaintArea( int, int );
-    int  offset;
+//    int  offset; //delete on fix size
 
 //private slots:
     //void  clipboardChanged();
@@ -237,6 +242,8 @@ private:
     bool isHyphenAuto() const;
 
     int  getRealMaxLen() const;
+/*
+ * delete on fix size
     ZLineEditPrivate* d;
     int  cursorPos;
     int  maxLen;
@@ -252,6 +259,7 @@ private:
     TitlePosition mTitlePos;
     int  m_nSelection;
     bool isPasswordSelection;
+*/
 
 public:
     void setScrollParent(ZScrollPanel *);

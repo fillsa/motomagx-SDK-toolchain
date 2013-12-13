@@ -1,6 +1,7 @@
 //Fix for ZN5/U9 by Ant-ON, 26-01-2010
 //Add "fix" by Ant-ON, 11-08-2010
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 
@@ -16,12 +17,13 @@
 #include "ZSlider.h"
 struct ZSliderModuleData;
 
+//Size in ZN5: 0xF0
+
 class ZSliderModule:public ZWidget
 {
-	uint fix[10];
-	
 	Q_OBJECT
-
+	
+	unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
     enum Alignment{
     NULL_LABEL,
@@ -101,8 +103,8 @@ private:
     short getSpacingH1() const;
     short getSpacingV1() const;
 
-private:
-    ZSliderModuleData *d;
+//private:
+//    ZSliderModuleData *d;
 };
 
 #endif  

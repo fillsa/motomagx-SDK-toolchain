@@ -1,4 +1,5 @@
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -22,10 +23,13 @@ class QPopupMenu;
 class ZOptionsMenu;
 class ZSoftKeyPrivate;
 
+// Size in ZN5: 0xF0
+
 class ZSoftKey : public ZWidget
 {
-	unsigned int data[14];
     Q_OBJECT
+    
+    unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
     enum KEY_IDX
     {
@@ -145,7 +149,7 @@ private:
     ZSoftKey(const ZSoftKey&);
     ZSoftKey& operator=(const ZSoftKey&);
 
-private:
-    ZSoftKeyPrivate* d;
+//private:
+//    ZSoftKeyPrivate* d;
 };
 #endif

@@ -1,6 +1,7 @@
 //Fix for ZN5/U9 by Ant-ON, 26-01-2010
 //Fix for ZN5/U9 by Ant-ON, 15-02-2010
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -14,10 +15,13 @@
 
 class ZWidgetPrivate;
 
+//Size in ZN5: 0xEC
+
 class Q_EXPORT ZWidget : public QWidget, public ZSkinBase
 {
    Q_OBJECT
 
+   unsigned char fix[0xEC-sizeof(QWidget)-sizeof(ZSkinBase)];
   public:
      ZWidget(QWidget * parent = 0, const char * name = 0, WFlags f = 0, ZSkinService::WidgetClsID = ZSkinService::clsTotal);
      ~ZWidget();
@@ -71,8 +75,8 @@ protected:
 protected slots:
      virtual void slotResizeChild();
   
-private:
-     ZWidgetPrivate* d;
+//private:
+//     ZWidgetPrivate* d;
 };
 
 

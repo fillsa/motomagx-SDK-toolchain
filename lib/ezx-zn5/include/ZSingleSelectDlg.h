@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 26-10-2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -26,10 +27,13 @@ class QStringList;
 
 struct ZSingleSelectDlgPrivate;
 
+// Size in ZN5: 0xC4
+
 class ZSingleSelectDlg : public ZPopup
 {
     Q_OBJECT
-
+    
+    unsigned char fix[0xC4-sizeof(ZPopup)];
 public:
 
     ZSingleSelectDlg(QWidget* parent = NULL,
@@ -66,8 +70,8 @@ protected slots:
     //void initialize();
     //void checkCurHighlightItem();
 
-private:
-    ZSingleSelectDlgPrivate* mpData;
+//private:
+//    ZSingleSelectDlgPrivate* mpData;
 
 };
 

@@ -1,5 +1,5 @@
 #ifndef __RES_ICON_READER_H__
-#define __RES_ICON_READER_H__ 1
+#define __RES_ICON_READER_H__
 
 #include <qpixmap.h>
 #include <qmovie.h>

@@ -1,5 +1,6 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -11,11 +12,13 @@
 
 struct ZMeterData;
 
+//Size in ZN5: 0xF0
+
 class ZMeter : public ZWidget
 {
-	uint fix[14];
     Q_OBJECT
 
+	unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
     enum Information{
        NULL_MINMAX,
@@ -112,10 +115,11 @@ private:
 
      void init();
 
-     ZMeterData *d;
+//     ZMeterData *d;
 
      void initButton();
 
+/*
      Information info;
      Orientation orien;
      Alignment align;
@@ -123,6 +127,7 @@ private:
      int nTotalSteps;
      int progress_val;
      Types typ;
+*/
 
     void setSpacingS2(int nSpacing);
     short getSpacingS2()const;
@@ -140,10 +145,13 @@ private:
 
 struct ZMeterModuleData;
 
+//Size in ZN5: 0xF0
+
 class ZMeterModule:public ZWidget  //QWidget,public ZSkinBase
 {
-Q_OBJECT
-
+	Q_OBJECT
+	
+	unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
 
    enum Alignment{
@@ -196,10 +204,12 @@ protected:
     //virtual void setPalette(const QPalette &palette);
 
 private:
+/*
     ZMeterModuleData *d;
     int m_nValue;
     Alignment align;
     Orientation orien;
+*/
     void arrangeWidgets();
     void init();
     void setSpacingH1(short nSpacing);

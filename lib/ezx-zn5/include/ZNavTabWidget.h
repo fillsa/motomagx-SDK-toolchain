@@ -1,5 +1,6 @@
 //Fix for Motorola ZN5 by Ant-ON, 2009
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -20,12 +21,13 @@ class ZNavTabWidgetData;
 class ZNavTab;
 class ZNavWidgetStack;
 
+//Size in ZN5: 0xF0
+
 class ZNavTabWidget : public ZWidget
 {
     Q_OBJECT
-    Q_PROPERTY( TabPosition tabPosition READ tabPosition WRITE setTabPosition )
-    Q_PROPERTY( int currentPage READ currentPageIndex WRITE setCurrentPage )
-    
+
+    unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
     enum TabPosition { TOP, BOTTOM };
     enum ButtonPos{NEIGHBOR,SEPARATE};
@@ -118,7 +120,7 @@ private slots:
 
     void scrollTabs();
 
-private:
-    ZNavTabWidgetData *d;
+//private:
+//    ZNavTabWidgetData *d;
 };
 #endif 

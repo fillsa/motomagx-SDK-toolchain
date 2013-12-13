@@ -1,4 +1,5 @@
 //Fix for Motorola ZN5 by Ant-ON, 2009
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -8,7 +9,7 @@
 #include <ZPopup.h>
 #include <ZLineEdit.h>
 
-/* Size:216=54*4 */
+// Size in ZN5: 0xC4
 
 //For compobility on Z6
 #define normal2 TypeTextField
@@ -18,7 +19,8 @@
 class ZSingleCaptureDlg : public ZPopup
 {
 	Q_OBJECT
-	unsigned int data[54 - sizeof(ZPopup)/4];
+	
+	unsigned char fix[0xC4-sizeof(ZPopup)];
 public: 
 	/*
 	enum CaptureDlgType

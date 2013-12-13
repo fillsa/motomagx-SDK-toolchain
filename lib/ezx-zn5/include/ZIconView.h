@@ -1,6 +1,7 @@
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
 //Chenge fix by Ant-ON, 11.08.2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -41,9 +42,11 @@ class ZIconViewItem;
 
 struct ZIVItemContainer;
 
+// Size in ZN5: 0x70
+
 class ZIconViewItem : public Qt
 {
-	uint fix[16];
+	unsigned char fix[0x70 - sizeof(Qt)];
 public:
     enum MARKTYPE {MARK_NONE, MARK_CHECKBOX, MARK_RADIOBOX};
     ZIconViewItem();
@@ -138,15 +141,16 @@ private:
     //QString truncate(QString& str, int len, uint width, QFont& font, QString ellpsis = NULL);
     //bool canHasFocus() const;
     ZSkinBase::SelectionState getSelectionState() const;
-    void setExtraSpace(int space){extraSpace = space;}
-	
+//    void setExtraSpace(int space){extraSpace = space;}
+
 private:
+    enum ToggleState { OFF, NOCHANGE, ON};
+/*
     ZIconView *view;
     QString itemText, itemKey;
     QPixmap *itemIcon;
     ZIconViewItem *prev, *next;
     QRect itemRect, itemTextRect, itemIconRect;
-    enum ToggleState { OFF, NOCHANGE, ON};
     short stat;
     short extraSpace;
     uint reserved;
@@ -169,16 +173,16 @@ private:
     uint mPartialChecked : 1;
     struct ZIVItemContainer *container1, *container2;
     friend class ZIconView;
+*/
 };
+
+// Size in ZN5: 0xF4
 
 class ZIconView : public ZScrollPanel
 {
-    friend class ZIconViewItem;
-    friend class ZIconViewPrivate;
-
-	uint fix[40];
-
     Q_OBJECT
+    
+    unsigned char fix[0xF4 - sizeof(ZScrollPanel)];
 public:
     enum ResizeMode {
 	Fixed = 0,
@@ -371,7 +375,7 @@ private:
     //int textAlign(SelectionState) const;
     //ZMarqueeText* marquee() const;
     //void startMarquee();
-    ZIconViewPrivate *d;
+//    ZIconViewPrivate *d;
 
 private:
     ZIconView( const ZIconView & );

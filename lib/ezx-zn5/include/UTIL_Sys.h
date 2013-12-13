@@ -15,7 +15,11 @@
 
 typedef enum
 {
-	NONE=0
+	NONE=0,
+	PHONE=1,
+	HEANDSET_1=2,
+	HEANDSET_2=3,
+	//...
 } AUDIO_PATH;
 
 #ifdef __cplusplus

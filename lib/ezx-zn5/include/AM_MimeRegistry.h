@@ -1,4 +1,4 @@
-
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 25-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -24,9 +24,13 @@ enum MIME_FILE_T
         USER_MIME = 2
 };
 
+// Size in ZN5: 0x28
+
 class AM_MimeRegistry : public QObject
 {
   Q_OBJECT
+  
+  unsigned char fix[0x28-sizeof(QObject)];
  public:
 
   enum MIME_LOOKUP_CRITERIA
@@ -92,9 +96,11 @@ class AM_MimeRegistry : public QObject
     void slotRegistryUpdated();
 
  private:
+/*
     AM_MimeRegistryImpl* impl;
     AM_MimeRegistry( const AM_MimeRegistry & ref);
     AM_MimeRegistry& operator = ( const AM_MimeRegistry & );
+*/
     bool isSystemApp (const QString & appId) const;
 };
 

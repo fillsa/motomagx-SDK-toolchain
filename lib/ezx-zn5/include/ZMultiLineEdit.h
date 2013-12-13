@@ -2,6 +2,7 @@
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010 ( add/remove function )
 //Fix for ZN5/U9 by Ant-ON, 16-02-2010 ( Fix setText )
 //Fix for compobility by Ant-ON, 15-06-2010 (paintEvent to public)
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -21,13 +22,13 @@ class QValidator;
 struct  ZKbInputField;
 class ZSkinBase;
 
+//Size in ZN5: 0x1A8
+
 class Q_EXPORT ZMultiLineEdit : public ZTableView
 {
-	//uint data[50];
-	unsigned int data[126-sizeof(ZTableView)/4];
-	
     Q_OBJECT
 
+	unsigned char data[0x1A8-sizeof(ZTableView)];
 public:
    enum CursorFlagExist 
    {
@@ -311,6 +312,8 @@ private:
     int getCursorState();
     int getParaAlignment(void);
     void overrideLineDirection(int line, eParaAlignment dir, int removed);
+    
+/*
     ZMultiLineEdit( const ZMultiLineEdit & );
     ZMultiLineEdit &operator=( const ZMultiLineEdit & );
     QList<ZMultiLineEditRow>*  contents;
@@ -342,6 +345,7 @@ private:
     CursorFlagExist cursFlag;
     CursorFlagDirection cursFlagDirection;
     InputContext inputContext;
+*/
 };
 #endif
 

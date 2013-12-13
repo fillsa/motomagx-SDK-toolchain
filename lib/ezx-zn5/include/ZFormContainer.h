@@ -1,5 +1,6 @@
 //Fix for ZN5 by Ant-ON, 2009
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -20,9 +21,13 @@
 
 class ZFormContainerPrivate;
 
+//Size in ZN5: 0xF4
+
 class Q_EXPORT ZFormContainer : public ZScrollPanel
 {
        Q_OBJECT
+       
+       unsigned char fix[0xF4-sizeof(ZScrollPanel)];
 public:
       ZFormContainer( QWidget* parent = 0, WFlags f = 0,
                   ZSkinService::WidgetClsID clsId = ZSkinService::clsZFormContainer );
@@ -78,7 +83,7 @@ protected slots:
 private:
       void doLayout();
 
-      ZFormContainerPrivate * d;
+//      ZFormContainerPrivate * d;
 };
 
 #endif

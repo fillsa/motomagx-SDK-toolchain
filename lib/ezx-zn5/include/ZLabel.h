@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
+//Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -25,12 +26,13 @@ typedef unsigned char TruncateStat;
 
 class ZLabelPrivate;
 
+//Size in ZN5: 0xF0
+
 class Q_EXPORT ZLabel : public ZWidget
 {
-	uint fix[25];
-	
     Q_OBJECT
 
+    unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
 
    enum MarqueeState{
@@ -194,7 +196,8 @@ private:
     QString getTrancatestr(const QString & str);
     int getSpacing() const;
 
-    ZLabelPrivate * d;
+    //ZLabelPrivate * d;
+    
     //void drawOutlineText(QPainter *p, QColor tc, QColor oc,int x, int y, int w, int h, int flags,
     //const QString& str, int len = -1, QRect *br=0,
     //char **internal=0 );

@@ -1,4 +1,5 @@
 //Fix for compobility by Ant-ON, 15-06-2010
+//Fix for compobility by Ant-ON, 15-06-2010
 
 
 // Copyright (c) 07-Dec-2004 - 2008 Motorola, Inc. All rights reserved.
@@ -323,7 +324,9 @@ protected:
 
 public: //Added 15-06-2010
     void    keyPressEvent( QKeyEvent * );
-
+public: //Added 12-09-2011    
+    bool    hasMarkedText() const;
+    
 protected:
     void keyReleaseEvent(QKeyEvent * );
     void    focusInEvent( QFocusEvent * );
@@ -332,7 +335,6 @@ protected:
     void    leaveEvent( QEvent * );
     void    resizeEvent( QResizeEvent * );
     bool    focusNextPrevChild( bool );
-    bool    hasMarkedText() const;
     QString markedText() const;
     
 #ifndef QT_NO_WTLE
@@ -368,6 +370,9 @@ public: //Added 15-06-2010
     virtual void cursorUp( bool mark=FALSE );
     virtual void cursorDown( bool mark=FALSE );
 
+public: //Added 12-09-2011    
+    bool getMarkedRegion( int* line1, int* col1,
+                          int* line2, int* col2 ) const;
 protected:
 
 #ifdef FEAT_UISTYLE_CHAMELEON
@@ -379,8 +384,6 @@ protected:
     virtual void del();
     virtual void home( bool mark=FALSE );
     virtual void end( bool mark=FALSE );
-    bool getMarkedRegion( int* line1, int* col1,
-                          int* line2, int* col2 ) const;
     int lineLength( int row ) const;
     QString* getString( int row ) const;
     bool isEndOfParagraph( int row ) const;

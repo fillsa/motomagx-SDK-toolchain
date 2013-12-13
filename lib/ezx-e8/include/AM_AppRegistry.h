@@ -43,11 +43,11 @@ public:
 
     AM_RESULT_CODE_T init();
 
-    const AM_RegistryObject * getRegistryObject(const QString & uid) const;
+    AM_RegistryObject * getRegistryObject(const QString & uid) const;
 
-    const AM_Folder * getRootFolder() const;
+    AM_Folder * getRootFolder() const;
 
-    const AM_AppLnk * getAppLnk(const QUuid & appId) const;
+    AM_AppLnk * getAppLnk(const QUuid & appId) const;
 
     void getInstalledApplications(bool all, QValueList<const AM_AppLnk *> & appLnkList) const;
 

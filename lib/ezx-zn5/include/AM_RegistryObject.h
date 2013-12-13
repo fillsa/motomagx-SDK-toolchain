@@ -1,4 +1,4 @@
-
+//Fix for ZN5 by Ant-ON, 18.03.11
 
 // Copyright (c) 25-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -32,10 +32,17 @@ public:
         EmbeddedLink = 3,   
         Shortcut = 4        
     };
-
+    
+    enum Attribute
+    {
+        InvalidAttr = 0,
+        System = 1,         
+        Preloaded = 2,      
+        Installed = 3       
+    }; 
+    
 protected:
     AM_RegistryObject( Type t = InvalidType);
-
     virtual ~AM_RegistryObject();
 
 private:
@@ -51,6 +58,8 @@ public:
 
     virtual void getNameAndResourceId(QString &name, QString &resourceId) const;
 
+	virtual AM_RegistryObject::Attribute getAttribute() const;
+
     virtual const AM_Folder* getParentFolder() const;
 
     virtual QString getBigIcon() const;
@@ -61,13 +70,13 @@ public:
 
     virtual QString getSVGIcon() const;
 
-    virtual QString getSimpleIcon() const;
+    //virtual QString getSimpleIcon() const;
 
     virtual bool isVisible() const;
 
     virtual bool isMovable() const { return false; }
 
-    virtual QString getIconImagePath(const int type) const { return ""; }
+    //virtual QString getIconImagePath(const int type) const { return ""; }
 
 protected:
 
@@ -78,6 +87,8 @@ protected:
     virtual void setUid( const QString &newUid );
 
     virtual void setName( const QString &newName, bool isCustomized = false );
+    
+    virtual void setNameAndResourceId( const QString &newName, const QString &newResourceId );
 
     virtual void setParentFolder(const AM_Folder *newParentFolder );
 
@@ -89,7 +100,7 @@ protected:
 
     virtual void setSVGIcon( const QString &newIcon );
 
-    virtual void setSimpleIcon( const QString &newIcon );
+    //virtual void setSimpleIcon( const QString &newIcon );
 
     virtual void setVisible( bool isVisible);
 

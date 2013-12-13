@@ -1,4 +1,5 @@
 //Fix for ZN5/U9 by Ant-ON, 26-10-2010
+//Fix class size for ZN5 by Ant-ON, 26.09.2011
 
 // Copyright (c)  - 2008 Motorola, Inc. All rights reserved.
 //Chenge fix by Ant-ON, 11.08.2010
@@ -17,11 +18,13 @@
 class QTimer;
 struct ZSliderPrivate;
 
+//Size in ZN5: 0x110
+
 class ZSlider : public ZWidget, public QRangeControl
 {
-	uint fix[10];
     Q_OBJECT
-
+    
+	unsigned char fix[0x110-sizeof(ZWidget)-sizeof(QRangeControl)];
 public:
     enum Indicator
     {
@@ -142,8 +145,8 @@ private:
     short getSpacingS1() const;
     void loadLRS( WIDGET_PADDING_INFO_T &pad,int &nSpacing) const;
 
-private:
-    ZSliderPrivate *d;
+//private:
+//    ZSliderPrivate *d;
 };
 
 #endif 

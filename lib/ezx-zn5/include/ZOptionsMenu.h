@@ -2,6 +2,7 @@
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
 //Chenge fix by Ant-ON, 11.08.2010
+// Fix class size for ZN5 by Ant-ON, 25.09.2011
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -61,10 +62,13 @@ typedef QList<ZOptionsMenu> ZSubMenuIList;
 
 class ZOptionsMenuPrivate;
 
+// Size in ZN5: 0xF0
+
 class Q_EXPORT ZOptionsMenu : public ZWidget
 {
-	uint fix[10];
     Q_OBJECT
+    
+    unsigned char fix[0xF0-sizeof(ZWidget)];
 public:
 
     enum CornerE

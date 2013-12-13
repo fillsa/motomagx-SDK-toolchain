@@ -1,4 +1,3 @@
-//Fix for EM30 by Ant-ON, 2009
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -35,15 +34,6 @@ public:
                   ZSkinService::WidgetClsID clsId = ZSkinService::clsZListBox1);
 
       virtual ~ZListBox();
-
-	  // Add by Ant-ON
-	  void clearKeyPressCount();
-	  void enableFastScroll(bool);
-	  int incKeyPressCount();
-	  bool isFastRate() const;
-	  bool isFastScrollEnabled();
-	  void keyReleaseEvent( QKeyEvent *e );
-	  // end
 
       void setListItemType(ZListItem::ListItemType type);
 

@@ -1,4 +1,4 @@
-
+//Fix for Motorola ZN5 by Ant-ON, 23-08-2011
 
 // Copyright (c) 24-Apr-07 - 2008 Motorola, Inc. All rights reserved.
 
@@ -109,13 +109,16 @@ public:
 
     static unsigned int getBlockSize(const char *filename);
 
-    static QUuid createUuid();
+    //static QUuid createUuid();
 
     static unsigned int getEZXUid(void);
 
     static unsigned int getEZXGid(void);
 
     static unsigned int getDRMUid(void);
+    
+    ///
+    static int getDirSize(const QString & dirName);
 };
 
 #endif 

@@ -34,8 +34,6 @@ public:
 
 	void autoClose() const;
 	void autoReset() const;
-	void cancel();
-	void cancelled();
 	void changeMeter(QString const&);
 	void changeMeter(int);
 	void changeMeter(int, int);
@@ -49,14 +47,12 @@ public:
 	void getProgressTotalStep();
 	void initialize(QString const&, QString const&);
 	void keyPressEvent(QKeyEvent*);
-	void reset();
 	void setAutoClose(bool);
 	void setAutoPercentFlag(bool);
 	void setAutoReset(bool);
 	void setMMAlign(ZMeterModule::Alignment);
 	void setMMLabelText(QString const&);
 	void setMeterModule(ZMeterModule*);
-	void setMinimumDuration(int);
 	void setProgress(int);
 	void setProgressTotalStep(int);
 	bool wasCancelled() const;
@@ -64,6 +60,12 @@ public:
 public slots:
 	void slotLeftSoftKeyClicked();
 	virtual void  slotResizeAllChild(int);
+    void    cancel();
+    void    reset();
+    void    setMinimumDuration(int ms);
+
+signals:
+    void    cancelled();
 };
 
 #endif

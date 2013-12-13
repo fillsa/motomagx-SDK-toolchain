@@ -5,6 +5,8 @@
 #define  IMEI_LENGTH                       15
 typedef UINT8   IMEI_ARRAY[IMEI_LENGTH + 1];
 
+#define TAPI_IMEI_NUMBER_A IMEI_ARRAY
+
 extern "C" { 
   INT32 TAPI_CLIENT_Init(const UINT16* pBuf, UINT8 x);
   unsigned int   TAPI_ACCE_GetImei( IMEI_ARRAY IMEI );

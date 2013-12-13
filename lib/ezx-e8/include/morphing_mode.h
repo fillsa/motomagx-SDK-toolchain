@@ -1,3 +1,5 @@
+//Fix for E8/EM30 by Ant-ON, 29.03.2011
+
 /*
  * Copyright © 2008, Motorola, All Rights Reserved.
  *
@@ -40,7 +42,8 @@
 */
 typedef enum {
     MORPHING_MODE_KEEP_CURRENT = -1,
-    MORPHING_MODE_STANDBY = 0,
+    MORPHING_MODE_KEYLESS = 0,
+    MORPHING_MODE_STANDBY,
     MORPHING_MODE_NAVIGATION,
     MORPHING_MODE_PHONE,
     MORPHING_MODE_PHONE_WITHOUT_REVIEW,
