@@ -1,3 +1,4 @@
+// Fix for U9 by Ant-ON, 30.04.2014
 // Fix for ZN5 by Ant-ON, 18.03.2011
 // Fix for ZN5 by Ant-ON, 23.03.2011
 // Fix class size for ZN5 by Ant-ON, 25.09.2011
@@ -20,6 +21,8 @@
 
 #include "AM_Defs.h"
 #include "AM_RegistryObject.h"
+
+#include <ZMyConfig.h>
 
 class AM_AppLnk;
 class AM_Folder;
@@ -64,7 +67,9 @@ public:
     AM_RESULT_CODE_T moveRegistryObject(const QString & uid, 
             const QString & destFolderUid, int position = -1);
     AM_RESULT_CODE_T setAppLockValue(const QUuid & appId, int value);
+#ifdef EZX_ZN5
 	AM_RESULT_CODE_T clearJavaRegistryEntries(AM_RegistryObject::Attribute);
+#endif 
 };
 
 #endif 

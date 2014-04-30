@@ -13,6 +13,9 @@
 #include <ZWidget.h>
 #include <ZScrollBar.h>
 
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
+
 struct ZScrollPanelData;
 
 // Size in ZN5: 0xF0
@@ -77,9 +80,9 @@ public:
     virtual QRect getCurrentFocusRect(bool) const;
 	
 	//???????
-	#ifdef EZX_ZN5
+#ifdef EZX_ZN5
 	void getLandscapeScroll() const;
-	#endif
+#endif
 	//???????
 	
     virtual bool  hasNextPrevFocusItem(bool) const;

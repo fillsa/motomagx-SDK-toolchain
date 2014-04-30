@@ -2,7 +2,7 @@
 
 #include <ZMyConfig.h>
 
-#ifndef EZX_U9
+#ifdef EZX_ZN5
 //Only for ZN5
 
 #ifndef ZSOFTKEYL_H   

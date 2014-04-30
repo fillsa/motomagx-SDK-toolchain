@@ -1,3 +1,4 @@
+//Fix for U9 by Ant-ON, 30.04.2014
 //Fix for ZN5/U9 by Ant-ON, 25-10-2010
 
 // Copyright (c) 27-Apr-07 - 2008 Motorola, Inc. All rights reserved.
@@ -14,6 +15,8 @@
 #include <qstring.h>
 #include <qrect.h>
 
+//For change SDK for ZN5/U9/Z6W
+#include "ZMyConfig.h"
 
 
 class ZHeaderBase;
@@ -26,7 +29,12 @@ public:
     void setMeterRange(int, int);
     void setMeterValue(int v);
     void showMeter();
-    void hideMeter();	
+    void hideMeter();
+    
+#ifdef EZX_U9
+	bool getCarriorMaskBit();
+	void setCarriorMaskBit(bool);
+#endif
 	//
 
     enum HEADER_TYPE

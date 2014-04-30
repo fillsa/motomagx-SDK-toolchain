@@ -82,10 +82,10 @@ public:
     QRect textRect( bool relative = TRUE ) const;
     QRect pixmapRect( bool relative = TRUE ) const;
     
-    #ifdef EZX_ZN5
+#ifdef EZX_ZN5
     void makeLandscapeRowLayout(ZIconViewItem*, int, int, bool);
     void setLandscapeMode();
-    #endif
+#endif
 
 public: 
     void showDrmIndicator(bool show = TRUE);

@@ -90,7 +90,7 @@ public:
                               WFlags f, const ZSkinService::WidgetClsID clsId,
                               QString fileName, QString menuName
                               );
-	#ifdef EZX_ZN5
+#ifdef EZX_ZN5
 	//For ZN5
     ZOptionsMenu( QRect & limitRect, QWidget * parent = 0, const char * name = 0,
                              WFlags f = 0, const ZSkinService::WidgetClsID clsId = ZSkinService::clsZOptionsMenu, bool f = true
@@ -99,7 +99,7 @@ public:
                              WFlags f, const ZSkinService::WidgetClsID clsId,
                              ZOptMenuParser * parserClass, QString menuName, bool f = true                            
                              );
-    #else
+#else
     //For U9, Z6W
     ZOptionsMenu( QRect & limitRect, QWidget * parent = 0, const char * name = 0,
                              WFlags f = 0, const ZSkinService::WidgetClsID clsId = ZSkinService::clsZOptionsMenu
@@ -108,15 +108,15 @@ public:
                              WFlags f, const ZSkinService::WidgetClsID clsId,
                              ZOptMenuParser * parserClass, QString menuName                          
                              );    
-    #endif
+#endif
 
     virtual ~ZOptionsMenu();
 
 	//Add by Ant-ON
-	#ifdef EZX_ZN5
+#ifdef EZX_ZN5
 	ZOptionsMenu * getParentMenu();
 	void setParentMenu( ZOptionsMenu * menu );
-	#endif
+#endif
 	//
 
     void setMenu( ZOptMenuParser * parserClass, QString menuName);
@@ -229,12 +229,12 @@ private:
     //int insertItemToMenu(ZOptionsMenuItem *item, int id, int index);
     void ItemState( ZOptionsMenu * menu, ZOptionsMenu * subMenu, menuItem * item );
     void getListFromConfig( itemList & iList, QString fileName, QString screenName );
-    #ifdef EZX_ZN5
+#ifdef EZX_ZN5
     void init( QRect & limitRect );
     void initShow();
     void updateSize();
     void genMenu( QRect & limitRect, itemList myList );
-    #endif    
+#endif    
     void removeItemFromVisibleList( ZOptionsMenu* pMenu, ZOptionsMenuItem* pItem );
     void resetHS( ZOptionsMenu* pMenu );
     bool getMenuDisplayState( ZOptionsMenu * menu );

@@ -56,9 +56,9 @@ public:
     bool isTitleTruncEnable();
     void updateHeader();
     QSize headerSize();
-    #ifdef EZX_ZN5
+#ifdef EZX_ZN5
     void HideHeader();
-    #endif
+#endif
     ZHeader* getHeader();
 	
 signals:

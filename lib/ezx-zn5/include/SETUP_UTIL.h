@@ -3,6 +3,8 @@
 //
 // email: prozanton@gmail.com
 //
+// Fix for U9 by Ant-ON, 30.04.2014
+//
 
 #ifndef PUBLIC_API_SETUP_UTIL_H 
 #define PUBLIC_API_SETUP_UTIL_H
@@ -175,16 +177,21 @@ public:
 	void getWallpaper(QString&);	 
 	void getWallpaperTransparency(bool&);	 
 	
-	#ifdef EZX_Z6W
+#if defined(EZX_Z6W) || defined(EZX_U9)
 	void getKeyPadLockTimerTool(SETUP_SET_Manager&);
 	int getKeyPadLockTimer();
-	
+#endif
+#if defined(EZX_Z6W)
 	enum SLIDE_CLOSED_SETTING_E
 	{
 	};
 	SLIDE_CLOSED_SETTING_E getSlideClosedSetting();
 	bool setSlideClosedSetting(SLIDE_CLOSED_SETTING_E);
-	#endif
+#endif
+#if defined(EZX_U9)
+	void UTIL_SetCLIIdleStatus(int);
+	int UTIL_GetCLIIdleStatus();
+#endif	
 	
 	bool isAirplaneModeOn();	 
 	bool isFeatureAvailable(unsigned short);	 

@@ -1,3 +1,4 @@
+//Fix for U9 by Ant-ON, 30.04.2014
 //Fix for ZN5/U9 by Ant-ON, 25-01-2010
 //Fix for Z6W compobility by Ant-ON, 04.03.2010
 
@@ -84,9 +85,9 @@ public:
 //    void enableTruncation(bool isEnable);
 //    bool isEnableTruncation();
 
-	#ifndef EZX_Z6W
+#if !defined(EZX_Z6W) && !defined(EZX_U9)
     void enableMarquee(bool isEnable);
-    #endif
+#endif
 
 //    bool isEnableMarquee();
 //    void setMarqueeDirect(MarqueeDirect md);

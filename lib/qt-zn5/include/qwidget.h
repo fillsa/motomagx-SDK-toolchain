@@ -1,3 +1,4 @@
+//Fix for U9 by Ant-ON, 30.04.2014
 //Fix for ZN5 by Ant-ON
 //Fix setMorphMode for compatibiliti by Ant-ON, 1.02.2011
 
@@ -149,6 +150,8 @@ public:
 
     WId		 winId() const;
     void	 setName( const char *name );
+    
+#ifndef EZX_U9
     // Morphing Feature	
 	void setMorphMode( MORPHING_MODE_E morphMode, int winId ); //Set morph mode for current TLW
 	void setMorphMode( int morphMode ){setMorphMode((MORPHING_MODE_E)morphMode, 0);};
@@ -156,11 +159,16 @@ public:
     //void                setMorphMode( const int morphMode, int winId=0 ); //Set morph mode for current TLW
     int     getMorphMode( void ) const; //Get morph mode for current TLW
     //MORPHING_MODE_E getMorphMode( void ) const; //Get morph mode for current TLW
-    
+
     // Methods for setting and getting orientation mode.
     // Portrait is default and dominant. Therefore only landscape is considered
     void         setOrientationLandscape(const bool);
     bool         getIsOrientationLandscape(void) const;
+#else
+	int  getMorphMode( void ) const { return MORPHING_MODE_STANDBY; };
+	void setMorphMode( int morphMode ){};
+	void setMorphMode( MORPHING_MODE_E morphMode, int winId){};
+#endif
 
 #ifndef QT_NO_STYLE
     // GUI style setting
