@@ -1,1 +1,1 @@
-/arm-eabi/lib/ezx-zn5/include/zskinbase.h
+ZSkinBase.h

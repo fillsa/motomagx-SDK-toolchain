@@ -1,1 +1,1 @@
-/arm-eabi/lib/ezx-zn5/include/zapplication.h
+ZApplication.h

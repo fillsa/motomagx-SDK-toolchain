@@ -1,1 +1,1 @@
-/arm-eabi/lib/ezx-zn5/include/RES_ICON_Reader.h
+RES_ICON_Reader.h
