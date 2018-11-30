@@ -357,7 +357,7 @@ public:
 #endif
     void		releaseMouse();
     void		grabKeyboard();
-    //void		releaseKeyboard();
+    void		releaseKeyboard();
     //static QWidget *	mouseGrabber();
     //static QWidget *	keyboardGrabber();
 
