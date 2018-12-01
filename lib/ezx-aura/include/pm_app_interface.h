@@ -1,0 +1,1 @@
+/arm-eabi/lib/ezx-zn5/include/pm_app_interface.h

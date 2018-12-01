@@ -181,7 +181,7 @@ public:
 	void getKeyPadLockTimerTool(SETUP_SET_Manager&);
 	int getKeyPadLockTimer();
 #endif
-#if defined(EZX_Z6W)
+#if defined(EZX_Z6W) || defined(EZX_AURA)
 	enum SLIDE_CLOSED_SETTING_E
 	{
 	};
