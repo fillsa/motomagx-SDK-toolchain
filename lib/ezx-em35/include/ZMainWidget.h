@@ -135,7 +135,7 @@ protected:
 
     virtual bool showToolBar() { return FALSE; }
 
-    virtual bool setToolBar( const QUuid& t) { return FALSE; }
+    virtual bool setToolBar( __attribute__((unused)) const QUuid& t) { return FALSE; }
 
     virtual bool hideToolBar() { return FALSE; }
 
